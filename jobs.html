@@ -2,82 +2,256 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Browse Jobs — Bridge</title>
-    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Jobs Portal</title>
+
+    <link rel="stylesheet"
+          href="css/style.css">
 </head>
 
 <body>
 
 <header class="topbar">
     <div class="container">
-        <a href="index.html" class="logo">Bridge<span>.</span></a>
+
+        <a href="index.html"
+           class="logo">
+            Bridge<span>.</span>
+        </a>
 
         <nav>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="jobs.html" class="active">Jobs</a></li>
-                <li><a href="internships.html">Internships</a></li>
-                <li><a href="about.html">For Employers</a></li>
-                <li><a href="about.html#contact">Contact</a></li>
+                <li>
+                    <a href="jobs.html"
+                       class="active">
+                        Jobs
+                    </a>
+                </li>
+                <li>
+                    <a href="internships.html">
+                        Internships
+                    </a>
+                </li>
+                <li>
+                    <a href="about.html">
+                        For Employers
+                    </a>
+                </li>
+                <li>
+                    <a href="about.html#contact">
+                        Contact
+                    </a>
+                </li>
             </ul>
         </nav>
 
         <div class="nav-actions">
-            <a href="login.html" class="btn btn-outline btn-sm">Log in</a>
-            <a href="register.html" class="btn btn-primary btn-sm">Get started</a>
+            <a href="login.html"
+               class="btn btn-outline btn-sm">
+                Log in
+            </a>
+
+            <a href="register.html"
+               class="btn btn-primary btn-sm">
+                Get started
+            </a>
         </div>
+
     </div>
 </header>
 
 <div class="page-header">
     <div class="container">
+
         <h1>Full-time &amp; part-time roles</h1>
+
         <p>
-            Open positions from companies actively hiring
-            students and recent graduates.
+            1,240 open positions from companies actively
+            hiring students and recent graduates.
         </p>
+
     </div>
 </div>
 
-<section class="section">
+<section class="section"
+         style="padding-top:48px;">
+
     <div class="container listing-page">
 
         <aside class="filters">
+
             <h4>Filter roles</h4>
 
             <form>
-                <label for="fq">Keyword</label>
-                <input type="text"
-                       id="fq"
-                       placeholder="Job title or skill">
 
-                <h4>Job type</h4>
+                <div class="filter-group">
 
-                <label>
-                    <input type="checkbox" checked>
-                    Full-time
-                </label>
+                    <div class="field">
 
-                <label>
-                    <input type="checkbox">
-                    Part-time
-                </label>
+                        <label for="fq">
+                            Keyword
+                        </label>
 
-                <label>
-                    <input type="checkbox">
-                    Contract
-                </label>
+                        <input type="text"
+                               id="fq"
+                               placeholder="Job title or skill">
+
+                    </div>
+
+                </div>
+
+                <fieldset class="filter-group">
+
+                    <legend>Job type</legend>
+
+                    <label class="check-row">
+                        <input type="checkbox"
+                               checked>
+                        Full-time
+                    </label>
+
+                    <label class="check-row">
+                        <input type="checkbox">
+                        Part-time
+                    </label>
+
+                    <label class="check-row">
+                        <input type="checkbox">
+                        Contract
+                    </label>
+
+                </fieldset>
+
+                <fieldset class="filter-group">
+
+                    <legend>Location</legend>
+
+                    <label class="check-row">
+                        <input type="checkbox">
+                        Remote
+                    </label>
+
+                    <label class="check-row">
+                        <input type="checkbox">
+                        Delhi NCR
+                    </label>
+
+                    <label class="check-row">
+                        <input type="checkbox">
+                        Bengaluru
+                    </label>
+
+                    <label class="check-row">
+                        <input type="checkbox">
+                        Mumbai
+                    </label>
+
+                    <label class="check-row">
+                        <input type="checkbox">
+                        Pune
+                    </label>
+
+                </fieldset>
+
+                <fieldset class="filter-group">
+
+                    <legend>Experience</legend>
+
+                    <label class="check-row">
+                        <input type="checkbox"
+                               checked>
+                        Fresher
+                    </label>
+
+                    <label class="check-row">
+                        <input type="checkbox">
+                        0–2 years
+                    </label>
+
+                    <label class="check-row">
+                        <input type="checkbox">
+                        2+ years
+                    </label>
+
+                </fieldset>
+
+                <fieldset class="filter-group">
+
+                    <legend>Salary (annual)</legend>
+
+                    <label class="check-row">
+                        <input type="checkbox">
+                        Below ₹5 LPA
+                    </label>
+
+                    <label class="check-row">
+                        <input type="checkbox">
+                        ₹5–10 LPA
+                    </label>
+
+                    <label class="check-row">
+                        <input type="checkbox">
+                        ₹10 LPA+
+                    </label>
+
+                </fieldset>
 
                 <button type="submit"
-                        class="btn btn-primary btn-block">
+                        class="btn btn-primary btn-block btn-sm">
                     Apply filters
                 </button>
+
             </form>
         </aside>
 
+        <div>
+
+            <div class="listing"
+                 id="job-list">
+
+                <p style="padding:20px;
+                          color:var(--muted);">
+                    Loading roles…
+                </p>
+
+            </div>
+
+            <div style="display:flex;
+                        justify-content:center;
+                        gap:10px;
+                        margin-top:36px;">
+
+                <a href="#"
+                   class="btn btn-outline btn-sm">
+                    Previous
+                </a>
+
+                <a href="#"
+                   class="btn btn-primary btn-sm">
+                    1
+                </a>
+
+                <a href="#"
+                   class="btn btn-outline btn-sm">
+                    2
+                </a>
+
+                <a href="#"
+                   class="btn btn-outline btn-sm">
+                    3
+                </a>
+
+                <a href="#"
+                   class="btn btn-outline btn-sm">
+                    Next
+                </a>
+
+            </div>
+
+        </div>
+
     </div>
 </section>
-
-</body>
-</html>
