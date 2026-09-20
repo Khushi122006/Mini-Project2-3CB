@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <title>Jobs Portal</title>
+    <title>JobsDunia</title>
 
     <link rel="stylesheet"
           href="css/style.css">
@@ -13,245 +15,240 @@
 
 <body>
 
-<header class="topbar">
-    <div class="container">
+    <!-- Navigation Bar -->
+    <header class="topbar">
+        <div class="container">
 
-        <a href="index.html"
-           class="logo">
-            Bridge<span>.</span>
-        </a>
-
-        <nav>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li>
-                    <a href="jobs.html"
-                       class="active">
-                        Jobs
-                    </a>
-                </li>
-                <li>
-                    <a href="internships.html">
-                        Internships
-                    </a>
-                </li>
-                <li>
-                    <a href="about.html">
-                        For Employers
-                    </a>
-                </li>
-                <li>
-                    <a href="about.html#contact">
-                        Contact
-                    </a>
-                </li>
-            </ul>
-        </nav>
-
-        <div class="nav-actions">
-            <a href="login.html"
-               class="btn btn-outline btn-sm">
-                Log in
+            <a href="index.html" class="logo">
+                JobsDunia<span>.</span>
             </a>
 
-            <a href="register.html"
-               class="btn btn-primary btn-sm">
-                Get started
-            </a>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="jobs.html">Jobs</a>
+                <a href="internships.html">
+                    Internships
+                </a>
+                <a href="about.html">
+                    For Employers
+                </a>
+                <a href="about.html#contact">
+                    Contact
+                </a>
+            </nav>
+
+            <div>
+                <a href="login.html"
+                   class="btn btn-outline">
+                    Log in
+                </a>
+
+                <a href="register.html"
+                   class="btn btn-primary">
+                    Get started
+                </a>
+            </div>
+
         </div>
+    </header>
 
-    </div>
-</header>
 
-<div class="page-header">
-    <div class="container">
+    <!-- Page Heading -->
+    <section class="page-header">
+        <div class="container">
 
-        <h1>Full-time &amp; part-time roles</h1>
+            <h1>Find Your Next Job</h1>
 
-        <p>
-            1,240 open positions from companies actively
-            hiring students and recent graduates.
-        </p>
+            <p>
+                Browse jobs from companies hiring
+                students and graduates.
+            </p>
 
-    </div>
-</div>
+        </div>
+    </section>
 
-<section class="section"
-         style="padding-top:48px;">
 
-    <div class="container listing-page">
+    <!-- Main Jobs Section -->
+    <section class="section">
 
-        <aside class="filters">
+        <div class="container listing-page">
 
-            <h4>Filter roles</h4>
 
-            <form>
+            <!-- Job Filters -->
+            <aside class="filters">
 
-                <div class="filter-group">
+                <h3>Filter Jobs</h3>
 
-                    <div class="field">
+                <form>
 
-                        <label for="fq">
-                            Keyword
-                        </label>
+                    <!-- Keyword -->
+                    <label for="keyword">
+                        Job title or skill
+                    </label>
 
-                        <input type="text"
-                               id="fq"
-                               placeholder="Job title or skill">
+                    <input type="text"
+                           id="keyword"
+                           placeholder="e.g. Java Developer">
 
-                    </div>
 
-                </div>
+                    <!-- Job Type -->
+                    <h4>Job Type</h4>
 
-                <fieldset class="filter-group">
-
-                    <legend>Job type</legend>
-
-                    <label class="check-row">
-                        <input type="checkbox"
-                               checked>
+                    <label>
+                        <input type="checkbox">
                         Full-time
                     </label>
 
-                    <label class="check-row">
+                    <label>
                         <input type="checkbox">
                         Part-time
                     </label>
 
-                    <label class="check-row">
+                    <label>
                         <input type="checkbox">
                         Contract
                     </label>
 
-                </fieldset>
 
-                <fieldset class="filter-group">
+                    <!-- Location -->
+                    <h4>Location</h4>
 
-                    <legend>Location</legend>
-
-                    <label class="check-row">
+                    <label>
                         <input type="checkbox">
                         Remote
                     </label>
 
-                    <label class="check-row">
+                    <label>
                         <input type="checkbox">
                         Delhi NCR
                     </label>
 
-                    <label class="check-row">
+                    <label>
                         <input type="checkbox">
                         Bengaluru
                     </label>
 
-                    <label class="check-row">
+                    <label>
                         <input type="checkbox">
                         Mumbai
                     </label>
 
-                    <label class="check-row">
+
+                    <!-- Experience -->
+                    <h4>Experience</h4>
+
+                    <label>
                         <input type="checkbox">
-                        Pune
-                    </label>
-
-                </fieldset>
-
-                <fieldset class="filter-group">
-
-                    <legend>Experience</legend>
-
-                    <label class="check-row">
-                        <input type="checkbox"
-                               checked>
                         Fresher
                     </label>
 
-                    <label class="check-row">
+                    <label>
                         <input type="checkbox">
                         0–2 years
                     </label>
 
-                    <label class="check-row">
-                        <input type="checkbox">
-                        2+ years
-                    </label>
 
-                </fieldset>
+                    <!-- Apply Button -->
+                    <button type="submit"
+                            class="btn btn-primary">
+                        Apply Filters
+                    </button>
 
-                <fieldset class="filter-group">
+                </form>
 
-                    <legend>Salary (annual)</legend>
+            </aside>
 
-                    <label class="check-row">
-                        <input type="checkbox">
-                        Below ₹5 LPA
-                    </label>
 
-                    <label class="check-row">
-                        <input type="checkbox">
-                        ₹5–10 LPA
-                    </label>
+            <!-- Job List -->
+            <main>
 
-                    <label class="check-row">
-                        <input type="checkbox">
-                        ₹10 LPA+
-                    </label>
+                <h2>Available Jobs</h2>
 
-                </fieldset>
+                <div id="job-list">
 
-                <button type="submit"
-                        class="btn btn-primary btn-block btn-sm">
-                    Apply filters
-                </button>
+                    <p>
+                        Loading jobs...
+                    </p>
 
-            </form>
-        </aside>
+                </div>
 
-        <div>
 
-            <div class="listing"
-                 id="job-list">
+                <!-- Page Buttons -->
+                <div class="pagination">
 
-                <p style="padding:20px;
-                          color:var(--muted);">
-                    Loading roles…
-                </p>
+                    <a href="#"
+                       class="btn btn-outline">
+                        Previous
+                    </a>
 
-            </div>
+                    <a href="#"
+                       class="btn btn-primary">
+                        1
+                    </a>
 
-            <div style="display:flex;
-                        justify-content:center;
-                        gap:10px;
-                        margin-top:36px;">
+                    <a href="#"
+                       class="btn btn-outline">
+                        2
+                    </a>
 
-                <a href="#"
-                   class="btn btn-outline btn-sm">
-                    Previous
-                </a>
+                    <a href="#"
+                       class="btn btn-outline">
+                        3
+                    </a>
 
-                <a href="#"
-                   class="btn btn-primary btn-sm">
-                    1
-                </a>
+                    <a href="#"
+                       class="btn btn-outline">
+                        Next
+                    </a>
 
-                <a href="#"
-                   class="btn btn-outline btn-sm">
-                    2
-                </a>
+                </div>
 
-                <a href="#"
-                   class="btn btn-outline btn-sm">
-                    3
-                </a>
-
-                <a href="#"
-                   class="btn btn-outline btn-sm">
-                    Next
-                </a>
-
-            </div>
+            </main>
 
         </div>
 
-    </div>
-</section>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="site-footer">
+
+        <div class="container">
+
+            <h3>JobsDunia.</h3>
+
+            <p>
+                A placement and internship portal
+                connecting students with employers.
+            </p>
+
+            <p>
+                © 2026 JobsDunia  Placement Portal.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- JavaScript -->
+    <script src="js/listings.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        document.addEventListener(
+            'DOMContentLoaded',
+            function () {
+
+                BridgeListings.renderListingPage(
+                    'job-list',
+                    'job'
+                );
+
+            }
+        );
+    </script>
+
+</body>
+
+</html>
