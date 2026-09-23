@@ -10,44 +10,75 @@
 
 <body>
 
+    <!-- Header -->
     <header class="topbar">
+
         <div class="container">
 
+            <!-- Bridge Logo -->
             <a href="index.html" class="logo">
                 Bridge<span>.</span>
             </a>
 
+
+            <!-- Navigation -->
             <nav>
+
                 <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="jobs.html">Jobs</a></li>
-                    <li><a href="internships.html">Internships</a></li>
-                    <li><a href="about.html">For Employers</a></li>
+
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="jobs.html">Jobs</a>
+                    </li>
+
+                    <li>
+                        <a href="internships.html">Internships</a>
+                    </li>
+
+                    <li>
+                        <a href="about.html">For Employers</a>
+                    </li>
+
                 </ul>
+
             </nav>
 
+
+            <!-- Get Started -->
             <div class="nav-actions">
+
                 <a href="register.html" class="btn btn-primary btn-sm">
                     Get started
                 </a>
+
             </div>
 
+
+            <!-- Mobile Menu -->
             <button class="nav-toggle" aria-label="Toggle menu">
+
                 <span></span>
                 <span></span>
                 <span></span>
+
             </button>
 
         </div>
+
     </header>
 
 
+    <!-- Main Content -->
     <main>
 
         <div class="auth-wrap">
 
             <div class="auth-card">
 
+                <!-- Login Heading -->
                 <h1>Welcome back</h1>
 
                 <p class="sub">
@@ -55,27 +86,27 @@
                 </p>
 
 
-                <!-- Student / Employer selection -->
-
+                <!-- Student / Employer Selection -->
                 <div class="role-toggle">
 
                     <label>
-                        <input type="radio" name="role" checked>
+                        <input type="radio" name="role" value="student" checked>
                         <span>Student</span>
                     </label>
 
                     <label>
-                        <input type="radio" name="role">
+                        <input type="radio" name="role" value="employer">
                         <span>Employer</span>
                     </label>
 
                 </div>
 
 
-                <!-- Login form -->
-
+                <!-- Login Form -->
                 <form action="dashboard.html">
 
+
+                    <!-- Email -->
                     <div class="field">
 
                         <label for="email">
@@ -85,12 +116,14 @@
                         <input
                             type="email"
                             id="email"
+                            name="email"
                             required
                             placeholder="you@example.com">
 
                     </div>
 
 
+                    <!-- Password -->
                     <div class="field">
 
                         <label for="password">
@@ -100,18 +133,20 @@
                         <input
                             type="password"
                             id="password"
+                            name="password"
                             required
                             placeholder="••••••••">
 
                     </div>
 
 
-                    <!-- Remember me and Forgot password -->
-
+                    <!-- Login Options -->
                     <div class="login-options">
 
                         <label>
-                            <input type="checkbox" name="remember">
+                            <input
+                                type="checkbox"
+                                name="remember">
                             Remember me
                         </label>
 
@@ -122,18 +157,39 @@
                     </div>
 
 
-                    <button type="submit" class="btn btn-primary btn-block">
+                    <!-- Login Button -->
+                    <button
+                        type="submit"
+                        class="btn btn-primary btn-block">
                         Log in
+                    </button>
+
+
+                    <!-- Separator -->
+                    <div class="login-divider">
+                        <span>or</span>
+                    </div>
+
+
+                    <!-- Google Login -->
+                    <button
+                        type="button"
+                        class="google-btn">
+                        Continue with Google
                     </button>
 
                 </form>
 
 
-                <!-- Register link -->
-
+                <!-- Registration -->
                 <p class="register-link">
+
                     Don't have an account?
-                    <a href="register.html">Create an account</a>
+
+                    <a href="register.html">
+                        Create an account
+                    </a>
+
                 </p>
 
             </div>
@@ -141,7 +197,6 @@
         </div>
 
     </main>
-
 
 </body>
 </html>
