@@ -2,252 +2,147 @@
 <html lang="en">
 
 <head>
+    <!-- Page settings -->
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <!-- Page title -->
+    <title>JobAdda</title>
 
-    <title>JobsDunia</title>
-
-    <link rel="stylesheet"
-          href="css/style.css">
+    <!-- CSS file -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-    <!-- Navigation Bar -->
-    <header class="topbar">
-        <div class="container">
+    <!-- Header section -->
+    <header>
+        <div class="container nav">
 
-            <a href="index.html" class="logo">
-                JobsDunia<span>.</span>
-            </a>
+            <!-- Website logo -->
+            <a href="index.html" class="logo">JobAdda<span>.</span></a>
 
+            <!-- Navigation menu -->
             <nav>
                 <a href="index.html">Home</a>
-
                 <a href="jobs.html">Jobs</a>
-
-                <a href="internships.html">
-                    Internships
-                </a>
-
-                <a href="about.html">
-                    For Employers
-                </a>
-
-                <a href="about.html#contact">
-                    Contact
-                </a>
+                <a href="internships.html">Internships</a>
+                <a href="about.html">About</a>
+                <a href="login.html">Login</a>
             </nav>
-
-            <div>
-                <a href="login.html"
-                   class="btn btn-outline">
-                    Log in
-                </a>
-
-                <a href="register.html"
-                   class="btn btn-primary">
-                    Get started
-                </a>
-            </div>
 
         </div>
     </header>
 
-
-    <!-- Page Heading -->
-    <section class="page-header">
+    <!-- Main hero section -->
+    <section class="hero">
         <div class="container">
 
-            <h1>Find Your Next Job</h1>
+            <!-- Main heading -->
+            <h1>Find Jobs and Internships Easily</h1>
 
+            <!-- Website description -->
             <p>
-                Browse jobs from companies hiring
-                students and graduates.
+                JobAdda is a simple placement portal where students
+                can find jobs and internships.
             </p>
+
+            <!-- Jobs button -->
+            <a href="jobs.html" class="btn">View Jobs</a>
+
+            <!-- Internships button -->
+            <a href="internships.html" class="btn btn-light">
+                View Internships
+            </a>
+
+            <!-- Website statistics -->
+            <div class="stats">
+
+                <div class="stat">
+                    <strong>5+</strong>
+                    <p>Job Listings</p>
+                </div>
+
+                <div class="stat">
+                    <strong>3+</strong>
+                    <p>Internships</p>
+                </div>
+
+                <div class="stat">
+                    <strong>100%</strong>
+                    <p>Simple UI</p>
+                </div>
+
+            </div>
+
+            <!-- How it works section -->
+            <div class="hero-box">
+                <h2>How It Works</h2>
+
+                <p>1. Search for a job or internship.</p>
+                <p>2. Open the details page.</p>
+                <p>3. Click Apply Now.</p>
+                <p>4. Your application is saved in the browser.</p>
+            </div>
 
         </div>
     </section>
 
-
-    <!-- Main Jobs Section -->
+    <!-- Quick links section -->
     <section class="section">
-
-        <div class="container listing-page">
-
-
-            <!-- Job Filters -->
-            <aside class="filters">
-
-                <h3>Filter Jobs</h3>
-
-                <form>
-
-                    <!-- Keyword -->
-                    <label for="keyword">
-                        Job title or skill
-                    </label>
-
-                    <input type="text"
-                           id="keyword"
-                           placeholder="e.g. Java Developer">
-
-
-                    <h4>Job Type</h4>
-
-                    <label>
-                        <input type="radio"
-                               name="jobtype"
-                               value="fulltime">
-                        Full-time
-                    </label>
-
-                    <label>
-                        <input type="radio"
-                               name="jobtype"
-                               value="parttime">
-                        Part-time
-                    </label>
-
-                    <label>
-                        <input type="radio"
-                               name="jobtype"
-                               value="contract">
-                        Contract
-                    </label>
-
-
-                    <h4>Location</h4>
-
-                    <label>
-                        <input type="radio"
-                               name="location"
-                               value="remote">
-                        Remote
-                    </label>
-
-                    <label>
-                        <input type="radio"
-                               name="location"
-                               value="delhi">
-                        Delhi NCR
-                    </label>
-
-                    <label>
-                        <input type="radio"
-                               name="location"
-                               value="bengaluru">
-                        Bengaluru
-                    </label>
-
-                    <label>
-                        <input type="radio"
-                               name="location"
-                               value="mumbai">
-                        Mumbai
-                    </label>
-
-
-                    <h4>Experience</h4>
-
-                    <label>
-                        <input type="radio"
-                               name="experience"
-                               value="fresher">
-                        Fresher
-                    </label>
-
-                    <label>
-                        <input type="radio"
-                               name="experience"
-                               value="0-2">
-                        0–2 years
-                    </label>
-
-
-                    <button type="submit"
-                            class="btn btn-primary">
-                        Apply Filters
-                    </button>
-
-                </form>
-
-            </aside>
-
-
-            <main>
-
-                <h2>Available Jobs</h2>
-
-                <div id="job-list">
-
-                    <p>
-                        Loading jobs...
-                    </p>
-
-                </div>
-
-
-                <!-- Page Buttons -->
-                <div class="pagination">
-
-                    <a href="#"
-                       class="btn btn-outline">
-                        Previous
-                    </a>
-
-                    <a href="#"
-                       class="btn btn-primary">
-                        1
-                    </a>
-
-                    <a href="#"
-                       class="btn btn-outline">
-                        2
-                    </a>
-
-                    <a href="#"
-                       class="btn btn-outline">
-                        3
-                    </a>
-
-                    <a href="#"
-                       class="btn btn-outline">
-                        Next
-                    </a>
-
-                </div>
-
-            </main>
-
-        </div>
-
-    </section>
-
-
-    <!-- Footer -->
-    <footer class="site-footer">
-
         <div class="container">
 
-            <h3>JobsDunia.</h3>
+            <!-- Section heading -->
+            <h2>Quick Links</h2>
 
-            <p>
-                A placement and internship portal
-                connecting students with employers.
-            </p>
+            <div class="grid">
 
-            <p>
-                © 2026 JobsDunia Placement Portal.
-            </p>
+                <!-- Jobs card -->
+                <div class="card">
+                    <h3>Jobs</h3>
+                    <p>Find full-time job opportunities.</p>
+                    <a href="jobs.html" class="btn">See Jobs</a>
+                </div>
+
+                <!-- Internships card -->
+                <div class="card">
+                    <h3>Internships</h3>
+                    <p>Find internships for students.</p>
+                    <a href="internships.html" class="btn">See Internships</a>
+                </div>
+
+                <!-- Dashboard card -->
+                <div class="card">
+                    <h3>Dashboard</h3>
+                    <p>See your submitted applications.</p>
+                    <a href="dashboard.html" class="btn">Open Dashboard</a>
+                </div>
+
+                <!-- Admin card -->
+                <div class="card">
+                    <h3>Admin</h3>
+                    <p>Add, edit or delete listings.</p>
+                    <a href="admin.html" class="btn">Open Admin</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer section -->
+    <footer>
+        <div class="container">
+
+            <p>JobAdda - Job, Internship and Placement Portal</p>
+
+            <p>Simple beginner project using HTML, CSS and JavaScript.</p>
+
+            <!-- Current year -->
+            <p>© <span id="year"></span> JobAdda</p>
 
         </div>
-
     </footer>
 
 
 </body>
-
 </html>
