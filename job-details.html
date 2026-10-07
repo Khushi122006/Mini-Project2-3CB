@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opportunity Details | JobAdda</title>
+
+    <style>
+        /* Website colors */
+        :root {
+            --primary: #5b4cf5;
+            --primary-dark: #4338ca;
+            --dark: #172033;
+            --muted: #6b7788;
+            --bg: #f6f7fb;
+            --white: #ffffff;
+            --line: #e5e8ef;
+            --soft: #f0efff;
+            --green: #159a67;
+            --red: #dc3545;
+            --orange: #f59e0b;
+            --shadow: 0 18px 45px rgba(31, 41, 55, 0.08);
+            --radius: 16px;
+        }
+        /* Reset default styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+         /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Body styling */
+        body {
+            background: var(--bg);
+            color: var(--dark);
+            font-family: Inter, Arial, sans-serif;
+            line-height: 1.6;
+        }
+        /* Remove link underline */
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Form font */
+        button,
+        input,
+        select,
+        textarea {
+            font: inherit;
+        }
+
+        /* Button cursor */
+        button {
+            cursor: pointer;
+        }
+
+        /* Main container */
+        .container {
+            width: min(1100px, calc(100% - 36px));
+            margin: auto;
+        }
+        /* Navigation bar */
+        .topbar {
+            height: 72px;
+            background: rgba(255, 255, 255, 0.96);
+            border-bottom: 1px solid var(--line);
+            position: sticky;
+            top: 0;
+            z-index: 20;
+        }
+        /* Navigation layout */
+        .nav {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        /* Website logo */
+        .brand {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+         /* Purple logo text */
+        .brand span,
+        .eyebrow {
+            color: var(--primary);
+        }
+        /* Navigation links */
+        .nav-links {
+            display: flex;
+            gap: 22px;
+            font-size: 14px;
+            font-weight: 700;
+            color: #596579;
+        }
+        /* Navigation hover */
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Navigation actions */
+        .nav-actions {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        /* Common button */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+            border: 0;
+            border-radius: 10px;
+            padding: 10px 15px;
+            font-weight: 700;
+        }
+        /* Primary button */
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Primary button hover */
+        .btn-primary:hover {
+            background: var(--primary-dark);
+        }
+        /* Soft button */
+        .btn-soft {
+            background: var(--soft);
+            color: var(--primary);
+        }
+
+        /* Danger button */
+        .btn-danger {
+            background: #fff0f1;
+            color: var(--red);
+        }
+        /* Mobile menu */
+        .menu {
+            display: none;
+            border: 0;
+            background: #f2f3f7;
+            padding: 9px;
+            border-radius: 9px;
+        }
+        /* Hero section */
+        .hero {
+            min-height: 470px;
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            gap: 45px;
+            align-items: center;
+            padding: 65px 0;
+        }
+
+        /* Small heading */
+        .eyebrow {
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        /* Hero heading */
+        .hero h1 {
+            font-size: clamp(42px, 6vw, 68px);
+            line-height: 1.03;
+            letter-spacing: -3px;
+            margin: 13px 0;
+        }
+
+        /* Hero highlighted text */
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        /* Hero paragraph */
+        .hero p {
+            color: var(--muted);
+            font-size: 17px;
+            max-width: 570px;
+        }
+        /* Search box */
+        .search-box {
+            display: flex;
+            gap: 8px;
+            background: white;
+            border: 1px solid var(--line);
+            padding: 7px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            margin-top: 25px;
+        }
+
+        /* Search input */
+        .search-box input {
+            flex: 1;
+            border: 0;
+            outline: 0;
+            padding: 11px;
+        }
+    </style>
+</head>
+<body>
+    <!--Navigation Bar-->
+    <header class="topbar">
+        <div class="conatiner nav">
+            <!-- Website logo -->
+             <a class="brand" href="index.html">
+                Job<span>Adda</span>
+            </a>
+
+            <!-- Navigation links -->
+            <nav class="nav-links">
+
+                <a href="jobs.html">Jobs</a>
+                <a href="internships.html">Internships</a>
+                <a href="saved.html">Saved</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="about.html">About</a>
+
+            </nav>
+
+             <!-- User navigation -->
+              <div class="nav-actions" data-user-nav></div>
+        </div>
+    </header>
+     <!-- Main content -->
+    <main class="container">
+
+        <!-- Page heading -->
+        <div class="page-head">
+
+            <span class="eyebrow">
+                Opportunity
+            </span>
+
+            <h1>
+                Job details
+            </h1>
+
+        </div>
+
+
+        <!-- Opportunity details -->
+        <div class="detail" data-detail></div>
+
+    </main>
+    
+</body>
+</html>
