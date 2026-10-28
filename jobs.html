@@ -718,9 +718,13 @@
                 grid-template-columns: 1fr;
             }
 
+            
             .nav-actions .btn {
-                display: none;
+                display: inline-flex;
+                padding: 7px 9px;
+                font-size: 12px;
             }
+    
 
             .section-heading {
                 align-items: start;
@@ -770,8 +774,10 @@
 
             </nav>
 
-            <!-- User navigation -->
-            <div class="nav-actions" data-user-nav></div>
+            <div class="nav-actions">
+                <a class="btn btn-soft" href="login.html">Login</a>
+                <a class="btn btn-primary" href="register.html">Register</a>
+            </div>
 
         </div>
 
@@ -853,8 +859,81 @@
         </div>
 
 
-        <!-- Jobs will be added here by JavaScript -->
-        <div class="job-grid" data-jobs></div>
+        <!-- Jobs section -->
+        <div class="job-grid">
+
+            <!-- Job 1 -->
+            <div class="job-card">
+            <div class="job-top">
+                <div class="logo">N</div>
+            </div>
+
+                <h3>Frontend Developer Intern</h3>
+                <p class="company">Nova Labs</p>
+
+                <div class="tags">
+                    <span class="tag">Internship</span>
+                    <span class="tag">Hybrid</span>
+                    <span class="tag">JavaScript</span>
+                </div>
+
+                <div class="job-bottom">
+                    <span class="salary">₹15K/month</span>
+                    <a class="btn btn-soft" href="job-details.html">
+                        View Details
+                    </a>
+                </div>
+            </div>
+
+            <!-- Job 2 -->
+            <div class="job-card">
+                <div class="job-top">
+                    <div class="logo">T</div>
+                </div>
+
+                <h3>Web Developer</h3>
+                <p class="company">Tech Solutions</p>
+
+                <div class="tags">
+                    <span class="tag">Full-time</span>
+                    <span class="tag">On-site</span>
+                    <span class="tag">HTML & CSS</span>
+                </div>
+
+            <div class="job-bottom">
+                <span class="salary">₹25K/month</span>
+                    <a class="btn btn-soft" href="job-details.html">
+                        View Details
+                    </a>
+            </div>
+        </div>
+
+                <!-- Job 3 -->
+                <div class="job-card">
+                <div class="job-top">
+                <div class="logo">D</div>
+            </div>
+
+                <h3>Data Analyst Intern</h3>
+                <p class="company">DataWorks</p>
+
+                <div class="tags">
+                    <span class="tag">Internship</span>
+                    <span class="tag">Remote</span>
+                    <span class="tag">Excel</span>
+                </div>
+
+                <div class="job-bottom">
+                    <span class="salary">₹12K/month</span>
+                        <a class="btn btn-soft" href="job-details.html">
+                        View Details
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        
 
     </main>
 
@@ -877,8 +956,7 @@
     </footer>
 
 
-    <!-- JavaScript file -->
-    <script src="js/app.js"></script>
+    
 
 </body>
 
