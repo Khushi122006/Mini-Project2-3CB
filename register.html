@@ -1,0 +1,242 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobAdda Registration</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f5fb;
+            margin: 0;
+            color: #222;
+        }
+
+        header {
+            background: white;
+            padding: 20px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #5b4bfa;
+        }
+
+        header a, .login a {
+            color: #5b4bfa;
+            text-decoration: none;
+        }
+
+        .container {
+            width: 350px;
+            max-width: calc(100% - 64px);
+            margin: 40px auto;
+            padding: 25px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px #ddd;
+        }
+
+        h1 {
+            font-size: 27px;
+        }
+
+        .subtitle {
+            color: #666;
+            line-height: 1.5;
+        }
+
+        label {
+            display: block;
+            margin-top: 16px;
+            margin-bottom: 7px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px 0;
+            border: 1px solid #ccc;
+            border-radius: 7px;
+            font-size: 15px;
+            background: white;
+            color: #222;
+            text-indent: 10px;
+        }
+
+        input:focus, select:focus {
+            outline: 1px solid #5b4bfa;
+            border-color: #5b4bfa;
+        }
+
+        .show-password {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 14px;
+            font-size: 14px;
+        }
+
+        .show-password input {
+            width: auto;
+            margin: 0;
+        }
+
+        .show-password label {
+            margin: 0;
+            font-weight: normal;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            background: #5b4bfa;
+            color: white;
+            border: none;
+            border-radius: 7px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #4433df;
+        }
+
+        #message {
+            display: none;
+            padding: 10px;
+            margin-top: 15px;
+            border-radius: 7px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .login {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 18px;
+            }
+
+            .container {
+                margin-top: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">Job<span>Adda</span></div>
+        <a href="login.html">Login</a>
+    </header>
+
+    <main class="container">
+        <h1>Create your profile</h1>
+        <p class="subtitle">Enter your details to get started.</p>
+
+        <form id="registerForm">
+
+            <label for="name">Full Name</label>
+            <input type="text" id="name"
+                   placeholder="Enter your name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email"
+                   placeholder="student@example.com" required>
+
+            <label for="course">Course / Degree</label>
+            <select id="course" required>
+                <option value="">Select your course</option>
+                <option>B.Tech</option>
+                <option>BCA</option>
+                <option>BBA</option>
+                <option>MCA</option>
+                <option>MBA</option>
+                <option>Other</option>
+            </select>
+
+            <label for="password">Password</label>
+            <input type="password" id="password"
+                   placeholder="At least 8 characters"
+                   minlength="8" required>
+
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" id="confirmPassword"
+                   placeholder="Enter password again" required>
+
+            <div class="show-password">
+                <input type="checkbox" id="showPassword">
+                <label for="showPassword">Show passwords</label>
+            </div>
+
+            <button type="submit">Register</button>
+        </form>
+
+        <p id="message" role="status"></p>
+
+        <div class="login">
+            Already have an account?
+            <a href="login.html">Login</a>
+        </div>
+    </main>
+
+    <script>
+        // Show or hide both passwords
+        const showPassword = document.getElementById("showPassword");
+        const password = document.getElementById("password");
+        const confirmPassword = document.getElementById("confirmPassword");
+
+        showPassword.addEventListener("change", function() {
+            if (showPassword.checked) {
+                password.type = "text";
+                confirmPassword.type = "text";
+            } else {
+                password.type = "password";
+                confirmPassword.type = "password";
+            }
+        });
+
+        // Check the registration form
+        const form = document.getElementById("registerForm");
+        const message = document.getElementById("message");
+
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            message.style.display = "block";
+
+            if (password.value.length < 8) {
+                message.style.color = "red";
+                message.textContent =
+                    "Password must be at least 8 characters.";
+            } else if (password.value !== confirmPassword.value) {
+                message.style.color = "red";
+                message.textContent = "Passwords do not match.";
+            } else {
+                message.style.color = "green";
+                message.textContent =
+                    "Form validated successfully!";
+            }
+        });
+    </script>
+
+</body>
+</html>
