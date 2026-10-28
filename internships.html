@@ -1,0 +1,436 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internships | JobAdda</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f6f7fb;
+            color: #172033;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 88%;
+            max-width: 1280px;
+            margin: auto;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: white;
+            border-bottom: 1px solid #e5e8ef;
+        }
+
+        .nav {
+            min-height: 82px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .brand {
+            font-size: 27px;
+            font-weight: bold;
+        }
+
+        .brand span {
+            color: #5b4cf5;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            font-weight: bold;
+            color: #596579;
+        }
+
+        .nav-links a:hover {
+            color: #5b4cf5;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 18px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .btn-light {
+            background: #f0efff;
+            color: #5b4cf5;
+        }
+
+        .btn-primary {
+            background: #5b4cf5;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #4338ca;
+        }
+
+        /* Main content */
+        main {
+            min-height: 650px;
+            padding: 70px 0 60px;
+        }
+
+        .subtitle {
+            color: #5b4cf5;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        h1 {
+            font-size: 46px;
+            margin: 12px 0;
+        }
+
+        .description {
+            color: #6b7788;
+            font-size: 18px;
+            margin-bottom: 32px;
+        }
+
+        /* Search and filters */
+        .filters {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .filters input,
+        .filters select {
+            width: 100%;
+            padding: 16px 13px;
+            border: 1px solid #e0e5ef;
+            border-radius: 12px;
+            background: white;
+            font-size: 15px;
+        }
+
+        /* Internship cards */
+        .job-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .job-card {
+            background: white;
+            border: 1px solid #e0e5ef;
+            border-radius: 18px;
+            padding: 23px;
+            transition: 0.2s;
+        }
+
+        .job-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(31, 41, 55, 0.08);
+        }
+
+        .company-logo {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f0efff;
+            color: #5b4cf5;
+            border-radius: 13px;
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .job-card h3 {
+            font-size: 19px;
+            margin-bottom: 6px;
+        }
+
+        .company {
+            color: #6b7788;
+            margin-bottom: 18px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin-bottom: 20px;
+        }
+
+        .tag {
+            background: #f3f4f7;
+            color: #596579;
+            padding: 7px 9px;
+            border-radius: 7px;
+            font-size: 12px;
+        }
+
+        .job-bottom {
+            border-top: 1px solid #e5e8ef;
+            padding-top: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .salary {
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background: #161c2c;
+            color: #aeb7c7;
+            padding: 65px 0 35px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #2a3244;
+            padding-top: 25px;
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            font-size: 14px;
+        }
+
+        /* Tablet */
+        @media (max-width: 900px) {
+            .nav {
+                flex-wrap: wrap;
+                padding: 18px 0;
+            }
+
+            .nav-links {
+                order: 3;
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .job-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .filters {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            h1 {
+                font-size: 38px;
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+            .container {
+                width: 92%;
+            }
+
+            main {
+                padding-top: 40px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            .description {
+                font-size: 15px;
+            }
+
+            .nav-links {
+                gap: 14px;
+                font-size: 13px;
+            }
+
+            .nav-buttons .btn {
+                padding: 9px 10px;
+                font-size: 12px;
+            }
+
+            .filters,
+            .job-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation bar -->
+    <header class="navbar">
+        <div class="container nav">
+
+            <a href="index.html" class="brand">
+                Job<span>Adda</span>
+            </a>
+
+            <nav class="nav-links">
+                <a href="jobs.html">Jobs</a>
+                <a href="internships.html">Internships</a>
+                <a href="saved.html">Saved</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="about.html">About</a>
+            </nav>
+
+            <div class="nav-buttons">
+                <a href="login.html" class="btn btn-light">Login</a>
+                <a href="register.html" class="btn btn-primary">Register</a>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- Internship content -->
+    <main>
+        <div class="container">
+
+            <p class="subtitle">EXPLORE OPPORTUNITIES</p>
+
+            <h1>Student internships</h1>
+
+            <p class="description">
+                Explore internships designed for college students.
+            </p>
+
+            <!-- Search and filters -->
+            <div class="filters">
+                <input type="text"
+                       placeholder="Search by title, company or skill"
+                       aria-label="Search internships">
+
+                <select aria-label="Location">
+                    <option>All locations</option>
+                    <option>Bengaluru</option>
+                    <option>Mumbai</option>
+                    <option>Pune</option>
+                    <option>Hyderabad</option>
+                    <option>Delhi</option>
+                </select>
+
+                <select aria-label="Internship type">
+                    <option>All types</option>
+                    <option>Internship</option>
+                    <option>Full-time</option>
+                </select>
+
+                <select aria-label="Work mode">
+                    <option>All modes</option>
+                    <option>Remote</option>
+                    <option>Hybrid</option>
+                    <option>On-site</option>
+                </select>
+            </div>
+
+            <!-- Internship cards -->
+            <div class="job-grid">
+
+                <!-- Internship 1 -->
+                <div class="job-card">
+                    <div class="company-logo">N</div>
+
+                    <h3>Frontend Developer Intern</h3>
+                    <p class="company">Nova Labs</p>
+
+                    <div class="tags">
+                        <span class="tag">Internship</span>
+                        <span class="tag">Hybrid</span>
+                        <span class="tag">JavaScript</span>
+                    </div>
+
+                    <div class="job-bottom">
+                        <span class="salary">₹15K/month</span>
+                        <a href="job-details.html"
+                           class="btn btn-light">View Details</a>
+                    </div>
+                </div>
+
+                <!-- Internship 2 -->
+                <div class="job-card">
+                    <div class="company-logo">C</div>
+
+                    <h3>UI/UX Design Intern</h3>
+                    <p class="company">Creative Studio</p>
+
+                    <div class="tags">
+                        <span class="tag">Figma</span>
+                        <span class="tag">UI Design</span>
+                        <span class="tag">Prototyping</span>
+                    </div>
+
+                    <div class="job-bottom">
+                        <span class="salary">₹12K/month</span>
+                        <a href="job-details.html"
+                           class="btn btn-light">View Details</a>
+                    </div>
+                </div>
+
+                <!-- Internship 3 -->
+                <div class="job-card">
+                    <div class="company-logo">D</div>
+
+                    <h3>Data Analyst Intern</h3>
+                    <p class="company">DataWorks</p>
+
+                    <div class="tags">
+                        <span class="tag">Excel</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">SQL</span>
+                    </div>
+
+                    <div class="job-bottom">
+                        <span class="salary">₹14K/month</span>
+                        <a href="job-details.html"
+                           class="btn btn-light">View Details</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-bottom">
+            <span>JobAdda</span>
+            <span>Simple student career portal</span>
+        </div>
+    </footer>
+
+</body>
+</html>
