@@ -680,7 +680,9 @@
             }
 
             .nav-actions .btn {
-                display: none;
+                display: inline-flex;
+                padding: 7px 9px;
+                font-size: 12px;
             }
 
             .section-heading {
@@ -726,8 +728,12 @@
 
             </nav>
 
-             <!-- User navigation -->
-              <div class="nav-actions" data-user-nav></div>
+            
+            <div class="nav-actions">
+                <a class="btn btn-soft" href="login.html">Login</a>
+                <a class="btn btn-primary" href="register.html">Register</a>
+            </div>
+
         </div>
     </header>
      <!-- Main content -->
@@ -747,10 +753,97 @@
         </div>
 
 
-        <!-- Opportunity details -->
-        <div class="detail" data-detail></div>
+        
+        <div class="detail">
+
+            <!-- Main job information -->
+            <div class="card">
+        <div class="job-top">
+            <div class="logo">N</div>
+            <span class="tag">Internship</span>
+        </div>
+
+        <h2>Frontend Developer Intern</h2>
+        <p class="company">Nova Labs</p>
+
+        <div class="tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Hybrid</span>
+        </div>
+
+        <h2>About the opportunity</h2>
+        <p>
+            We are looking for a frontend developer intern who wants
+            to learn how to build attractive and responsive websites.
+        </p>
+
+        <br>
+
+        <h2>Responsibilities</h2>
+        <div class="list">
+            <p>Build web pages using HTML and CSS.</p>
+            <p>Learn basic JavaScript.</p>
+            <p>Work with the development team.</p>
+        </div>
+
+        <br>
+
+        <h2>Required skills</h2>
+        <p>HTML, CSS, basic JavaScript and problem-solving skills.</p>
+    </div>
+
+    <!-- Job summary -->
+    <div class="card detail-side">
+        <h2>Job summary</h2>
+
+        <div class="row">
+            <span>Company</span>
+            <strong>Nova Labs</strong>
+        </div>
+
+        <div class="row">
+            <span>Location</span>
+            <strong>Bengaluru</strong>
+        </div>
+
+        <div class="row">
+            <span>Work mode</span>
+            <strong>Hybrid</strong>
+        </div>
+
+        <div class="row">
+            <span>Salary</span>
+            <strong>₹15K/month</strong>
+        </div>
+
+        <div class="row">
+            <span>Job type</span>
+            <strong>Internship</strong>
+        </div>
+
+        <a href="login.html" class="btn btn-primary">
+            Apply Now
+        </a>
+
+        <br><br>
+
+        <a href="saved.html" class="btn btn-soft">
+            View Saved Jobs
+        </a>
+    </div>
+
+</div>
+
 
     </main>
+<footer class="footer">
+    <div class="container footer-bottom">
+        <span>JobAdda</span>
+        <span>Simple student career portal</span>
+    </div>
+</footer>
     
 </body>
 </html>
