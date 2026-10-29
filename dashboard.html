@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | JobAdda</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f6f7fb;
+            color: #192238;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Navigation bar */
+        .navbar {
+            background: white;
+            border-bottom: 1px solid #e1e5ee;
+            padding: 22px 0;
+        }
+
+        .nav-container {
+            max-width: 1230px;
+            margin: auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #5b4cf5;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: #58657c;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .nav-links a:hover {
+            color: #5b4cf5;
+        }
+
+        /* Main content */
+        .container {
+            max-width: 1230px;
+            margin: auto;
+            padding: 55px 20px;
+        }
+
+        .subtitle {
+            color: #5b4cf5;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .heading {
+            font-size: 44px;
+            margin-bottom: 12px;
+        }
+
+        .description {
+            color: #6b788e;
+            font-size: 17px;
+            line-height: 1.6;
+            margin-bottom: 35px;
+        }
+
+        /* Welcome card */
+        .welcome-card {
+            background: linear-gradient(135deg, #eeebff, #ffffff);
+            border: 1px solid #dcd7ff;
+            border-radius: 22px;
+            padding: 35px;
+            margin-bottom: 35px;
+        }
+
+        .welcome-card h2 {
+            font-size: 27px;
+            margin-bottom: 10px;
+        }
+
+        .welcome-card p {
+            color: #697790;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            background: #5b4cf5;
+            color: white;
+            padding: 12px 18px;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .btn:hover {
+            background: #4939e5;
+        }
+
+        .btn-light {
+            display: inline-block;
+            background: #f0efff;
+            color: #5b4cf5;
+            padding: 10px 14px;
+            border-radius: 9px;
+            font-weight: bold;
+            font-size: 13px;
+        }
+
+        .btn-light:hover {
+            background: #e4e0ff;
+        }
+
+        /* Page cards */
+        .section-title {
+            font-size: 25px;
+            margin-bottom: 20px;
+        }
+
+        .page-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .page-card {
+            background: white;
+            border: 1px solid #e0e5ef;
+            border-radius: 17px;
+            padding: 24px;
+        }
+
+        .page-icon {
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f0efff;
+            color: #5b4cf5;
+            border-radius: 12px;
+            font-size: 22px;
+            margin-bottom: 16px;
+        }
+
+        .page-card h3 {
+            font-size: 19px;
+            margin-bottom: 9px;
+        }
+
+        .page-card p {
+            color: #697790;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 18px;
+        }
+
+        /* Account section */
+        .account-section {
+            margin-top: 40px;
+        }
+
+        /* Footer */
+        footer {
+            background: white;
+            border-top: 1px solid #e1e5ee;
+            text-align: center;
+            padding: 25px 20px;
+            color: #697790;
+            font-size: 14px;
+        }
+
+        /* Tablet */
+        @media (max-width: 900px) {
+            .nav-container {
+                flex-direction: column;
+            }
+
+            .nav-links {
+                justify-content: center;
+            }
+
+            .page-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+            .container {
+                padding: 35px 16px;
+            }
+
+            .heading {
+                font-size: 34px;
+            }
+
+            .welcome-card {
+                padding: 24px;
+            }
+
+            .page-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                gap: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation bar -->
+    <header class="navbar">
+        <div class="nav-container">
+
+            <a href="index.html" class="logo">
+                Job<span>Adda</span>
+            </a>
+
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="jobs.html">Jobs</a>
+                <a href="internships.html">Internships</a>
+                <a href="saved.html">Saved</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="about.html">About</a>
+            </nav>
+
+            <a href="login.html" class="btn">Sign in</a>
+
+        </div>
+    </header>
+
+    <!-- Dashboard content -->
+    <main class="container">
+
+        <!-- Welcome message -->
+        <section>
+            <p class="subtitle">YOUR STUDENT CAREER SPACE</p>
+
+            <h1 class="heading">Welcome to JobAdda!</h1>
+
+            <p class="description">
+                Explore opportunities, build your career and take
+                your first step toward your professional future.
+            </p>
+        </section>
+
+        <!-- Introduction section -->
+        <section class="welcome-card">
+
+            <h2>Let's start your career journey.</h2>
+
+            <p>
+                Find jobs, discover internships, save interesting
+                opportunities and explore everything available on JobAdda.
+            </p>
+
+            <a href="jobs.html" class="btn">
+                Explore Jobs →
+            </a>
+
+            <a href="internships.html" class="btn-light">
+                Find Internships
+            </a>
+
+        </section>
+
+        <!-- Main pages -->
+        <section>
+            <h2 class="section-title">Explore JobAdda</h2>
+
+            <div class="page-grid">
+
+                <div class="page-card">
+                    <div class="page-icon">💼</div>
+                    <h3>Find Jobs</h3>
+                    <p>
+                        Explore job opportunities and find a role
+                        that matches your interests.
+                    </p>
+                    <a href="jobs.html" class="btn">Browse Jobs →</a>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-icon">🎓</div>
+                    <h3>Internships</h3>
+                    <p>
+                        Discover internships to gain experience
+                        and develop your skills.
+                    </p>
+                    <a href="internships.html" class="btn">Explore Internships →</a>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-icon">🔖</div>
+                    <h3>Saved Opportunities</h3>
+                    <p>
+                        Visit your saved opportunities page to
+                        review interesting jobs.
+                    </p>
+                    <a href="saved.html" class="btn">View Saved →</a>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-icon">📄</div>
+                    <h3>Job Details</h3>
+                    <p>
+                        View job information, requirements,
+                        skills and opportunity details.
+                    </p>
+                    <a href="job-details.html" class="btn">View Details →</a>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-icon">📊</div>
+                    <h3>My Dashboard</h3>
+                    <p>
+                        Return to your career workspace and
+                        explore the available portal sections.
+                    </p>
+                    <a href="dashboard.html" class="btn">Open Dashboard →</a>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-icon">ℹ️</div>
+                    <h3>About JobAdda</h3>
+                    <p>
+                        Learn more about the student career portal
+                        and its purpose.
+                    </p>
+                    <a href="about.html" class="btn">Learn More →</a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Account and other pages -->
+        <section class="account-section">
+
+            <h2 class="section-title">Account & Other Pages</h2>
+
+            <div class="page-grid">
+
+                <div class="page-card">
+                    <div class="page-icon">👤</div>
+                    <h3>Sign In</h3>
+                    <p>Open your existing account.</p>
+                    <a href="login.html" class="btn">Sign In →</a>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-icon">✨</div>
+                    <h3>Create Account</h3>
+                    <p>Register for a new JobAdda account.</p>
+                    <a href="register.html" class="btn">Register →</a>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-icon">✉️</div>
+                    <h3>Contact Us</h3>
+                    <p>Visit the contact page for assistance.</p>
+                    <a href="contact.html" class="btn">Contact →</a>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-icon">⚙️</div>
+                    <h3>Admin Panel</h3>
+                    <p>Open the project administration page.</p>
+                    <a href="admin.html" class="btn">Open Admin →</a>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-icon">🏠</div>
+                    <h3>Home Page</h3>
+                    <p>Return to the main JobAdda homepage.</p>
+                    <a href="index.html" class="btn">Go Home →</a>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 JobAdda - Student Career Portal</p>
+    </footer>
+
+</body>
+</html>
