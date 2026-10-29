@@ -1,0 +1,482 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About JobAdda</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f6fb;
+            color: #192236;
+        }
+
+        .navbar {
+            background: white;
+            border-bottom: 1px solid #e1e4ed;
+        }
+
+        .nav-container {
+            max-width: 1240px;
+            min-height: 82px;
+            margin: auto;
+            padding: 15px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            color: #192236;
+            font-size: 27px;
+            font-weight: bold;
+            letter-spacing: -1px;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .logo span {
+            color: #5b4bff;
+        }
+
+        .nav-links,
+        .auth-links {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+        }
+
+        .nav-links a {
+            color: #536078;
+            font-size: 15px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .auth-links a {
+            color: #192236;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover,
+        .auth-links a:hover,
+        .nav-links .active {
+            color: #5b4bff;
+        }
+
+        /* Main Content */
+        .main-container {
+            max-width: 1240px;
+            min-height: 682px;
+            margin: auto;
+            padding: 32px 0 60px;
+        }
+
+        .eyebrow {
+            color: #5b4bff;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .page-title {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .intro {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 2px;
+        }
+
+        /* About Cards */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 0.95fr;
+            gap: 20px;
+        }
+
+        .about-card {
+            background: white;
+            border: 1px solid #e0e4ee;
+            border-radius: 20px;
+            padding: 28px 23px;
+        }
+
+        .about-card h2 {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .about-card h3 {
+            font-size: 21px;
+            margin: 5px 0 10px;
+        }
+
+        .about-card > p {
+            font-size: 18px;
+            line-height: 1.65;
+        }
+
+        .muted {
+            color: #68758b;
+            font-size: 14px !important;
+            line-height: 1.7 !important;
+        }
+
+        /* Objectives */
+        .objective {
+            min-height: 71px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            border-bottom: 1px solid #e1e4ed;
+        }
+
+        .objective:last-child {
+            border-bottom: none;
+        }
+
+        .objective strong {
+            font-size: 18px;
+        }
+
+        .objective span {
+            color: #68758b;
+            font-size: 14px;
+            text-align: right;
+        }
+
+        /* Buttons */
+        .button {
+            display: inline-block;
+            background: #5b4bff;
+            color: white;
+            padding: 15px 18px;
+            margin-top: 5px;
+            border-radius: 12px;
+            font-size: 17px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .button:hover {
+            background: #4737e8;
+        }
+
+        /* Training and Placement */
+        .placement-section {
+            margin-top: 35px;
+        }
+
+        .placement-section > h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .placement-section > p {
+            color: #68758b;
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .feature-card {
+            background: white;
+            border: 1px solid #e0e4ee;
+            border-radius: 16px;
+            padding: 22px;
+        }
+
+        .feature-card h3 {
+            font-size: 19px;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            color: #68758b;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        .footer {
+            background: #171d2c;
+            color: #b9c0cf;
+            padding: 30px 20px;
+        }
+
+        .footer-inner {
+            max-width: 1240px;
+            margin: auto;
+            padding-top: 23px;
+            border-top: 1px solid #303748;
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            font-size: 14px;
+        }
+
+        .footer a {
+            color: #b9c0cf;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 1300px) {
+            .nav-container,
+            .main-container {
+                margin-left: 25px;
+                margin-right: 25px;
+            }
+        }
+
+        @media (max-width: 1000px) {
+            .nav-container {
+                flex-wrap: wrap;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .nav-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .main-container {
+                min-height: auto;
+                padding: 35px 0 50px;
+            }
+
+            .page-title {
+                font-size: 32px;
+            }
+
+            .intro {
+                font-size: 16px;
+                margin-bottom: 20px;
+            }
+
+            .about-grid,
+            .features {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .about-card {
+                padding: 23px 18px;
+            }
+
+            .about-card h2 {
+                font-size: 25px;
+            }
+
+            .about-card > p {
+                font-size: 16px;
+            }
+
+            .objective {
+                align-items: flex-start;
+                flex-direction: column;
+                justify-content: center;
+                padding: 15px 0;
+                gap: 7px;
+            }
+
+            .objective span {
+                text-align: left;
+            }
+
+            .footer-inner {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <div class="nav-container">
+
+            <a href="index.html" class="logo">
+                Job<span>Adda</span>
+            </a>
+
+            <nav class="nav-links">
+                <a href="index.html#jobs">Jobs</a>
+                <a href="index.html#internships">Internships</a>
+                <a href="index.html#saved">Saved</a>
+                <a href="index.html#dashboard">Dashboard</a>
+                <a href="about.html" class="active">About</a>
+                <a href="contact.html">Contact Us</a>
+            </nav>
+
+            <div class="auth-links">
+                <a href="index.html#signin">Sign in</a>
+                <a href="index.html#register">Register</a>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- About Content -->
+    <main class="main-container">
+
+        <p class="eyebrow">ABOUT THE PROJECT</p>
+
+        <h1 class="page-title">JobAdda</h1>
+
+        <p class="intro">
+            A student-focused job, training and placement portal built
+            as a practical college web development project.
+        </p>
+
+        <div class="about-grid">
+
+            <section class="about-card">
+
+                <h2>Why JobAdda?</h2>
+
+                <p>
+                    Students need a simple place to discover internships,
+                    entry-level jobs and career development opportunities.
+                    JobAdda brings these opportunities together and helps
+                    students prepare for their professional journey.
+                </p>
+
+                <h3>Project objectives</h3>
+
+                <div class="objective">
+                    <strong>Easy discovery</strong>
+                    <span>Search for jobs and internships</span>
+                </div>
+
+                <div class="objective">
+                    <strong>Student dashboard</strong>
+                    <span>Track saved jobs and applications</span>
+                </div>
+
+                <div class="objective">
+                    <strong>Placement preparation</strong>
+                    <span>Develop skills and prepare for interviews</span>
+                </div>
+
+            </section>
+
+            <section class="about-card">
+
+                <h2>Technology</h2>
+
+                <p>
+                    HTML5 for page structure, CSS3 for responsive design
+                    and JavaScript for interactive application features.
+                </p>
+
+                <p class="muted">
+                    A basic demonstration can run in the browser.
+                    Features such as accounts, messaging and real job
+                    applications require additional implementation.
+                </p>
+
+                <a href="index.html#jobs" class="button">
+                    Explore opportunities
+                </a>
+
+            </section>
+
+        </div>
+
+        <!-- Training and Placement -->
+        <section class="placement-section">
+
+            <h2>More Than a Job Portal</h2>
+
+            <p>
+                Inspired by professional networking platforms such as
+                LinkedIn, JobAdda aims to help students build career skills,
+                discover opportunities, connect with the professional world
+                and prepare for campus placements.
+            </p>
+
+            <div class="features">
+
+                <div class="feature-card">
+                    <h3>Training and Skills</h3>
+                    <p>
+                        Discover technical learning resources, skill
+                        development programs, aptitude practice and
+                        interview preparation.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>Jobs and Internships</h3>
+                    <p>
+                        Explore fresher jobs, internships and entry-level
+                        opportunities to gain practical experience and
+                        begin your career.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>Placement Support</h3>
+                    <p>
+                        Prepare resumes, practice interview questions,
+                        improve communication skills and organize
+                        job applications.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <p>© 2026 JobAdda</p>
+            <p>
+                <a href="index.html">Home</a> |
+                <a href="contact.html">Contact Us</a>
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>

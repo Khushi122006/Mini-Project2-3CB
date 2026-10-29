@@ -1,0 +1,358 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - JobAdda</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f6fb;
+            color: #192236;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: white;
+            border-bottom: 1px solid #e1e4ed;
+        }
+
+        .nav-container {
+            max-width: 1228px;
+            min-height: 82px;
+            margin: auto;
+            padding: 15px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            color: #192236;
+            font-size: 27px;
+            font-weight: bold;
+            letter-spacing: -1px;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .logo span {
+            color: #5b4bff;
+        }
+
+        .nav-links,
+        .auth-links {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+        }
+
+        .nav-links a {
+            color: #536078;
+            font-size: 15px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .auth-links a {
+            color: #192236;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover,
+        .auth-links a:hover {
+            color: #5b4bff;
+        }
+
+        /* Contact Content */
+        .main-container {
+            max-width: 1228px;
+            min-height: 682px;
+            margin: auto;
+            padding: 76px 0 60px;
+        }
+
+        .eyebrow {
+            color: #5b4bff;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 13px;
+        }
+
+        .page-title {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .intro {
+            font-size: 18px;
+            line-height: 1.5;
+            margin-bottom: 4px;
+        }
+
+        /* Contact Form Card */
+        .contact-card {
+            width: 848px;
+            max-width: 100%;
+            background: white;
+            border: 1px solid #e0e4ee;
+            border-radius: 20px;
+            padding: 25px 22px 22px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            border: 1px solid #e0e4ee;
+            border-radius: 12px;
+            padding: 16px 12px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            background: white;
+            outline: none;
+        }
+
+        .form-group input {
+            height: 51px;
+        }
+
+        .form-group textarea {
+            height: 165px;
+            resize: vertical;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #5b4bff;
+        }
+
+        /* Submit Button */
+        .submit-button {
+            width: 100%;
+            min-height: 51px;
+            background: #5b4bff;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .submit-button:hover {
+            background: #4737e8;
+        }
+
+        /* Footer */
+        .footer {
+            background: #171d2c;
+            color: #b9c0cf;
+            padding: 30px 20px;
+        }
+
+        .footer-inner {
+            max-width: 1228px;
+            margin: auto;
+            padding-top: 23px;
+            border-top: 1px solid #303748;
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            font-size: 14px;
+        }
+
+        .footer a {
+            color: #b9c0cf;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: white;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1300px) {
+            .nav-container,
+            .main-container {
+                margin-left: 25px;
+                margin-right: 25px;
+            }
+        }
+
+        @media (max-width: 1000px) {
+            .nav-container {
+                flex-wrap: wrap;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .nav-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .main-container {
+                min-height: auto;
+                padding: 40px 0 50px;
+            }
+
+            .page-title {
+                font-size: 32px;
+            }
+
+            .intro {
+                font-size: 16px;
+                margin-bottom: 18px;
+            }
+
+            .contact-card {
+                padding: 22px 16px;
+            }
+
+            .form-group textarea {
+                height: 140px;
+            }
+
+            .footer-inner {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <div class="nav-container">
+
+            <a href="index.html" class="logo">
+                Job<span>Adda</span>
+            </a>
+
+            <nav class="nav-links">
+                <a href="index.html#jobs">Jobs</a>
+                <a href="index.html#internships">Internships</a>
+                <a href="index.html#saved">Saved</a>
+                <a href="index.html#dashboard">Dashboard</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact Us</a>
+            </nav>
+
+            <div class="auth-links">
+                <a href="index.html#signin">Sign in</a>
+                <a href="index.html#register">Register</a>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- Contact Section -->
+    <main class="main-container">
+
+        <p class="eyebrow">GET IN TOUCH</p>
+
+        <h1 class="page-title">Contact us</h1>
+
+        <p class="intro">
+            This demo form shows how a student portal can collect
+            feedback or questions.
+        </p>
+
+        <section class="contact-card">
+
+            <form action="#" method="post">
+
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Your name"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="you@example.com"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input
+                        type="text"
+                        id="subject"
+                        name="subject"
+                        placeholder="How can we help?"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea
+                        id="message"
+                        name="message"
+                        placeholder="Write your message..."
+                        required
+                    ></textarea>
+                </div>
+
+                <button type="submit" class="submit-button">
+                    Send message
+                </button>
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <p>© 2026 JobAdda</p>
+            <p>
+                <a href="index.html">Home</a> |
+                <a href="about.html">About</a>
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
