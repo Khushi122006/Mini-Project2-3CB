@@ -1,0 +1,320 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saved Opportunities | JobAdda</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f6fb;
+            color: #192238;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* Navigation */
+        header {
+            background: white;
+            border-bottom: 1px solid #e1e5ee;
+            padding: 20px 8%;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+            color: #192238;
+        }
+
+        .logo span {
+            color: #5b4cf5;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 22px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: #59657a;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .nav-links a:hover {
+            color: #5b4cf5;
+        }
+
+        /* Main content */
+        .container {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .subtitle {
+            color: #5b4cf5;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 12px;
+        }
+
+        .description {
+            color: #68758b;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        /* Saved job cards */
+        .job-card {
+            background: white;
+            border: 1px solid #e0e5ef;
+            border-radius: 14px;
+            padding: 22px;
+            margin-bottom: 16px;
+        }
+
+        .job-card h2 {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .company {
+            color: #68758b;
+            margin-bottom: 12px;
+        }
+
+        .job-description {
+            color: #4b5568;
+            line-height: 1.5;
+            margin-bottom: 18px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 11px 16px;
+            border: none;
+            border-radius: 8px;
+            background: #5b4cf5;
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background: #4939e5;
+        }
+
+        .remove-button {
+            background: #fff0f0;
+            color: #c53030;
+            margin-left: 8px;
+        }
+
+        .remove-button:hover {
+            background: #ffe0e0;
+        }
+
+        /* Empty state */
+        .empty-card {
+            background: white;
+            border: 1px solid #e0e5ef;
+            border-radius: 16px;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .empty-icon {
+            font-size: 42px;
+            margin-bottom: 16px;
+        }
+
+        .empty-card h2 {
+            margin-bottom: 12px;
+        }
+
+        .empty-card p {
+            color: #68758b;
+            line-height: 1.6;
+            margin-bottom: 22px;
+        }
+
+        footer {
+            text-align: center;
+            color: #68758b;
+            padding: 25px;
+            font-size: 13px;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 18px;
+            }
+
+            nav {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .nav-links {
+                gap: 15px;
+            }
+
+            .container {
+                margin-top: 35px;
+            }
+
+            h1 {
+                font-size: 29px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <a href="dashboard.html" class="logo">
+                Job<span>Adda</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="dashboard.html">Dashboard</a>
+                <a href="saved.html">Saved Jobs</a>
+                <a href="login.html">Login</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Saved opportunities -->
+    <main class="container">
+
+        <p class="subtitle">YOUR SHORTLIST</p>
+
+        <h1>Saved Opportunities</h1>
+
+        <p class="description">
+            Find the jobs and internships you saved for later.
+        </p>
+
+        <div id="savedList"></div>
+
+        <div id="emptyCard" class="empty-card">
+            <div class="empty-icon">🔖</div>
+
+            <h2>No saved opportunities yet</h2>
+
+            <p>
+                Explore jobs and internships on your dashboard
+                and save the ones you like.
+            </p>
+
+            <a href="dashboard.html" class="button">
+                Explore Opportunities
+            </a>
+        </div>
+
+    </main>
+
+    <footer>
+        © 2026 JobAdda - Student Career Portal
+    </footer>
+
+    <script>
+        // Get saved jobs from browser storage
+        let savedJobs = JSON.parse(
+            localStorage.getItem("savedJobs")
+        ) || [];
+
+        // Display saved jobs
+        function showSavedJobs() {
+            const savedList = document.getElementById("savedList");
+            const emptyCard = document.getElementById("emptyCard");
+
+            savedList.innerHTML = "";
+
+            if (savedJobs.length === 0) {
+                emptyCard.style.display = "block";
+                return;
+            }
+
+            emptyCard.style.display = "none";
+
+            savedJobs.forEach(function(job, index) {
+                const card = document.createElement("div");
+                card.className = "job-card";
+
+                const title = document.createElement("h2");
+                title.textContent = job.title;
+
+                const company = document.createElement("p");
+                company.className = "company";
+                company.textContent = job.company || "Company not specified";
+
+                const description = document.createElement("p");
+                description.className = "job-description";
+                description.textContent =
+                    job.description || "Explore this opportunity.";
+
+                const removeButton = document.createElement("button");
+                removeButton.className = "button remove-button";
+                removeButton.textContent = "Remove";
+
+                removeButton.addEventListener("click", function() {
+                    removeJob(index);
+                });
+
+                card.appendChild(title);
+                card.appendChild(company);
+                card.appendChild(description);
+                card.appendChild(removeButton);
+
+                savedList.appendChild(card);
+            });
+        }
+
+        // Remove a saved job
+        function removeJob(index) {
+            savedJobs.splice(index, 1);
+
+            localStorage.setItem(
+                "savedJobs",
+                JSON.stringify(savedJobs)
+            );
+
+            showSavedJobs();
+        }
+
+        // Load saved jobs when the page opens
+        showSavedJobs();
+    </script>
+
+</body>
+</html>
