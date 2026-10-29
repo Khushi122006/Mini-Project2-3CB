@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opportunity Details | JobAdda</title>
+
+    <style>
+        /* Website colors */
+        :root {
+            --primary: #5b4cf5;
+            --primary-dark: #4338ca;
+            --dark: #172033;
+            --muted: #6b7788;
+            --bg: #f6f7fb;
+            --white: #ffffff;
+            --line: #e5e8ef;
+            --soft: #f0efff;
+            --green: #159a67;
+            --red: #dc3545;
+            --orange: #f59e0b;
+            --shadow: 0 18px 45px rgba(31, 41, 55, 0.08);
+            --radius: 16px;
+        }
+        /* Reset default styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+         /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Body styling */
+        body {
+            background: var(--bg);
+            color: var(--dark);
+            font-family: Inter, Arial, sans-serif;
+            line-height: 1.6;
+        }
+        /* Remove link underline */
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Form font */
+        button,
+        input,
+        select,
+        textarea {
+            font: inherit;
+        }
+
+        /* Button cursor */
+        button {
+            cursor: pointer;
+        }
+
+        /* Main container */
+        .container {
+            width: min(1100px, calc(100% - 36px));
+            margin: auto;
+        }
+        /* Navigation bar */
+        .topbar {
+            height: 72px;
+            background: rgba(255, 255, 255, 0.96);
+            border-bottom: 1px solid var(--line);
+            position: sticky;
+            top: 0;
+            z-index: 20;
+        }
+        /* Navigation layout */
+        .nav {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        /* Website logo */
+        .brand {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+         /* Purple logo text */
+        .brand span,
+        .eyebrow {
+            color: var(--primary);
+        }
+        /* Navigation links */
+        .nav-links {
+            display: flex;
+            gap: 22px;
+            font-size: 14px;
+            font-weight: 700;
+            color: #596579;
+        }
+        /* Navigation hover */
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Navigation actions */
+        .nav-actions {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        /* Common button */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+            border: 0;
+            border-radius: 10px;
+            padding: 10px 15px;
+            font-weight: 700;
+        }
+        /* Primary button */
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Primary button hover */
+        .btn-primary:hover {
+            background: var(--primary-dark);
+        }
+        /* Soft button */
+        .btn-soft {
+            background: var(--soft);
+            color: var(--primary);
+        }
+
+        /* Danger button */
+        .btn-danger {
+            background: #fff0f1;
+            color: var(--red);
+        }
+        /* Mobile menu */
+        .menu {
+            display: none;
+            border: 0;
+            background: #f2f3f7;
+            padding: 9px;
+            border-radius: 9px;
+        }
+        /* Hero section */
+        .hero {
+            min-height: 470px;
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            gap: 45px;
+            align-items: center;
+            padding: 65px 0;
+        }
+
+        /* Small heading */
+        .eyebrow {
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        /* Hero heading */
+        .hero h1 {
+            font-size: clamp(42px, 6vw, 68px);
+            line-height: 1.03;
+            letter-spacing: -3px;
+            margin: 13px 0;
+        }
+
+        /* Hero highlighted text */
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        /* Hero paragraph */
+        .hero p {
+            color: var(--muted);
+            font-size: 17px;
+            max-width: 570px;
+        }
+        /* Search box */
+        .search-box {
+            display: flex;
+            gap: 8px;
+            background: white;
+            border: 1px solid var(--line);
+            padding: 7px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            margin-top: 25px;
+        }
+
+        /* Search input */
+        .search-box input {
+            flex: 1;
+            border: 0;
+            outline: 0;
+            padding: 11px;
+        }
+        /* Hero artwork */
+        .hero-art {
+            min-height: 330px;
+            border-radius: 24px;
+            background: linear-gradient(145deg, #ebe9ff, #fff);
+            border: 1px solid #ddd9ff;
+            display: grid;
+            place-items: center;
+        }
+
+        /* Hero card */
+        .hero-card {
+            background: #fff;
+            width: 74%;
+            padding: 25px;
+            border-radius: 17px;
+            box-shadow: var(--shadow);
+        }
+         /* Hero card title */
+        .hero-card strong {
+            display: block;
+            font-size: 18px;
+        }
+
+        /* Hero card text */
+        .hero-card small {
+            color: var(--muted);
+        }
+
+        /* Statistics */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            padding-bottom: 55px;
+        }
+        /* Common card */
+        .stat,
+        .card {
+            background: white;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 20px;
+        }
+
+        /* Statistic number */
+        .stat strong {
+            display: block;
+            font-size: 27px;
+        }
+
+        /* Statistic text */
+        .stat span,
+        .muted {
+            color: var(--muted);
+            font-size: 13px;
+        }
+         /* Section spacing */
+        .section {
+            padding: 60px 0;
+        }
+
+        /* Section heading */
+        .section-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+
+        /* Section title */
+        .section-heading h2 {
+            font-size: 30px;
+            margin-top: 7px;
+        }
+
+        /* Job grid */
+        .job-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 17px;
+        }
+        /* Job card */
+        .job-card {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 15px;
+            padding: 19px;
+            transition: 0.2s;
+        }
+
+        /* Job card hover */
+        .job-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        /* Job card top */
+        .job-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+        }
+        /* Company logo */
+        .logo {
+            width: 43px;
+            height: 43px;
+            border-radius: 11px;
+            background: var(--soft);
+            color: var(--primary);
+            display: grid;
+            place-items: center;
+            font-weight: 800;
+        }
+
+        /* Save button */
+        .save {
+            border: 0;
+            background: #f7f7fa;
+            width: 35px;
+            height: 35px;
+            border-radius: 9px;
+            color: #697386;
+        }
+
+        /* Active save button */
+        .save.active {
+            background: var(--soft);
+            color: var(--primary);
+        }
+        /* Job title */
+        .job-card h3 {
+            margin: 13px 0 3px;
+            font-size: 17px;
+        }
+
+        /* Company name */
+        .company {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        /* Job tags */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin: 14px 0;
+        }
+
+        /* Job tag */
+        .tag {
+            background: #f5f6f8;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 11px;
+            color: #596579;
+        }
+        /* Job card bottom */
+        .job-bottom {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            padding-top: 13px;
+            border-top: 1px solid var(--line);
+            font-size: 12px;
+        }
+
+        /* Salary */
+        .salary {
+            font-weight: 800;
+        }
+
+        /* Page heading */
+        .page-head {
+            padding: 55px 0 25px;
+        }
+
+        /* Page title */
+        .page-head h1 {
+            font-size: 40px;
+            letter-spacing: -1px;
+        }
+
+        /* Page description */
+        .page-head p {
+            color: var(--muted);
+            margin-top: 5px;
+        }
+        /* Filters */
+        .filters {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        /* Form fields */
+        .input,
+        .select,
+        .textarea {
+            width: 100%;
+            border: 1px solid var(--line);
+            background: #fff;
+            border-radius: 10px;
+            padding: 11px;
+            outline: none;
+        }
+
+        /* Form field focus */
+        .input:focus,
+        .select:focus,
+        .textarea:focus {
+            border-color: var(--primary);
+        }
+
+        /* Details layout */
+        .detail {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+        }
+        /* Details heading */
+        .detail h2 {
+            margin-bottom: 8px;
+        }
+
+        /* Details text */
+        .detail p {
+            color: var(--muted);
+        }
+
+        /* Details side */
+        .detail-side {
+            position: sticky;
+            top: 90px;
+            height: max-content;
+        }
+
+        /* List */
+        .list {
+            display: grid;
+            gap: 10px;
+        }
+
+        /* List row */
+        .row {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            align-items: center;
+            border-bottom: 1px solid var(--line);
+            padding: 13px 0;
+        }
+        /* Last row */
+        .row:last-child {
+            border: 0;
+        }
+
+        /* Form wrapper */
+        .form-wrap {
+            max-width: 480px;
+            margin: 55px auto;
+        }
+
+        /* Form heading */
+        .form-wrap h1 {
+            font-size: 34px;
+            margin-bottom: 8px;
+        }
+
+        /* Form description */
+        .form-wrap > p {
+            color: var(--muted);
+            margin-bottom: 25px;
+        }
+
+        /* Form */
+        .form {
+            display: grid;
+            gap: 13px;
+        }
+
+        /* Form label */
+        .form label {
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        /* Form group */
+        .form-group {
+            display: grid;
+            gap: 6px;
+        }
+        /* Notice */
+        .notice {
+            padding: 12px;
+            border-radius: 10px;
+            background: #eef9f4;
+            color: #16704f;
+            font-size: 13px;
+        }
+
+        /* Dashboard layout */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 18px;
+        }
+
+        /* Statistics grid */
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+
+        /* Small statistic */
+        .small-stat {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 13px;
+            padding: 16px;
+        }
+        /* Statistic number */
+        .small-stat strong {
+            display: block;
+            font-size: 23px;
+        }
+
+        /* Empty content */
+        .empty {
+            text-align: center;
+            padding: 35px;
+            color: var(--muted);
+        }
+
+        /* CTA section */
+        .cta {
+            background: var(--primary);
+            color: white;
+            border-radius: 20px;
+            padding: 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* CTA paragraph */
+        .cta p {
+            color: #ddd9ff;
+            margin-top: 5px;
+        }
+        /* Footer */
+        .footer {
+            background: #161c2c;
+            color: #aeb7c7;
+            padding: 35px 0;
+            margin-top: 50px;
+        }
+
+        /* Footer grid */
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 30px;
+        }
+
+        /* Footer links */
+        .footer a {
+            display: block;
+            margin: 5px 0;
+            font-size: 13px;
+        }
+
+        /* Footer heading */
+        .footer h4 {
+            color: white;
+            margin-bottom: 8px;
+        }
+        /* Footer bottom */
+        .footer-bottom {
+            border-top: 1px solid #2a3244;
+            margin-top: 25px;
+            padding-top: 18px;
+            font-size: 12px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Admin grid */
+        .admin-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.4fr;
+            gap: 18px;
+        }
+
+        /* Status */
+        .status {
+            padding: 5px 8px;
+            border-radius: 7px;
+            font-size: 11px;
+            background: #fff7df;
+            color: #8a6500;
+        }
+
+        /* Success text */
+        .success {
+            color: var(--green);
+        }
+        /* Tablet design */
+        @media (max-width: 850px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .menu {
+                display: block;
+            }
+
+            .hero,
+            .detail,
+            .dashboard-grid,
+            .admin-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-art {
+                min-height: 260px;
+            }
+
+            .job-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .filters {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .detail-side {
+                position: static;
+            }
+
+            .stats {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        /* Mobile design */
+        @media (max-width: 560px) {
+
+            .container {
+                width: min(100% - 24px, 1100px);
+            }
+
+            .hero {
+                padding: 45px 0;
+            }
+
+            .hero h1 {
+                letter-spacing: -2px;
+            }
+
+            .job-grid,
+            .stats,
+            .stat-grid,
+            .filters {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-actions .btn {
+                display: inline-flex;
+                padding: 7px 9px;
+                font-size: 12px;
+            }
+
+            .section-heading {
+                align-items: start;
+                flex-direction: column;
+            }
+
+            .cta {
+                align-items: start;
+                flex-direction: column;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+    <!--Navigation Bar-->
+    <header class="topbar">
+        <div class="conatiner nav">
+            <!-- Website logo -->
+             <a class="brand" href="index.html">
+                Job<span>Adda</span>
+            </a>
+
+            <!-- Navigation links -->
+            <nav class="nav-links">
+
+                <a href="jobs.html">Jobs</a>
+                <a href="internships.html">Internships</a>
+                <a href="saved.html">Saved</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="about.html">About</a>
+
+            </nav>
+
+            
+            <div class="nav-actions">
+                <a class="btn btn-soft" href="login.html">Login</a>
+                <a class="btn btn-primary" href="register.html">Register</a>
+            </div>
+
+        </div>
+    </header>
+     <!-- Main content -->
+    <main class="container">
+
+        <!-- Page heading -->
+        <div class="page-head">
+
+            <span class="eyebrow">
+                Opportunity
+            </span>
+
+            <h1>
+                Job details
+            </h1>
+
+        </div>
+
+
+        
+        <div class="detail">
+
+            <!-- Main job information -->
+            <div class="card">
+        <div class="job-top">
+            <div class="logo">N</div>
+            <span class="tag">Internship</span>
+        </div>
+
+        <h2>Frontend Developer Intern</h2>
+        <p class="company">Nova Labs</p>
+
+        <div class="tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Hybrid</span>
+        </div>
+
+        <h2>About the opportunity</h2>
+        <p>
+            We are looking for a frontend developer intern who wants
+            to learn how to build attractive and responsive websites.
+        </p>
+
+        <br>
+
+        <h2>Responsibilities</h2>
+        <div class="list">
+            <p>Build web pages using HTML and CSS.</p>
+            <p>Learn basic JavaScript.</p>
+            <p>Work with the development team.</p>
+        </div>
+
+        <br>
+
+        <h2>Required skills</h2>
+        <p>HTML, CSS, basic JavaScript and problem-solving skills.</p>
+    </div>
+
+    <!-- Job summary -->
+    <div class="card detail-side">
+        <h2>Job summary</h2>
+
+        <div class="row">
+            <span>Company</span>
+            <strong>Nova Labs</strong>
+        </div>
+
+        <div class="row">
+            <span>Location</span>
+            <strong>Bengaluru</strong>
+        </div>
+
+        <div class="row">
+            <span>Work mode</span>
+            <strong>Hybrid</strong>
+        </div>
+
+        <div class="row">
+            <span>Salary</span>
+            <strong>₹15K/month</strong>
+        </div>
+
+        <div class="row">
+            <span>Job type</span>
+            <strong>Internship</strong>
+        </div>
+
+        <a href="login.html" class="btn btn-primary">
+            Apply Now
+        </a>
+
+        <br><br>
+
+        <a href="saved.html" class="btn btn-soft">
+            View Saved Jobs
+        </a>
+    </div>
+
+</div>
+
+
+    </main>
+<footer class="footer">
+    <div class="container footer-bottom">
+        <span>JobAdda</span>
+        <span>Simple student career portal</span>
+    </div>
+</footer>
+    
+</body>
+</html>
