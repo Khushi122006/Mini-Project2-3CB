@@ -1,202 +1,273 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Log in — Bridge</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Login | JobAdda</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f6f7fb;
+            color: #192238;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .navbar {
+            background: white;
+            border-bottom: 1px solid #e1e5ee;
+            padding: 14px 0;
+        }
+
+        .nav-container {
+            max-width: 1230px;
+            margin: auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+            color: #192238;
+        }
+
+        .logo span {
+            color: #5b4cf5;
+        }
+
+        .nav-button {
+            background: #f0efff;
+            color: #5b4cf5;
+            padding: 14px 17px;
+            border-radius: 12px;
+            font-weight: bold;
+        }
+
+        .nav-button:hover {
+            background: #e5e1ff;
+        }
+
+        .container {
+            max-width: 1230px;
+            margin: auto;
+            padding: 65px 20px;
+        }
+
+        .login-section {
+            max-width: 538px;
+            margin: auto;
+        }
+
+        .subtitle {
+            color: #5b4cf5;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 13px;
+        }
+
+        h1 {
+            font-size: 40px;
+            margin-bottom: 16px;
+        }
+
+        .description {
+            color: #6b788e;
+            font-size: 17px;
+            line-height: 1.6;
+            margin-bottom: 28px;
+        }
+
+        .form-card {
+            background: white;
+            border: 1px solid #e0e5ef;
+            border-radius: 19px;
+            padding: 23px;
+        }
+
+        .form-group {
+            margin-bottom: 17px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 9px;
+        }
+
+        input {
+            width: 100%;
+            padding: 16px 13px;
+            border: 1px solid #dfe4ee;
+            border-radius: 12px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #5b4cf5;
+        }
+
+        .primary-button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 12px;
+            background: #5b4cf5;
+            color: white;
+            text-align: center;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .primary-button:hover {
+            background: #4939e5;
+        }
+
+        .demo-text {
+            color: #697790;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-top: 15px;
+        }
+
+        .extra-links {
+            margin-top: 22px;
+            text-align: center;
+            color: #697790;
+            font-size: 14px;
+            line-height: 2;
+        }
+
+        .extra-links a {
+            color: #5b4cf5;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 24px;
+            color: #697790;
+            font-size: 13px;
+        }
+
+        @media (max-width: 600px) {
+            .logo {
+                font-size: 23px;
+            }
+
+            .container {
+                padding: 45px 18px;
+            }
+
+            h1 {
+                font-size: 34px;
+            }
+
+            .description {
+                font-size: 15px;
+            }
+
+            .form-card {
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
     <!-- Header -->
-    <header class="topbar">
-
-        <div class="container">
-
-            <!-- Bridge Logo -->
-            <a href="index.html" class="logo">
-                Bridge<span>.</span>
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="saved.html" class="logo">
+                Job<span>Adda</span>
             </a>
 
-
-            <!-- Navigation -->
-            <nav>
-
-                <ul class="nav-links">
-
-                    <li>
-                        <a href="index.html">Home</a>
-                    </li>
-
-                    <li>
-                        <a href="jobs.html">Jobs</a>
-                    </li>
-
-                    <li>
-                        <a href="internships.html">Internships</a>
-                    </li>
-
-                    <li>
-                        <a href="about.html">For Employers</a>
-                    </li>
-
-                </ul>
-
-            </nav>
-
-
-            <!-- Get Started -->
-            <div class="nav-actions">
-
-                <a href="register.html" class="btn btn-primary btn-sm">
-                    Get started
-                </a>
-
-            </div>
-
-
-            <!-- Mobile Menu -->
-            <button class="nav-toggle" aria-label="Toggle menu">
-
-                <span></span>
-                <span></span>
-                <span></span>
-
-            </button>
-
+            <a href="register.html" class="nav-button">
+                Create account
+            </a>
         </div>
-
     </header>
 
+    <!-- Login section -->
+    <main class="container">
+        <section class="login-section">
 
-    <!-- Main Content -->
-    <main>
+            <p class="subtitle">STUDENT ACCOUNT</p>
 
-        <div class="auth-wrap">
+            <h1>Welcome back</h1>
 
-            <div class="auth-card">
+            <p class="description">
+                Login to see your saved opportunities and applications.
+            </p>
 
-                <!-- Login Heading -->
-                <h1>Welcome back</h1>
+            <div class="form-card">
+                <form action="saved.html" method="get">
 
-                <p class="sub">
-                    Log in to track applications and see new matches.
-                </p>
-
-
-                <!-- Student / Employer Selection -->
-                <div class="role-toggle">
-
-                    <label>
-                        <input type="radio" name="role" value="student" checked>
-                        <span>Student</span>
-                    </label>
-
-                    <label>
-                        <input type="radio" name="role" value="employer">
-                        <span>Employer</span>
-                    </label>
-
-                </div>
-
-
-                <!-- Login Form -->
-                <form action="dashboard.html">
-
-
-                    <!-- Email -->
-                    <div class="field">
-
-                        <label for="email">
-                            Email address
-                        </label>
-
+                    <div class="form-group">
+                        <label for="email">Email</label>
                         <input
                             type="email"
                             id="email"
                             name="email"
+                            placeholder="student@example.com"
                             required
-                            placeholder="you@example.com">
-
+                        >
                     </div>
 
-
-                    <!-- Password -->
-                    <div class="field">
-
-                        <label for="password">
-                            Password
-                        </label>
-
+                    <div class="form-group">
+                        <label for="password">Password</label>
                         <input
                             type="password"
                             id="password"
                             name="password"
+                            placeholder="Enter your password"
+                            minlength="4"
                             required
-                            placeholder="••••••••">
-
+                        >
                     </div>
 
-
-                    <!-- Login Options -->
-                    <div class="login-options">
-
-                        <label>
-                            <input
-                                type="checkbox"
-                                name="remember">
-                            Remember me
-                        </label>
-
-                        <a href="#">
-                            Forgot password?
-                        </a>
-
-                    </div>
-
-
-                    <!-- Login Button -->
-                    <button
-                        type="submit"
-                        class="btn btn-primary btn-block">
-                        Log in
+                    <button type="submit" class="primary-button">
+                        Login
                     </button>
 
-
-                    <!-- Separator -->
-                    <div class="login-divider">
-                        <span>or</span>
-                    </div>
-
-
-                    <!-- Google Login -->
-                    <button
-                        type="button"
-                        class="google-btn">
-                        Continue with Google
-                    </button>
-
+                    <p class="demo-text">
+                        Student career portal demo.
+                    </p>
                 </form>
-
-
-                <!-- Registration -->
-                <p class="register-link">
-
-                    Don't have an account?
-
-                    <a href="register.html">
-                        Create an account
-                    </a>
-
-                </p>
-
             </div>
 
-        </div>
+            <div class="extra-links">
+                Don't have an account?
+                <a href="register.html">Register here</a>
+                <br>
+                Want to browse saved opportunities?
+                <a href="saved.html">Open Saved Jobs</a>
+            </div>
 
+        </section>
     </main>
+
+    <footer>
+        © 2026 JobAdda - Student Career Portal
+    </footer>
 
 </body>
 </html>
