@@ -1,963 +1,1689 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-    <!-- Page settings -->
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Page title -->
+    <meta name="description" content="JobAdda student placement and opportunity portal">
     <title>Jobs | JobAdda</title>
 
     <style>
 
-        /* Website colors */
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap');
+        
         :root {
             --primary: #5b4cf5;
-            --primary-dark: #4338ca;
-            --dark: #172033;
+            --primary-dark: #4638d8;
+            --ink: #172033;
             --muted: #6b7788;
             --bg: #f6f7fb;
-            --white: #ffffff;
-            --line: #e5e8ef;
-            --soft: #f0efff;
-            --green: #159a67;
-            --red: #dc3545;
-            --orange: #f59e0b;
-            --shadow: 0 18px 45px rgba(31, 41, 55, 0.08);
-            --radius: 16px;
+            --white: #fff;
+            --line: #e7e9f0;
+            --soft: #efedff;
+            --green: #16845d;
+            --red: #d9485f;
+            --shadow: 0 14px 38px rgba(28,35,62,.08);
+            --radius: 18px;
         }
 
-        /* Reset default styles */
         * {
             box-sizing: border-box;
-            margin: 0;
-            padding: 0;
         }
 
-        /* Smooth scrolling */
         html {
             scroll-behavior: smooth;
         }
 
-        /* Body styling */
         body {
+            margin: 0;
             background: var(--bg);
-            color: var(--dark);
-            font-family: Inter, Arial, sans-serif;
+            color: var(--ink);
+            font-family: 'DM Sans', Arial, sans-serif;
             line-height: 1.6;
         }
 
-        /* Remove link underline */
         a {
-            text-decoration: none;
             color: inherit;
+            text-decoration: none;
         }
 
-        /* Form font */
-        button,
-        input,
-        select,
-        textarea {
+        button, input, select, textarea {
             font: inherit;
         }
 
-        /* Button cursor */
         button {
             cursor: pointer;
         }
 
-        /* Main container */
         .container {
-            width: min(1100px, calc(100% - 36px));
+            width: min(1160px, calc(100% - 40px));
             margin: auto;
         }
 
-        /* Navigation bar */
-        .topbar {
-            height: 72px;
-            background: rgba(255, 255, 255, 0.96);
-            border-bottom: 1px solid var(--line);
+        /* Navigation */
+
+        .site-header {
             position: sticky;
             top: 0;
-            z-index: 20;
+            z-index: 50;
+            background: rgba(255,255,255,.96);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--line);
         }
 
-        /* Navigation layout */
         .nav {
-            height: 100%;
+            min-height: 76px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 20px;
+            gap: 24px;
         }
 
-        /* Website logo */
         .brand {
-            font-size: 24px;
-            font-weight: 800;
-            letter-spacing: -1px;
+            font: 800 27px 'Manrope', sans-serif;
+            letter-spacing: -1.2px;
+            color: var(--ink);
+            white-space: nowrap;
         }
 
-        /* Purple logo text */
-        .brand span,
-        .eyebrow {
+        .brand span {
             color: var(--primary);
         }
 
-        /* Navigation links */
         .nav-links {
             display: flex;
-            gap: 22px;
+            align-items: center;
+            gap: 25px;
+            color: #566176;
+            font-weight: 600;
             font-size: 14px;
-            font-weight: 700;
-            color: #596579;
         }
 
-        /* Navigation hover */
-        .nav-links a:hover {
+        .nav-links a:hover,
+        .nav-links a.active {
             color: var(--primary);
         }
 
-        /* Navigation buttons */
         .nav-actions {
             display: flex;
-            gap: 8px;
             align-items: center;
+            gap: 10px;
         }
 
-        /* Common button */
+        .menu-toggle {
+            display: none;
+            border: 1px solid var(--line);
+            background: white;
+            border-radius: 10px;
+            padding: 9px 12px;
+        }
+
+        /* Buttons */
+
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 7px;
-            border: 0;
-            border-radius: 10px;
-            padding: 10px 15px;
+            gap: 8px;
+            border: 1px solid transparent;
+            border-radius: 11px;
+            padding: 11px 17px;
             font-weight: 700;
+            font-size: 14px;
+            transition: .2s;
         }
 
-        /* Primary button */
         .btn-primary {
             background: var(--primary);
-            color: white;
+            color: #fff;
+            box-shadow: 0 7px 16px #5b4cf52b;
         }
 
-        /* Primary button hover */
         .btn-primary:hover {
             background: var(--primary-dark);
+            transform: translateY(-1px);
         }
 
-        /* Soft button */
+        .btn-outline {
+            background: #fff;
+            border-color: var(--line);
+            color: var(--ink);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
         .btn-soft {
             background: var(--soft);
             color: var(--primary);
         }
 
-        /* Danger button */
         .btn-danger {
-            background: #fff0f1;
+            background: #fff0f2;
             color: var(--red);
         }
 
-        /* Mobile menu */
-        .menu {
-            display: none;
-            border: 0;
-            background: #f2f3f7;
-            padding: 9px;
-            border-radius: 9px;
+        .btn-block {
+            width: 100%;
         }
 
         /* Hero section */
-        .hero {
-            min-height: 470px;
-            display: grid;
-            grid-template-columns: 1.05fr 0.95fr;
-            gap: 45px;
-            align-items: center;
-            padding: 65px 0;
-        }
 
-        /* Small heading */
         .eyebrow {
-            font-size: 11px;
+            color: var(--primary);
+            font-size: 12px;
             font-weight: 800;
+            letter-spacing: 1.4px;
             text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
-        /* Hero heading */
+        .hero {
+            padding: 76px 0 56px;
+            display: grid;
+            grid-template-columns: 1.1fr .9fr;
+            align-items: center;
+            gap: 55px;
+        }
+
         .hero h1 {
-            font-size: clamp(42px, 6vw, 68px);
-            line-height: 1.03;
-            letter-spacing: -3px;
-            margin: 13px 0;
+            font: 800 clamp(42px,6vw,66px)/1.08 'Manrope', sans-serif;
+            letter-spacing: -2.8px;
+            margin: 14px 0 18px;
         }
 
-        /* Hero highlighted text */
-        .hero h1 span {
+        .gradient-text {
             color: var(--primary);
         }
 
-        /* Hero paragraph */
-        .hero p {
+        .lead {
+            font-size: 18px;
             color: var(--muted);
-            font-size: 17px;
-            max-width: 570px;
+            max-width: 610px;
         }
 
-        /* Hero search box */
-        .search-box {
+        .search-panel {
             display: flex;
-            gap: 8px;
+            gap: 10px;
+            padding: 9px;
             background: white;
             border: 1px solid var(--line);
-            padding: 7px;
-            border-radius: 12px;
+            border-radius: 15px;
             box-shadow: var(--shadow);
-            margin-top: 25px;
+            margin-top: 28px;
+            max-width: 680px;
         }
 
-        /* Search input */
-        .search-box input {
-            flex: 1;
+        .search-panel input {
             border: 0;
             outline: 0;
-            padding: 11px;
+            min-width: 0;
+            flex: 1;
+            padding: 10px 12px;
         }
 
-        /* Hero design area */
         .hero-art {
-            min-height: 330px;
-            border-radius: 24px;
-            background: linear-gradient(145deg, #ebe9ff, #fff);
-            border: 1px solid #ddd9ff;
+            background: linear-gradient(145deg,#eae7ff,#fff 70%);
+            border: 1px solid #dedaff;
+            border-radius: 28px;
+            padding: 34px;
+            min-height: 350px;
+            display: flex;
+            align-items: center;
+        }
+
+        .feature-card {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            padding: 25px;
+            width: 100%;
+            box-shadow: 0 22px 55px #3332;
+            transform: rotate(1deg);
+        }
+
+        .feature-top {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+        }
+
+        .company-mark {
+            width: 46px;
+            height: 46px;
+            border-radius: 14px;
+            background: var(--soft);
+            color: var(--primary);
             display: grid;
             place-items: center;
-        }
-
-        /* Hero card */
-        .hero-card {
-            background: #fff;
-            width: 74%;
-            padding: 25px;
-            border-radius: 17px;
-            box-shadow: var(--shadow);
-        }
-
-        /* Hero card title */
-        .hero-card strong {
-            display: block;
+            font-weight: 800;
             font-size: 18px;
         }
 
-        /* Hero card small text */
-        .hero-card small {
-            color: var(--muted);
+        .feature-card h3 {
+            margin: 0;
+            font-size: 19px;
         }
 
-        /* Statistics section */
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            padding-bottom: 55px;
-        }
-
-        /* Common card */
-        .stat,
-        .card {
-            background: white;
-            border: 1px solid var(--line);
-            border-radius: var(--radius);
-            padding: 20px;
-        }
-
-        /* Statistic number */
-        .stat strong {
-            display: block;
-            font-size: 27px;
-        }
-
-        /* Small muted text */
-        .stat span,
         .muted {
             color: var(--muted);
-            font-size: 13px;
         }
 
-        /* Section spacing */
+        .tag {
+            display: inline-flex;
+            background: #f1f2f8;
+            color: #596579;
+            border-radius: 30px;
+            padding: 5px 10px;
+            font-size: 12px;
+            font-weight: 700;
+            margin: 5px 5px 0 0;
+        }
+
+        .tag.purple {
+            background: var(--soft);
+            color: var(--primary);
+        }
+
+        /* Sections and cards */
+
         .section {
-            padding: 60px 0;
+            padding: 45px 0;
         }
 
-        /* Section heading */
-        .section-heading {
+        .section-head {
             display: flex;
             justify-content: space-between;
             align-items: end;
             gap: 20px;
-            margin-bottom: 24px;
+            margin-bottom: 22px;
         }
 
-        /* Section title */
-        .section-heading h2 {
-            font-size: 30px;
-            margin-top: 7px;
+        .section-head h2 {
+            font: 800 29px 'Manrope', sans-serif;
+            margin: 5px 0;
         }
 
-        /* Job card grid */
-        .job-grid {
+        .stats {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 17px;
+            grid-template-columns: repeat(3,1fr);
+            gap: 16px;
+            margin: 22px 0 10px;
         }
 
-        /* Job card */
-        .job-card {
+        .stat {
             background: #fff;
             border: 1px solid var(--line);
-            border-radius: 15px;
-            padding: 19px;
-            transition: 0.2s;
+            border-radius: 16px;
+            padding: 22px;
         }
 
-        /* Job card hover */
-        .job-card:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow);
-        }
-
-        /* Job card top */
-        .job-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: start;
-        }
-
-        /* Company logo */
-        .logo {
-            width: 43px;
-            height: 43px;
-            border-radius: 11px;
-            background: var(--soft);
-            color: var(--primary);
-            display: grid;
-            place-items: center;
-            font-weight: 800;
-        }
-
-        /* Save button */
-        .save {
-            border: 0;
-            background: #f7f7fa;
-            width: 35px;
-            height: 35px;
-            border-radius: 9px;
-            color: #697386;
-        }
-
-        /* Saved button */
-        .save.active {
-            background: var(--soft);
+        .stat strong {
+            display: block;
+            font: 800 28px 'Manrope';
             color: var(--primary);
         }
 
-        /* Job title */
-        .job-card h3 {
-            margin: 13px 0 3px;
-            font-size: 17px;
-        }
-
-        /* Company name */
-        .company {
+        .stat span {
             font-size: 13px;
             color: var(--muted);
         }
 
-        /* Job tags */
-        .tags {
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 18px;
+        }
+
+        .job-card,
+        .panel,
+        .auth-card,
+        .info-card {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            box-shadow: 0 5px 20px rgba(25,32,55,.035);
+        }
+
+        .job-card {
+            padding: 21px;
+            display: flex;
+            flex-direction: column;
+            min-height: 245px;
+        }
+
+        .job-card h3 {
+            margin: 13px 0 4px;
+            font-size: 18px;
+        }
+
+        .job-card .company {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .job-meta {
             display: flex;
             flex-wrap: wrap;
-            gap: 6px;
-            margin: 14px 0;
-        }
-
-        /* Individual tag */
-        .tag {
-            background: #f5f6f8;
-            padding: 4px 8px;
-            border-radius: 6px;
-            font-size: 11px;
-            color: #596579;
-        }
-
-        /* Job card bottom */
-        .job-bottom {
-            display: flex;
-            justify-content: space-between;
-            gap: 10px;
-            padding-top: 13px;
-            border-top: 1px solid var(--line);
-            font-size: 12px;
-        }
-
-        /* Salary */
-        .salary {
-            font-weight: 800;
-        }
-
-        /* Page heading */
-        .page-head {
-            padding: 55px 0 25px;
-        }
-
-        /* Page title */
-        .page-head h1 {
-            font-size: 40px;
-            letter-spacing: -1px;
-        }
-
-        /* Page description */
-        .page-head p {
+            gap: 12px;
             color: var(--muted);
-            margin-top: 5px;
+            font-size: 13px;
+            margin: 13px 0;
         }
 
-        /* Job filters */
+        .job-card .card-bottom {
+            margin-top: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            padding-top: 14px;
+            border-top: 1px solid var(--line);
+        }
+
+        /* Page heading and filters */
+
+        .page-heading {
+            padding: 48px 0 25px;
+        }
+
+        .page-heading h1 {
+            font: 800 39px 'Manrope';
+            margin: 6px 0;
+        }
+
+        .page-heading p {
+            color: var(--muted);
+            margin: 0;
+        }
+
         .filters {
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
+            grid-template-columns: 2fr 1fr 1fr auto;
             gap: 10px;
-            margin-bottom: 25px;
+            background: white;
+            border: 1px solid var(--line);
+            padding: 14px;
+            border-radius: 15px;
+            margin: 15px 0 24px;
         }
 
-        /* Input and select */
-        .input,
-        .select,
-        .textarea {
+        .control {
             width: 100%;
-            border: 1px solid var(--line);
+            border: 1px solid #dfe2eb;
             background: #fff;
             border-radius: 10px;
-            padding: 11px;
+            padding: 12px 13px;
             outline: none;
         }
 
-        /* Input focus */
-        .input:focus,
-        .select:focus,
-        .textarea:focus {
+        .control:focus {
             border-color: var(--primary);
+            box-shadow: 0 0 0 3px #5b4cf51a;
         }
 
-        /* Job details layout */
-        .detail {
+        /* Login and register styles */
+
+        .auth-wrap {
+            min-height: calc(100vh - 150px);
             display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 20px;
+            place-items: center;
+            padding: 45px 16px;
         }
 
-        /* Job details heading */
-        .detail h2 {
-            margin-bottom: 8px;
+        .auth-card {
+            width: min(100%,510px);
+            padding: 35px;
         }
 
-        /* Job details text */
-        .detail p {
+        .auth-card h1 {
+            text-align: center;
+            font: 800 31px 'Manrope';
+            margin: 0 0 7px;
+        }
+
+        .auth-sub {
+            text-align: center;
             color: var(--muted);
+            margin: 0 0 27px;
         }
 
-        /* Job details side card */
-        .detail-side {
-            position: sticky;
-            top: 90px;
-            height: max-content;
+        .field {
+            margin: 0 0 17px;
         }
 
-        /* List */
-        .list {
-            display: grid;
-            gap: 10px;
+        .field label {
+            display: block;
+            font-weight: 700;
+            font-size: 13px;
+            margin-bottom: 7px;
         }
 
-        /* List row */
-        .row {
+        .field input,
+        .field select,
+        .field textarea {
+            width: 100%;
+            padding: 12px 13px;
+            border: 1px solid #dfe2eb;
+            border-radius: 10px;
+            outline: 0;
+            background: white;
+        }
+
+        .field input:focus,
+        .field select:focus,
+        .field textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px #5b4cf51a;
+        }
+
+        .role-row {
             display: flex;
-            justify-content: space-between;
-            gap: 15px;
+            gap: 22px;
+            padding: 13px;
+            background: #f8f8fc;
+            border-radius: 11px;
+            margin-bottom: 20px;
+        }
+
+        .role-row label {
+            display: flex;
+            gap: 8px;
             align-items: center;
-            border-bottom: 1px solid var(--line);
-            padding: 13px 0;
+            font-weight: 600;
         }
 
-        /* Last row */
-        .row:last-child {
-            border: 0;
+        .role-row input {
+            accent-color: var(--primary);
         }
 
-        /* Form container */
-        .form-wrap {
-            max-width: 480px;
-            margin: 55px auto;
-        }
-
-        /* Form heading */
-        .form-wrap h1 {
-            font-size: 34px;
-            margin-bottom: 8px;
-        }
-
-        /* Form description */
-        .form-wrap > p {
-            color: var(--muted);
-            margin-bottom: 25px;
-        }
-
-        /* Form layout */
-        .form {
+        .form-row {
             display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 13px;
         }
 
-        /* Form label */
-        .form label {
-            font-size: 13px;
+        .auth-foot {
+            text-align: center;
+            margin: 20px 0 0;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .auth-foot a {
+            color: var(--primary);
             font-weight: 700;
         }
 
-        /* Form group */
-        .form-group {
-            display: grid;
-            gap: 6px;
-        }
-
-        /* Success message */
         .notice {
-            padding: 12px;
+            padding: 11px 13px;
             border-radius: 10px;
-            background: #eef9f4;
-            color: #16704f;
             font-size: 13px;
+            margin: 13px 0;
+            display: none;
         }
 
-        /* Dashboard layout */
-        .dashboard-grid {
-            display: grid;
-            grid-template-columns: 1.5fr 1fr;
-            gap: 18px;
-        }
-
-        /* Dashboard statistics */
-        .stat-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-            margin-bottom: 18px;
-        }
-
-        /* Small statistic */
-        .small-stat {
-            background: #fff;
-            border: 1px solid var(--line);
-            border-radius: 13px;
-            padding: 16px;
-        }
-
-        /* Small statistic number */
-        .small-stat strong {
+        .notice.show {
             display: block;
-            font-size: 23px;
         }
 
-        /* Empty message */
-        .empty {
-            text-align: center;
-            padding: 35px;
-            color: var(--muted);
+        .notice.error {
+            background: #fff0f2;
+            color: #b4233d;
         }
 
-        /* Call to action */
-        .cta {
-            background: var(--primary);
-            color: white;
-            border-radius: 20px;
-            padding: 32px;
+        .notice.success {
+            background: #eaf8f1;
+            color: #16734f;
+        }
+
+        .inline-between {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 20px;
+            gap: 12px;
+            font-size: 13px;
+            margin: 4px 0 18px;
         }
 
-        /* CTA paragraph */
-        .cta p {
-            color: #ddd9ff;
-            margin-top: 5px;
+        .inline-between a {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* Job details */
+
+        .detail-layout {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 22px;
+            padding: 25px 0 60px;
+        }
+
+        .panel {
+            padding: 25px;
+        }
+
+        .panel h2 {
+            margin: 0 0 12px;
+            font: 800 21px 'Manrope';
+        }
+
+        .detail-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .detail-title h1 {
+            font: 800 30px 'Manrope';
+            margin: 0;
+        }
+
+        .description-text {
+            color: #536078;
+            white-space: pre-line;
+        }
+
+        /* Empty state */
+
+        .empty-state {
+            text-align: center;
+            padding: 55px 20px;
+            background: white;
+            border: 1px dashed #cfd2df;
+            border-radius: 18px;
+        }
+
+        .empty-state .empty-icon {
+            font-size: 38px;
+        }
+
+        .empty-state h3 {
+            margin: 10px 0 4px;
+        }
+
+        /* Dashboard and admin */
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 16px;
+        }
+
+        .dashboard-tile {
+            padding: 22px;
+            background: white;
+            border: 1px solid var(--line);
+            border-radius: 16px;
+        }
+
+        .dashboard-tile strong {
+            font: 800 28px 'Manrope';
+            display: block;
+            color: var(--primary);
+        }
+
+        .admin-layout {
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            gap: 20px;
+            align-items: start;
+        }
+
+        .admin-list {
+            display: grid;
+            gap: 12px;
+        }
+
+        .admin-item {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 16px;
+        }
+
+        .admin-item h3 {
+            margin: 0 0 4px;
+        }
+
+        .admin-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
         }
 
         /* Footer */
+
         .footer {
-            background: #161c2c;
-            color: #aeb7c7;
+            margin-top: 55px;
+            background: #171d2c;
+            color: #c4cada;
             padding: 35px 0;
-            margin-top: 50px;
         }
 
-        /* Footer columns */
         .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 30px;
-        }
-
-        /* Footer links */
-        .footer a {
-            display: block;
-            margin: 5px 0;
-            font-size: 13px;
-        }
-
-        /* Footer headings */
-        .footer h4 {
-            color: white;
-            margin-bottom: 8px;
-        }
-
-        /* Footer bottom */
-        .footer-bottom {
-            border-top: 1px solid #2a3244;
-            margin-top: 25px;
-            padding-top: 18px;
-            font-size: 12px;
             display: flex;
             justify-content: space-between;
+            gap: 25px;
+            flex-wrap: wrap;
         }
 
-        /* Admin layout */
-        .admin-grid {
+        .footer a {
+            color: #fff;
+            margin-right: 15px;
+        }
+
+        .footer-brand {
+            font: 800 24px 'Manrope';
+            color: #fff;
+        }
+
+        .footer-brand span {
+            color: #a69eff;
+        }
+
+        .footer small {
+            color: #9da7bb;
+        }
+
+        .two-col {
             display: grid;
-            grid-template-columns: 1fr 1.4fr;
+            grid-template-columns: repeat(2,1fr);
             gap: 18px;
         }
 
-        /* Status label */
-        .status {
-            padding: 5px 8px;
-            border-radius: 7px;
-            font-size: 11px;
-            background: #fff7df;
-            color: #8a6500;
+        .info-card {
+            padding: 25px;
         }
 
-        /* Success text */
-        .success {
-            color: var(--green);
+        .info-card h3 {
+            margin: 0 0 8px;
         }
 
-        /* Tablet design */
-        @media (max-width: 850px) {
+        /* Toast message */
 
+        .toast {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            background: #172033;
+            color: white;
+            padding: 13px 18px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            z-index: 100;
+            display: none;
+        }
+
+        .toast.show {
+            display: block;
+        }
+
+        /* Tablet screen */
+
+        @media (max-width: 900px) {
             .nav-links {
-                display: none;
+                gap: 13px;
             }
 
-            .menu {
+            .hero {
+                gap: 25px;
+            }
+
+            .cards {
+                grid-template-columns: repeat(2,1fr);
+            }
+
+            .admin-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .detail-layout {
+                grid-template-columns: 1fr 280px;
+            }
+        }
+
+        /* Mobile screen */
+
+        @media (max-width: 700px) {
+            .nav {
+                flex-wrap: wrap;
+                padding: 13px 0;
+            }
+
+            .menu-toggle {
                 display: block;
             }
 
-            .hero,
-            .detail,
-            .dashboard-grid,
-            .admin-grid {
+            .nav-links {
+                display: none;
+                order: 3;
+                width: 100%;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 12px 0;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-actions .btn-outline {
+                display: none;
+            }
+
+            .hero {
                 grid-template-columns: 1fr;
+                padding: 48px 0 30px;
             }
 
             .hero-art {
                 min-height: 260px;
-            }
-
-            .job-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .filters {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .detail-side {
-                position: static;
-            }
-
-            .stats {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        /* Mobile design */
-        @media (max-width: 560px) {
-
-            .container {
-                width: min(100% - 24px, 1100px);
-            }
-
-            .hero {
-                padding: 45px 0;
+                padding: 20px;
             }
 
             .hero h1 {
-                letter-spacing: -2px;
+                font-size: 46px;
             }
 
-            .job-grid,
             .stats,
-            .stat-grid,
+            .cards,
+            .dashboard-grid,
+            .two-col {
+                grid-template-columns: 1fr;
+            }
+
             .filters {
                 grid-template-columns: 1fr;
             }
 
-            
-            .nav-actions .btn {
-                display: inline-flex;
-                padding: 7px 9px;
-                font-size: 12px;
-            }
-    
-
-            .section-heading {
-                align-items: start;
-                flex-direction: column;
-            }
-
-            .cta {
-                align-items: start;
-                flex-direction: column;
-            }
-
-            .footer-grid {
+            .detail-layout {
                 grid-template-columns: 1fr;
             }
 
-            .footer-bottom {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .auth-card {
+                padding: 26px 20px;
+            }
+
+            .section-head {
+                align-items: start;
                 flex-direction: column;
-                gap: 5px;
+            }
+
+            .page-heading h1 {
+                font-size: 32px;
             }
         }
-
     </style>
-
 </head>
-
 
 <body>
 
-    <!-- Navigation bar -->
-    <header class="topbar">
-
+    <!-- NAVIGATION BAR -->
+    <header class="site-header">
         <div class="container nav">
 
-            <!-- Website logo -->
             <a class="brand" href="index.html">
-                Job<span>Adda</span>
+                Job
+                <span>Adda</span>
             </a>
 
-            <!-- Navigation links -->
-            <nav class="nav-links">
+            <button aria-label="Open navigation" class="menu-toggle" id="menuToggle">
+                ☰
+            </button>
 
+            <nav class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
                 <a href="jobs.html">Jobs</a>
                 <a href="internships.html">Internships</a>
                 <a href="saved.html">Saved</a>
-                <a href="dashboard.html">Dashboard</a>
                 <a href="about.html">About</a>
-
+                <a href="contact.html">Contact</a>
             </nav>
 
             <div class="nav-actions">
-                <a class="btn btn-soft" href="login.html">Login</a>
-                <a class="btn btn-primary" href="register.html">Register</a>
+                <a class="btn btn-outline" href="login.html" id="navLogin">
+                    Log in
+                </a>
+
+                <a class="btn btn-primary" href="register.html" id="navRegister">
+                    Get started
+                </a>
             </div>
 
         </div>
-
     </header>
 
 
-    <!-- Main content -->
+    <!-- MAIN JOB LISTING SECTION -->
     <main class="container">
 
-        <!-- Page heading -->
-        <div class="page-head">
+        <section class="page-heading">
+            <div class="eyebrow">
+                EXPLORE OPPORTUNITIES
+            </div>
 
-            <span class="eyebrow">
-                Explore
-            </span>
-
-            <h1>
-                Find jobs & internships
-            </h1>
+            <h1>Find your next job</h1>
 
             <p>
-                Use simple filters to find an opportunity that matches your skills.
+                Explore entry-level roles and opportunities to start your career.
             </p>
+        </section>
 
-        </div>
 
+        <!-- SEARCH AND FILTER FORM -->
+        <form class="filters" id="listingFilters">
 
-        <!-- Search and filters -->
-        <div class="filters">
-
-            <!-- Search input -->
             <input
-                class="input"
-                id="keyword"
-                placeholder="Search by title, company or skill"
+                class="control"
+                id="searchInput"
+                placeholder="Search title, company or skill..."
             >
 
-            <!-- Location filter -->
-            <select class="select" id="location">
-
-                <option value="">
-                    All locations
-                </option>
-
+            <select class="control" id="locationFilter">
+                <option value="">All locations</option>
+                <option>Remote</option>
+                <option>New Delhi</option>
                 <option>Bengaluru</option>
                 <option>Mumbai</option>
-                <option>Pune</option>
                 <option>Hyderabad</option>
-                <option>Delhi</option>
-                <option>Gurugram</option>
-
+                <option>Pune</option>
             </select>
 
-            <!-- Job type filter -->
-            <select class="select" id="type">
-
-                <option value="">
-                    All types
-                </option>
-
-                <option>Internship</option>
-                <option>Full-time</option>
-
-            </select>
-
-            <!-- Work mode filter -->
-            <select class="select" id="mode">
-
-                <option value="">
-                    All modes
-                </option>
-
+            <select class="control" id="modeFilter">
+                <option value="">All work modes</option>
                 <option>Remote</option>
                 <option>Hybrid</option>
                 <option>On-site</option>
-
             </select>
 
+            <button class="btn btn-primary">
+                Search
+            </button>
+
+        </form>
+
+
+        <!-- RESULT COUNT AND SAVED BUTTON -->
+        <div class="section-head">
+
+            <div>
+                <strong id="resultCount">
+                    Loading opportunities...
+                </strong>
+
+                <div class="muted" style="font-size:13px">
+                    Save roles to view them later.
+                </div>
+            </div>
+
+            <a class="btn btn-soft" href="saved.html">
+                ♡ Saved opportunities
+            </a>
+
         </div>
 
 
-        <!-- Jobs section -->
-        <div class="job-grid">
+        <!-- JOB CARDS WILL APPEAR HERE -->
+        <div class="cards" id="listingResults"></div>
 
-            <!-- Job 1 -->
-            <div class="job-card">
-            <div class="job-top">
-                <div class="logo">N</div>
+
+        <!-- MESSAGE WHEN NO RESULT IS FOUND -->
+        <div class="empty-state" hidden id="emptyResults">
+
+            <div class="empty-icon">
+                ⌕
             </div>
 
-                <h3>Frontend Developer Intern</h3>
-                <p class="company">Nova Labs</p>
+            <h3>No matching opportunities</h3>
 
-                <div class="tags">
-                    <span class="tag">Internship</span>
-                    <span class="tag">Hybrid</span>
-                    <span class="tag">JavaScript</span>
-                </div>
+            <p class="muted">
+                Try another keyword or clear your filters.
+            </p>
 
-                <div class="job-bottom">
-                    <span class="salary">₹15K/month</span>
-                    <a class="btn btn-soft" href="job-details.html">
-                        View Details
-                    </a>
-                </div>
-            </div>
-
-            <!-- Job 2 -->
-            <div class="job-card">
-                <div class="job-top">
-                    <div class="logo">T</div>
-                </div>
-
-                <h3>Web Developer</h3>
-                <p class="company">Tech Solutions</p>
-
-                <div class="tags">
-                    <span class="tag">Full-time</span>
-                    <span class="tag">On-site</span>
-                    <span class="tag">HTML & CSS</span>
-                </div>
-
-            <div class="job-bottom">
-                <span class="salary">₹25K/month</span>
-                    <a class="btn btn-soft" href="job-details.html">
-                        View Details
-                    </a>
-            </div>
-        </div>
-
-                <!-- Job 3 -->
-                <div class="job-card">
-                <div class="job-top">
-                <div class="logo">D</div>
-            </div>
-
-                <h3>Data Analyst Intern</h3>
-                <p class="company">DataWorks</p>
-
-                <div class="tags">
-                    <span class="tag">Internship</span>
-                    <span class="tag">Remote</span>
-                    <span class="tag">Excel</span>
-                </div>
-
-                <div class="job-bottom">
-                    <span class="salary">₹12K/month</span>
-                        <a class="btn btn-soft" href="job-details.html">
-                        View Details
-                    </a>
-                </div>
-            </div>
+            <button class="btn btn-outline" id="clearFilters">
+                Clear filters
+            </button>
 
         </div>
-
-        
 
     </main>
 
 
-    <!-- Footer -->
+    <!-- FOOTER -->
     <footer class="footer">
 
-        <div class="container footer-bottom">
+        <div class="container footer-grid">
 
-            <span>
-                JobAdda
-            </span>
+            <div>
+                <div class="footer-brand">
+                    Job<span>Adda</span>
+                </div>
 
-            <span>
-                Simple student career portal
-            </span>
+                <p>
+                    Discover opportunities. Build your future.
+                </p>
+
+                <small>
+                    © 2026 JobAdda · College project demo
+                </small>
+            </div>
+
+            <div>
+                <a href="jobs.html">Find jobs</a>
+                <a href="internships.html">Internships</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
 
         </div>
 
     </footer>
 
 
-    
+    <!-- TOAST MESSAGE -->
+    <div class="toast" id="toast"></div>
+
+
+
+
+    <script>
+
+        // All sample jobs and internships are stored in this array.
+        // Admin changes can also be stored in localStorage.
+
+        window.JOBADDA_STARTER_ITEMS = [
+
+            {
+                id: 101,
+                title: "Frontend Developer Intern",
+                company: "NovaTech Solutions",
+                location: "Remote",
+                mode: "Remote",
+                type: "Internship",
+                salary: "₹12,000 / month",
+                category: "internship",
+                skills: ["HTML", "CSS", "JavaScript"],
+                description: "Work with the product team to build responsive web interfaces. You will collaborate with designers and developers, fix UI issues and learn practical frontend workflows."
+            },
+
+            {
+                id: 102,
+                title: "Junior Java Developer",
+                company: "CodeCraft Systems",
+                location: "Bengaluru",
+                mode: "Hybrid",
+                type: "Full-time",
+                salary: "₹3–5 LPA",
+                category: "job",
+                skills: ["Java", "OOP", "SQL"],
+                description: "Support development of Java applications, write clean code, test features and work with senior engineers on product improvements."
+            },
+
+            {
+                id: 103,
+                title: "Data Analyst Trainee",
+                company: "Insight Analytics",
+                location: "Pune",
+                mode: "On-site",
+                type: "Full-time",
+                salary: "₹3.2 LPA",
+                category: "job",
+                skills: ["Excel", "SQL", "Python"],
+                description: "Assist the analytics team with data cleaning, dashboards and reporting. Suitable for fresh graduates interested in data analysis."
+            },
+
+            {
+                id: 104,
+                title: "UI/UX Design Intern",
+                company: "PixelWave Studio",
+                location: "Remote",
+                mode: "Remote",
+                type: "Internship",
+                salary: "₹10,000 / month",
+                category: "internship",
+                skills: ["Figma", "Wireframing", "Prototyping"],
+                description: "Create wireframes and prototypes, participate in design reviews and help improve user experiences across web products."
+            },
+
+            {
+                id: 105,
+                title: "Marketing Associate",
+                company: "BrightPath Media",
+                location: "Mumbai",
+                mode: "Hybrid",
+                type: "Full-time",
+                salary: "₹3–4 LPA",
+                category: "job",
+                skills: ["Communication", "SEO", "Content"],
+                description: "Help plan digital campaigns, research audiences and track campaign performance with the marketing team."
+            },
+
+            {
+                id: 106,
+                title: "Python Development Intern",
+                company: "TechBridge Labs",
+                location: "Hyderabad",
+                mode: "On-site",
+                type: "Internship",
+                salary: "₹15,000 / month",
+                category: "internship",
+                skills: ["Python", "Django", "Git"],
+                description: "Contribute to backend prototypes and automation scripts while learning software development practices from mentors."
+            },
+
+            {
+                id: 107,
+                title: "HR Operations Executive",
+                company: "PeopleFirst Group",
+                location: "New Delhi",
+                mode: "On-site",
+                type: "Full-time",
+                salary: "₹2.8–3.5 LPA",
+                category: "job",
+                skills: ["HR", "Excel", "Communication"],
+                description: "Coordinate interview schedules, maintain candidate records and support day-to-day recruitment operations."
+            },
+
+            {
+                id: 108,
+                title: "Cloud Support Associate",
+                company: "SkyStack Services",
+                location: "Remote",
+                mode: "Remote",
+                type: "Full-time",
+                salary: "₹4–6 LPA",
+                category: "job",
+                skills: ["Linux", "Networking", "Cloud"],
+                description: "Help troubleshoot cloud service issues, document solutions and learn cloud operations in a collaborative team."
+            },
+
+            {
+                id: 109,
+                title: "Business Development Intern",
+                company: "LaunchPad Ventures",
+                location: "Pune",
+                mode: "Hybrid",
+                type: "Internship",
+                salary: "₹8,000 / month",
+                category: "internship",
+                skills: ["Research", "Sales", "Communication"],
+                description: "Support market research, outreach and lead tracking while learning how early-stage businesses grow."
+            }
+
+        ];
+
+    </script>
+
+    <script>
+
+        // Wait until the HTML page has loaded.
+        document.addEventListener('DOMContentLoaded', function () {
+
+            // Get the menu button and navigation links.
+            let menuButton = document.getElementById('menuToggle');
+            let navigationLinks = document.getElementById('navLinks');
+
+            // Open or close the mobile navigation menu.
+            if (menuButton && navigationLinks) {
+
+                menuButton.addEventListener('click', function () {
+                    navigationLinks.classList.toggle('open');
+                });
+
+            }
+
+
+            // Check whether a user is logged in.
+            let currentUser = localStorage.getItem('jobaddaCurrentUser');
+
+            try {
+                currentUser = JSON.parse(currentUser || 'null');
+            } catch (error) {
+                currentUser = null;
+            }
+
+
+            // Get Login and Register buttons.
+            let loginButton = document.getElementById('navLogin');
+            let registerButton = document.getElementById('navRegister');
+
+
+            // Change buttons if the user is logged in.
+            if (currentUser && loginButton && registerButton) {
+
+                loginButton.textContent = 'Dashboard';
+                loginButton.href = 'dashboard.html';
+
+                registerButton.textContent = 'Log out';
+                registerButton.href = '#';
+
+                registerButton.addEventListener('click', function (event) {
+
+                    event.preventDefault();
+
+                    localStorage.removeItem('jobaddaCurrentUser');
+
+                    location.href = 'index.html';
+
+                });
+
+            }
+
+
+            // Highlight the navigation link for the current page.
+            let pageLinks = document.querySelectorAll('.nav-links a');
+            let currentPage = location.pathname.split('/').pop();
+
+            for (let i = 0; i < pageLinks.length; i++) {
+
+                let link = pageLinks[i];
+
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                }
+
+            }
+
+
+            // Show featured opportunities on the home page.
+            let featuredSection = document.getElementById('homeFeatured');
+
+            if (featuredSection) {
+
+                let allItems = jobaddaGetItems();
+                let featuredItems = allItems.slice(0, 3);
+
+                let featuredHTML = '';
+
+                for (let i = 0; i < featuredItems.length; i++) {
+                    featuredHTML += jobaddaCard(featuredItems[i]);
+                }
+
+                featuredSection.innerHTML = featuredHTML;
+
+
+                // Update the total jobs number.
+                let jobsNumber = document.getElementById('statJobs');
+
+                if (jobsNumber) {
+                    jobsNumber.textContent = allItems.length + '+';
+                }
+
+            }
+
+
+            // Handle the contact form if it exists.
+            let contactForm = document.getElementById('contactForm');
+
+            if (contactForm) {
+
+                contactForm.addEventListener('submit', function (event) {
+
+                    event.preventDefault();
+
+                    let contactMessage = document.getElementById('contactNotice');
+
+                    contactMessage.textContent = 'Thanks! This demo form is working locally, but messages are not sent to an inbox.';
+                    contactMessage.className = 'notice success show';
+
+                    contactForm.reset();
+
+                });
+
+            }
+
+        });
+
+
+        // Get all job and internship records.
+        // First check localStorage for admin changes.
+        function jobaddaGetItems() {
+
+            try {
+
+                let savedItems = localStorage.getItem('jobaddaItems');
+
+                if (savedItems) {
+                    return JSON.parse(savedItems);
+                }
+
+                return window.JOBADDA_STARTER_ITEMS.slice();
+
+            } catch (error) {
+
+                return window.JOBADDA_STARTER_ITEMS.slice();
+
+            }
+
+        }
+
+        window.jobaddaGetItems = jobaddaGetItems;
+
+
+        // Save job and internship records in the browser.
+        function jobaddaSaveItems(items) {
+
+            localStorage.setItem('jobaddaItems', JSON.stringify(items));
+
+        }
+
+        window.jobaddaSaveItems = jobaddaSaveItems;
+
+
+        // Get the list of saved job IDs.
+        function jobaddaGetSaved() {
+
+            try {
+
+                let savedJobs = localStorage.getItem('jobaddaSaved');
+
+                if (savedJobs) {
+                    return JSON.parse(savedJobs);
+                }
+
+                return [];
+
+            } catch (error) {
+
+                return [];
+
+            }
+
+        }
+
+        window.jobaddaGetSaved = jobaddaGetSaved;
+
+
+        // Save the user's saved job IDs.
+        function jobaddaSaveSaved(items) {
+
+            localStorage.setItem('jobaddaSaved', JSON.stringify(items));
+
+        }
+
+        window.jobaddaSaveSaved = jobaddaSaveSaved;
+
+
+        // Make text safe before displaying it in HTML.
+        function jobaddaEscape(value) {
+
+            let text = String(value);
+
+            text = text.replace(/&/g, '&amp;');
+            text = text.replace(/</g, '&lt;');
+            text = text.replace(/>/g, '&gt;');
+            text = text.replace(/"/g, '&quot;');
+            text = text.replace(/'/g, '&#39;');
+
+            return text;
+
+        }
+
+        window.jobaddaEscape = jobaddaEscape;
+
+
+        // Create one job or internship card.
+        function jobaddaCard(item) {
+
+            let savedJobs = jobaddaGetSaved();
+            let isSaved = savedJobs.includes(Number(item.id));
+
+            let saveButtonText = '♡ Save';
+
+            if (isSaved) {
+                saveButtonText = 'Saved ✓';
+            }
+
+
+            // Get the first letter of the company name.
+            let companyName = item.company || 'J';
+            let firstLetter = companyName.charAt(0).toUpperCase();
+
+
+            // Prepare the card information.
+            let jobTitle = jobaddaEscape(item.title);
+            let company = jobaddaEscape(item.company);
+            let jobLocation = jobaddaEscape(item.location);
+            let workMode = jobaddaEscape(item.mode);
+            let salary = jobaddaEscape(item.salary || 'Pay not listed');
+
+
+            // Create the skill tags.
+            let skillHTML = '';
+            let skills = item.skills || [];
+
+            for (let i = 0; i < skills.length && i < 3; i++) {
+
+                skillHTML += '<span class="tag">' +
+                    jobaddaEscape(skills[i]) +
+                    '</span>';
+
+            }
+
+
+            // Create the complete job card.
+            let cardHTML = `
+                <article class="job-card">
+
+                    <div class="feature-top">
+
+                        <div class="company-mark">
+                            ${jobaddaEscape(firstLetter)}
+                        </div>
+
+                        <div>
+                            <h3>${jobTitle}</h3>
+                            <div class="company">${company}</div>
+                        </div>
+
+                    </div>
+
+                    <div class="job-meta">
+                        <span>⌖ ${jobLocation}</span>
+                        <span>◷ ${workMode}</span>
+                    </div>
+
+                    <div>
+                        ${skillHTML}
+                    </div>
+
+                    <div class="card-bottom">
+
+                        <strong>${salary}</strong>
+
+                        <div style="display:flex;gap:6px">
+
+                            <button class="btn btn-soft" data-save="${item.id}">
+                                ${saveButtonText}
+                            </button>
+
+                            <a class="btn btn-primary" href="job-details.html?id=${encodeURIComponent(item.id)}">
+                                Details
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </article>
+            `;
+
+            return cardHTML;
+
+        }
+
+        window.jobaddaCard = jobaddaCard;
+
+
+        // Show a small message at the bottom of the page.
+        function jobaddaToast(message) {
+
+            let toast = document.getElementById('toast');
+
+            if (toast) {
+
+                toast.textContent = message;
+                toast.classList.add('show');
+
+                setTimeout(function () {
+
+                    toast.classList.remove('show');
+
+                }, 2400);
+
+            }
+
+        }
+
+        window.jobaddaToast = jobaddaToast;
+
+
+        // Handle clicks on Save buttons.
+        document.addEventListener('click', function (event) {
+
+            let button = event.target.closest('[data-save]');
+
+            // Stop if the clicked element is not a Save button.
+            if (!button) {
+                return;
+            }
+
+            let jobId = Number(button.dataset.save);
+            let savedJobs = jobaddaGetSaved();
+
+
+            // If the job is already saved, remove it.
+            if (savedJobs.includes(jobId)) {
+
+                let updatedSavedJobs = [];
+
+                for (let i = 0; i < savedJobs.length; i++) {
+
+                    if (savedJobs[i] !== jobId) {
+                        updatedSavedJobs.push(savedJobs[i]);
+                    }
+
+                }
+
+                jobaddaSaveSaved(updatedSavedJobs);
+
+                button.textContent = '♡ Save';
+
+                jobaddaToast('Removed from saved opportunities');
+
+            } else {
+
+                // If the job is not saved, add it.
+                savedJobs.push(jobId);
+
+                jobaddaSaveSaved(savedJobs);
+
+                button.textContent = 'Saved ✓';
+
+                jobaddaToast('Opportunity saved');
+
+            }
+
+        });
+
+    </script>
+
+
+    <script>
+
+        // Wait until the HTML page is fully loaded.
+        document.addEventListener('DOMContentLoaded', function () {
+
+
+            // Decide whether this is the Jobs page or Internships page.
+            let category = 'job';
+
+            let isInternshipPage = location.pathname.endsWith('internships.html');
+
+            if (isInternshipPage) {
+                category = 'internship';
+            }
+
+
+            // Get the search and filter fields.
+            let searchInput = document.getElementById('searchInput');
+            let locationFilter = document.getElementById('locationFilter');
+            let modeFilter = document.getElementById('modeFilter');
+
+
+            // Get the result areas.
+            let resultsArea = document.getElementById('listingResults');
+            let resultCount = document.getElementById('resultCount');
+            let emptyMessage = document.getElementById('emptyResults');
+
+
+            // Read the search keyword from the URL, if available.
+            let urlParameters = new URLSearchParams(location.search);
+
+            searchInput.value = urlParameters.get('q') || '';
+
+
+            // This function displays matching jobs or internships.
+            function showResults() {
+
+                let allItems = jobaddaGetItems();
+                let matchingItems = [];
+
+                let searchWord = searchInput.value.trim().toLowerCase();
+
+
+                // Check every job or internship one by one.
+                for (let i = 0; i < allItems.length; i++) {
+
+                    let item = allItems[i];
+
+
+                    // Check the job or internship category.
+                    if (item.category !== category) {
+                        continue;
+                    }
+
+
+                    // Prepare the text used for searching.
+                    let itemSkills = item.skills || [];
+
+                    let itemDetails = item.title + ' ' +
+                        item.company + ' ' +
+                        item.location + ' ';
+
+
+                    // Add all skills to the searchable text.
+                    for (let j = 0; j < itemSkills.length; j++) {
+
+                        itemDetails += itemSkills[j] + ' ';
+
+                    }
+
+
+                    // Check the search keyword.
+                    if (!itemDetails.toLowerCase().includes(searchWord)) {
+                        continue;
+                    }
+
+
+                    // Check the selected location.
+                    if (
+                        locationFilter.value !== '' &&
+                        item.location !== locationFilter.value
+                    ) {
+                        continue;
+                    }
+
+
+                    // Check the selected work mode.
+                    if (
+                        modeFilter.value !== '' &&
+                        item.mode !== modeFilter.value
+                    ) {
+                        continue;
+                    }
+
+
+                    // If all conditions match, add the item.
+                    matchingItems.push(item);
+
+                }
+
+
+                // Clear the previous results.
+                resultsArea.innerHTML = '';
+
+
+                // Display each matching job or internship.
+                for (let i = 0; i < matchingItems.length; i++) {
+
+                    resultsArea.innerHTML += jobaddaCard(matchingItems[i]);
+
+                }
+
+
+                // Display the total number of results.
+                if (isInternshipPage) {
+
+                    resultCount.textContent =
+                        matchingItems.length + ' internships found';
+
+                } else {
+
+                    resultCount.textContent =
+                        matchingItems.length + ' jobs found';
+
+                }
+
+
+                // Show or hide the no-results message.
+                if (matchingItems.length === 0) {
+
+                    emptyMessage.hidden = false;
+
+                } else {
+
+                    emptyMessage.hidden = true;
+
+                }
+
+            }
+
+
+            // Get the search form.
+            let filterForm = document.getElementById('listingFilters');
+
+
+            // Run the search when the form is submitted.
+            filterForm.addEventListener('submit', function (event) {
+
+                event.preventDefault();
+
+                showResults();
+
+            });
+
+
+            // Update results when the search input changes.
+            searchInput.addEventListener('input', showResults);
+
+
+            // Update results when the location changes.
+            locationFilter.addEventListener('change', showResults);
+
+
+            // Update results when the work mode changes.
+            modeFilter.addEventListener('change', showResults);
+
+
+            // Get the Clear Filters button.
+            let clearButton = document.getElementById('clearFilters');
+
+
+            // Clear all filters when the button is clicked.
+            clearButton.addEventListener('click', function () {
+
+                searchInput.value = '';
+                locationFilter.value = '';
+                modeFilter.value = '';
+
+                showResults();
+
+            });
+
+
+            // Display all matching results when the page opens.
+            showResults();
+
+        });
+
+    </script>
 
 </body>
-
 </html>

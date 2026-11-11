@@ -7,16 +7,18 @@
     <title>Internships | JobAdda</title>
 
     <style>
+        /* BASIC PAGE SETTINGS */
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
 
         body {
             font-family: Arial, sans-serif;
             background: #f6f7fb;
             color: #172033;
+            line-height: 1.6;
         }
 
         a {
@@ -24,29 +26,41 @@
             color: inherit;
         }
 
+        button, input, select {
+            font: inherit;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
         .container {
-            width: 88%;
-            max-width: 1280px;
+            width: 90%;
+            max-width: 1160px;
             margin: auto;
         }
 
-        /* Navigation */
-        .navbar {
+        /* NAVIGATION BAR */
+        .site-header {
             background: white;
-            border-bottom: 1px solid #e5e8ef;
+            border-bottom: 1px solid #e7e9f0;
+            position: sticky;
+            top: 0;
+            z-index: 10;
         }
 
         .nav {
-            min-height: 82px;
+            min-height: 75px;
             display: flex;
-            align-items: center;
             justify-content: space-between;
+            align-items: center;
             gap: 20px;
         }
 
         .brand {
             font-size: 27px;
             font-weight: bold;
+            color: #172033;
         }
 
         .brand span {
@@ -56,31 +70,41 @@
         .nav-links {
             display: flex;
             gap: 25px;
-            font-weight: bold;
-            color: #596579;
         }
 
-        .nav-links a:hover {
+        .nav-links a {
+            color: #566176;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
             color: #5b4cf5;
         }
 
-        .nav-buttons {
+        .nav-actions {
             display: flex;
             gap: 10px;
         }
 
+        .menu-toggle {
+            display: none;
+            padding: 9px 12px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        /* BUTTONS */
         .btn {
             display: inline-block;
-            padding: 12px 18px;
-            border-radius: 12px;
+            padding: 11px 17px;
+            border: none;
+            border-radius: 10px;
             font-size: 14px;
             font-weight: bold;
             text-align: center;
-        }
-
-        .btn-light {
-            background: #f0efff;
-            color: #5b4cf5;
         }
 
         .btn-primary {
@@ -89,201 +113,291 @@
         }
 
         .btn-primary:hover {
-            background: #4338ca;
+            background: #4638d8;
         }
 
-        /* Main content */
-        main {
-            min-height: 650px;
-            padding: 70px 0 60px;
+        .btn-outline {
+            background: white;
+            border: 1px solid #e7e9f0;
+            color: #172033;
         }
 
-        .subtitle {
+        .btn-outline:hover {
+            border-color: #5b4cf5;
             color: #5b4cf5;
-            font-size: 13px;
+        }
+
+        .btn-soft {
+            background: #efedff;
+            color: #5b4cf5;
+        }
+
+        /* PAGE HEADING */
+        .page-heading {
+            padding: 48px 0 25px;
+        }
+
+        .eyebrow {
+            color: #5b4cf5;
+            font-size: 12px;
             font-weight: bold;
             letter-spacing: 1px;
         }
 
-        h1 {
-            font-size: 46px;
-            margin: 12px 0;
+        .page-heading h1 {
+            font-size: 39px;
+            margin: 6px 0;
         }
 
-        .description {
+        .page-heading p {
             color: #6b7788;
-            font-size: 18px;
-            margin-bottom: 32px;
         }
 
-        /* Search and filters */
+        /* SEARCH AND FILTERS */
         .filters {
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 12px;
-            margin-bottom: 30px;
-        }
-
-        .filters input,
-        .filters select {
-            width: 100%;
-            padding: 16px 13px;
-            border: 1px solid #e0e5ef;
-            border-radius: 12px;
+            grid-template-columns: 2fr 1fr 1fr auto;
+            gap: 10px;
             background: white;
-            font-size: 15px;
+            border: 1px solid #e7e9f0;
+            padding: 14px;
+            border-radius: 15px;
+            margin: 15px 0 24px;
         }
 
-        /* Internship cards */
-        .job-grid {
+        .control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #dfe2eb;
+            border-radius: 10px;
+            outline: none;
+        }
+
+        .control:focus {
+            border-color: #5b4cf5;
+        }
+
+        /* RESULTS HEADING */
+        .section-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            margin: 25px 0 20px;
+        }
+
+        .muted {
+            color: #6b7788;
+        }
+
+        /* INTERNSHIP CARDS */
+        .cards {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            gap: 18px;
         }
 
         .job-card {
             background: white;
-            border: 1px solid #e0e5ef;
+            border: 1px solid #e7e9f0;
             border-radius: 18px;
-            padding: 23px;
-            transition: 0.2s;
+            padding: 21px;
+            display: flex;
+            flex-direction: column;
+            min-height: 245px;
+            box-shadow: 0 5px 20px rgba(25, 32, 55, 0.04);
         }
 
-        .job-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(31, 41, 55, 0.08);
-        }
-
-        .company-logo {
-            width: 50px;
-            height: 50px;
+        .feature-top {
             display: flex;
             align-items: center;
-            justify-content: center;
-            background: #f0efff;
+            gap: 13px;
+        }
+
+        .company-mark {
+            width: 46px;
+            height: 46px;
+            border-radius: 12px;
+            background: #efedff;
             color: #5b4cf5;
-            border-radius: 13px;
-            font-size: 22px;
+            display: grid;
+            place-items: center;
+            font-size: 18px;
             font-weight: bold;
-            margin-bottom: 20px;
+            flex-shrink: 0;
         }
 
         .job-card h3 {
-            font-size: 19px;
-            margin-bottom: 6px;
+            font-size: 17px;
+            margin-bottom: 4px;
         }
 
         .company {
             color: #6b7788;
-            margin-bottom: 18px;
+            font-size: 14px;
         }
 
-        .tags {
+        .job-meta {
             display: flex;
             flex-wrap: wrap;
-            gap: 7px;
-            margin-bottom: 20px;
+            gap: 12px;
+            color: #6b7788;
+            font-size: 13px;
+            margin: 14px 0;
         }
 
         .tag {
-            background: #f3f4f7;
+            display: inline-block;
+            background: #f1f2f8;
             color: #596579;
-            padding: 7px 9px;
-            border-radius: 7px;
+            border-radius: 20px;
+            padding: 5px 10px;
+            font-size: 12px;
+            font-weight: bold;
+            margin: 4px 3px 0 0;
+        }
+
+        .card-bottom {
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 8px;
+            padding-top: 15px;
+            border-top: 1px solid #e7e9f0;
+        }
+
+        .card-buttons {
+            display: flex;
+            gap: 6px;
+        }
+
+        .card-buttons .btn {
+            padding: 9px 11px;
             font-size: 12px;
         }
 
-        .job-bottom {
-            border-top: 1px solid #e5e8ef;
-            padding-top: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 10px;
+        /* EMPTY RESULT MESSAGE */
+        .empty-state {
+            text-align: center;
+            padding: 55px 20px;
+            background: white;
+            border: 1px dashed #cfd2df;
+            border-radius: 18px;
+            margin-top: 20px;
         }
 
-        .salary {
-            font-size: 14px;
+        .empty-icon {
+            font-size: 38px;
+        }
+
+        .empty-state h3 {
+            margin: 10px 0 4px;
+        }
+
+        /* FOOTER */
+        .footer {
+            margin-top: 55px;
+            background: #171d2c;
+            color: #c4cada;
+            padding: 35px 0;
+        }
+
+        .footer-grid {
+            display: flex;
+            justify-content: space-between;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .footer-brand {
+            font-size: 24px;
             font-weight: bold;
+            color: white;
         }
 
-        /* Footer */
-        footer {
-            background: #161c2c;
-            color: #aeb7c7;
-            padding: 65px 0 35px;
+        .footer-brand span {
+            color: #a69eff;
         }
 
-        .footer-bottom {
-            border-top: 1px solid #2a3244;
-            padding-top: 25px;
-            display: flex;
-            justify-content: space-between;
-            gap: 15px;
-            font-size: 14px;
+        .footer a {
+            color: white;
+            margin-right: 15px;
         }
 
-        /* Tablet */
+        .footer small {
+            color: #9da7bb;
+        }
+
+        /* TOAST MESSAGE */
+        .toast {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            background: #172033;
+            color: white;
+            padding: 13px 18px;
+            border-radius: 10px;
+            display: none;
+            z-index: 100;
+        }
+
+        .toast.show {
+            display: block;
+        }
+
+        /* TABLET RESPONSIVE DESIGN */
         @media (max-width: 900px) {
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .nav-links {
+                gap: 12px;
+            }
+        }
+
+        /* MOBILE RESPONSIVE DESIGN */
+        @media (max-width: 700px) {
             .nav {
                 flex-wrap: wrap;
-                padding: 18px 0;
+                padding: 12px 0;
+            }
+
+            .menu-toggle {
+                display: block;
             }
 
             .nav-links {
-                order: 3;
+                display: none;
                 width: 100%;
-                justify-content: center;
-                flex-wrap: wrap;
+                order: 3;
+                flex-direction: column;
+                padding: 12px 0;
             }
 
-            .job-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .nav-links.open {
+                display: flex;
             }
 
-            .filters {
-                grid-template-columns: repeat(2, 1fr);
+            .nav-actions .btn-outline {
+                display: none;
             }
 
-            h1 {
-                font-size: 38px;
-            }
-        }
-
-        /* Mobile */
-        @media (max-width: 600px) {
-            .container {
-                width: 92%;
-            }
-
-            main {
-                padding-top: 40px;
-            }
-
-            h1 {
-                font-size: 32px;
-            }
-
-            .description {
-                font-size: 15px;
-            }
-
-            .nav-links {
-                gap: 14px;
-                font-size: 13px;
-            }
-
-            .nav-buttons .btn {
-                padding: 9px 10px;
-                font-size: 12px;
-            }
-
-            .filters,
-            .job-grid {
+            .cards {
                 grid-template-columns: 1fr;
             }
 
-            .footer-bottom {
+            .filters {
+                grid-template-columns: 1fr;
+            }
+
+            .page-heading h1 {
+                font-size: 32px;
+            }
+
+            .section-head {
+                align-items: flex-start;
                 flex-direction: column;
             }
         }
@@ -292,145 +406,756 @@
 
 <body>
 
-    <!-- Navigation bar -->
-    <header class="navbar">
+    <!-- NAVIGATION BAR -->
+    <header class="site-header">
         <div class="container nav">
 
-            <a href="index.html" class="brand">
+            <a class="brand" href="index.html">
                 Job<span>Adda</span>
             </a>
 
-            <nav class="nav-links">
+            <button class="menu-toggle" id="menuToggle">
+                ☰
+            </button>
+
+            <nav class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
                 <a href="jobs.html">Jobs</a>
                 <a href="internships.html">Internships</a>
                 <a href="saved.html">Saved</a>
-                <a href="dashboard.html">Dashboard</a>
                 <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
             </nav>
 
-            <div class="nav-buttons">
-                <a href="login.html" class="btn btn-light">Login</a>
-                <a href="register.html" class="btn btn-primary">Register</a>
+            <div class="nav-actions">
+                <a class="btn btn-outline" href="login.html" id="navLogin">
+                    Log in
+                </a>
+
+                <a class="btn btn-primary" href="register.html" id="navRegister">
+                    Get started
+                </a>
             </div>
 
         </div>
     </header>
 
-    <!-- Internship content -->
-    <main>
-        <div class="container">
 
-            <p class="subtitle">EXPLORE OPPORTUNITIES</p>
+    <!-- MAIN CONTENT -->
+    <main class="container">
 
-            <h1>Student internships</h1>
+        <!-- PAGE HEADING -->
+        <section class="page-heading">
 
-            <p class="description">
-                Explore internships designed for college students.
+            <div class="eyebrow">
+                EXPLORE OPPORTUNITIES
+            </div>
+
+            <h1>Learn by doing</h1>
+
+            <p>
+                Find internships where you can build skills and gain practical experience.
             </p>
 
-            <!-- Search and filters -->
-            <div class="filters">
-                <input type="text"
-                       placeholder="Search by title, company or skill"
-                       aria-label="Search internships">
+        </section>
 
-                <select aria-label="Location">
-                    <option>All locations</option>
-                    <option>Bengaluru</option>
-                    <option>Mumbai</option>
-                    <option>Pune</option>
-                    <option>Hyderabad</option>
-                    <option>Delhi</option>
-                </select>
 
-                <select aria-label="Internship type">
-                    <option>All types</option>
-                    <option>Internship</option>
-                    <option>Full-time</option>
-                </select>
+        <!-- SEARCH AND FILTER FORM -->
+        <form class="filters" id="listingFilters">
 
-                <select aria-label="Work mode">
-                    <option>All modes</option>
-                    <option>Remote</option>
-                    <option>Hybrid</option>
-                    <option>On-site</option>
-                </select>
+            <input
+                type="text"
+                class="control"
+                id="searchInput"
+                placeholder="Search title, company or skill..."
+            >
+
+            <select class="control" id="locationFilter">
+                <option value="">All locations</option>
+                <option value="Remote">Remote</option>
+                <option value="New Delhi">New Delhi</option>
+                <option value="Bengaluru">Bengaluru</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Hyderabad">Hyderabad</option>
+                <option value="Pune">Pune</option>
+            </select>
+
+            <select class="control" id="modeFilter">
+                <option value="">All work modes</option>
+                <option value="Remote">Remote</option>
+                <option value="Hybrid">Hybrid</option>
+                <option value="On-site">On-site</option>
+            </select>
+
+            <button type="submit" class="btn btn-primary">
+                Search
+            </button>
+
+        </form>
+
+
+        <!-- RESULTS HEADING -->
+        <div class="section-head">
+
+            <div>
+                <strong id="resultCount">
+                    Loading internships...
+                </strong>
+
+                <div class="muted" style="font-size:13px">
+                    Save internships to view them later.
+                </div>
             </div>
 
-            <!-- Internship cards -->
-            <div class="job-grid">
+            <a href="saved.html" class="btn btn-soft">
+                ♡ Saved opportunities
+            </a>
 
-                <!-- Internship 1 -->
-                <div class="job-card">
-                    <div class="company-logo">N</div>
-
-                    <h3>Frontend Developer Intern</h3>
-                    <p class="company">Nova Labs</p>
-
-                    <div class="tags">
-                        <span class="tag">Internship</span>
-                        <span class="tag">Hybrid</span>
-                        <span class="tag">JavaScript</span>
-                    </div>
-
-                    <div class="job-bottom">
-                        <span class="salary">₹15K/month</span>
-                        <a href="job-details.html"
-                           class="btn btn-light">View Details</a>
-                    </div>
-                </div>
-
-                <!-- Internship 2 -->
-                <div class="job-card">
-                    <div class="company-logo">C</div>
-
-                    <h3>UI/UX Design Intern</h3>
-                    <p class="company">Creative Studio</p>
-
-                    <div class="tags">
-                        <span class="tag">Figma</span>
-                        <span class="tag">UI Design</span>
-                        <span class="tag">Prototyping</span>
-                    </div>
-
-                    <div class="job-bottom">
-                        <span class="salary">₹12K/month</span>
-                        <a href="job-details.html"
-                           class="btn btn-light">View Details</a>
-                    </div>
-                </div>
-
-                <!-- Internship 3 -->
-                <div class="job-card">
-                    <div class="company-logo">D</div>
-
-                    <h3>Data Analyst Intern</h3>
-                    <p class="company">DataWorks</p>
-
-                    <div class="tags">
-                        <span class="tag">Excel</span>
-                        <span class="tag">Python</span>
-                        <span class="tag">SQL</span>
-                    </div>
-
-                    <div class="job-bottom">
-                        <span class="salary">₹14K/month</span>
-                        <a href="job-details.html"
-                           class="btn btn-light">View Details</a>
-                    </div>
-                </div>
-
-            </div>
         </div>
+
+
+        <!-- INTERNSHIP CARDS WILL APPEAR HERE -->
+        <div class="cards" id="listingResults"></div>
+
+
+        <!-- EMPTY RESULT MESSAGE -->
+        <div class="empty-state" id="emptyResults" hidden>
+
+            <div class="empty-icon">🔍</div>
+
+            <h3>No matching internships</h3>
+
+            <p class="muted">
+                Try another keyword or clear your filters.
+            </p>
+
+            <button class="btn btn-outline" id="clearFilters">
+                Clear filters
+            </button>
+
+        </div>
+
     </main>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container footer-bottom">
-            <span>JobAdda</span>
-            <span>Simple student career portal</span>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <div class="container footer-grid">
+
+            <div>
+                <div class="footer-brand">
+                    Job<span>Adda</span>
+                </div>
+
+                <p>
+                    Discover opportunities. Build your future.
+                </p>
+
+                <small>
+                    © 2026 JobAdda · College project demo
+                </small>
+            </div>
+
+            <div>
+                <a href="jobs.html">Find jobs</a>
+                <a href="internships.html">Internships</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+
         </div>
+
     </footer>
+
+
+    <!-- TOAST MESSAGE -->
+    <div class="toast" id="toast"></div>
+
+
+    <script>
+
+        window.JOBADDA_STARTER_ITEMS = [
+
+            {
+                id: 101,
+                title: "Frontend Developer Intern",
+                company: "NovaTech Solutions",
+                location: "Remote",
+                mode: "Remote",
+                type: "Internship",
+                salary: "₹12,000 / month",
+                category: "internship",
+                skills: ["HTML", "CSS", "JavaScript"],
+                description: "Work with the product team to build responsive web interfaces."
+            },
+
+            {
+                id: 102,
+                title: "Junior Java Developer",
+                company: "CodeCraft Systems",
+                location: "Bengaluru",
+                mode: "Hybrid",
+                type: "Full-time",
+                salary: "₹3–5 LPA",
+                category: "job",
+                skills: ["Java", "OOP", "SQL"],
+                description: "Support development of Java applications and work with senior engineers."
+            },
+
+            {
+                id: 103,
+                title: "Data Analyst Trainee",
+                company: "Insight Analytics",
+                location: "Pune",
+                mode: "On-site",
+                type: "Full-time",
+                salary: "₹3.2 LPA",
+                category: "job",
+                skills: ["Excel", "SQL", "Python"],
+                description: "Assist the analytics team with data cleaning, dashboards and reporting."
+            },
+
+            {
+                id: 104,
+                title: "UI/UX Design Intern",
+                company: "PixelWave Studio",
+                location: "Remote",
+                mode: "Remote",
+                type: "Internship",
+                salary: "₹10,000 / month",
+                category: "internship",
+                skills: ["Figma", "Wireframing", "Prototyping"],
+                description: "Create wireframes and prototypes and help improve user experiences."
+            },
+
+            {
+                id: 105,
+                title: "Marketing Associate",
+                company: "BrightPath Media",
+                location: "Mumbai",
+                mode: "Hybrid",
+                type: "Full-time",
+                salary: "₹3–4 LPA",
+                category: "job",
+                skills: ["Communication", "SEO", "Content"],
+                description: "Help plan digital campaigns and track campaign performance."
+            },
+
+            {
+                id: 106,
+                title: "Python Development Intern",
+                company: "TechBridge Labs",
+                location: "Hyderabad",
+                mode: "On-site",
+                type: "Internship",
+                salary: "₹15,000 / month",
+                category: "internship",
+                skills: ["Python", "Django", "Git"],
+                description: "Contribute to backend prototypes and automation scripts."
+            },
+
+            {
+                id: 107,
+                title: "HR Operations Executive",
+                company: "PeopleFirst Group",
+                location: "New Delhi",
+                mode: "On-site",
+                type: "Full-time",
+                salary: "₹2.8–3.5 LPA",
+                category: "job",
+                skills: ["HR", "Excel", "Communication"],
+                description: "Coordinate interview schedules and maintain candidate records."
+            },
+
+            {
+                id: 108,
+                title: "Cloud Support Associate",
+                company: "SkyStack Services",
+                location: "Remote",
+                mode: "Remote",
+                type: "Full-time",
+                salary: "₹4–6 LPA",
+                category: "job",
+                skills: ["Linux", "Networking", "Cloud"],
+                description: "Help troubleshoot cloud service issues and document solutions."
+            },
+
+            {
+                id: 109,
+                title: "Business Development Intern",
+                company: "LaunchPad Ventures",
+                location: "Pune",
+                mode: "Hybrid",
+                type: "Internship",
+                salary: "₹8,000 / month",
+                category: "internship",
+                skills: ["Research", "Sales", "Communication"],
+                description: "Support market research, outreach and lead tracking."
+            }
+
+        ];
+
+
+        function jobaddaGetItems() {
+
+            try {
+
+                let storedItems = localStorage.getItem("jobaddaItems");
+
+                if (storedItems) {
+                    return JSON.parse(storedItems);
+                }
+
+                return window.JOBADDA_STARTER_ITEMS.slice();
+
+            } catch (error) {
+
+                return window.JOBADDA_STARTER_ITEMS.slice();
+
+            }
+
+        }
+
+
+        // --------------------------------
+        // 3. SAVE OPPORTUNITIES
+        // --------------------------------
+
+        function jobaddaSaveItems(items) {
+
+            localStorage.setItem("jobaddaItems", JSON.stringify(items));
+
+        }
+
+
+        // --------------------------------
+        // 4. GET SAVED OPPORTUNITIES
+        // --------------------------------
+
+        function jobaddaGetSaved() {
+
+            try {
+
+                let savedItems = localStorage.getItem("jobaddaSaved");
+
+                if (savedItems) {
+                    return JSON.parse(savedItems);
+                }
+
+                return [];
+
+            } catch (error) {
+
+                return [];
+
+            }
+
+        }
+
+
+        function jobaddaSaveSaved(items) {
+
+            localStorage.setItem("jobaddaSaved", JSON.stringify(items));
+
+        }
+
+
+        function jobaddaEscape(text) {
+
+            let value = String(text ?? "");
+
+            return value.replace(/[&<>"']/g, function(character) {
+
+                let symbols = {
+                    "&": "&amp;",
+                    "<": "&lt;",
+                    ">": "&gt;",
+                    '"': "&quot;",
+                    "'": "&#39;"
+                };
+
+                return symbols[character];
+
+            });
+
+        }
+
+
+
+        function jobaddaCard(item) {
+
+            let savedItems = jobaddaGetSaved();
+
+            let isSaved = savedItems.includes(Number(item.id));
+
+            let saveButtonText = "♡ Save";
+
+            if (isSaved) {
+                saveButtonText = "Saved ✓";
+            }
+
+            let skillsHTML = "";
+
+            for (let i = 0; i < item.skills.length && i < 3; i++) {
+
+                skillsHTML += `
+                    <span class="tag">
+                        ${jobaddaEscape(item.skills[i])}
+                    </span>
+                `;
+
+            }
+
+            return `
+                <article class="job-card">
+
+                    <div class="feature-top">
+
+                        <div class="company-mark">
+                            ${jobaddaEscape(item.company.charAt(0).toUpperCase())}
+                        </div>
+
+                        <div>
+                            <h3>${jobaddaEscape(item.title)}</h3>
+
+                            <div class="company">
+                                ${jobaddaEscape(item.company)}
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="job-meta">
+
+                        <span>⌖ ${jobaddaEscape(item.location)}</span>
+
+                        <span>◷ ${jobaddaEscape(item.mode)}</span>
+
+                    </div>
+
+                    <div>
+                        ${skillsHTML}
+                    </div>
+
+                    <div class="card-bottom">
+
+                        <strong>
+                            ${jobaddaEscape(item.salary || "Pay not listed")}
+                        </strong>
+
+                        <div class="card-buttons">
+
+                            <button
+                                class="btn btn-soft"
+                                data-save="${item.id}"
+                            >
+                                ${saveButtonText}
+                            </button>
+
+                            <a
+                                class="btn btn-primary"
+                                href="job-details.html?id=${encodeURIComponent(item.id)}"
+                            >
+                                Details
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </article>
+            `;
+
+        }
+
+
+
+        function jobaddaToast(message) {
+
+            let toast = document.getElementById("toast");
+
+            toast.textContent = message;
+
+            toast.classList.add("show");
+
+            setTimeout(function() {
+
+                toast.classList.remove("show");
+
+            }, 2400);
+
+        }
+
+
+        document.addEventListener("DOMContentLoaded", function() {
+
+            let menu = document.getElementById("menuToggle");
+
+            let links = document.getElementById("navLinks");
+
+            menu.addEventListener("click", function() {
+
+                links.classList.toggle("open");
+
+            });
+
+
+            // Check logged-in user
+
+            let currentUser = localStorage.getItem("jobaddaCurrentUser");
+
+            let loginButton = document.getElementById("navLogin");
+
+            let registerButton = document.getElementById("navRegister");
+
+            if (currentUser) {
+
+                loginButton.textContent = "Dashboard";
+
+                loginButton.href = "dashboard.html";
+
+                registerButton.textContent = "Log out";
+
+                registerButton.href = "#";
+
+                registerButton.addEventListener("click", function(event) {
+
+                    event.preventDefault();
+
+                    localStorage.removeItem("jobaddaCurrentUser");
+
+                    window.location.href = "index.html";
+
+                });
+
+            }
+
+
+            // Highlight current page in navigation
+
+            let currentPage = location.pathname.split("/").pop();
+
+            let navigationLinks = document.querySelectorAll(".nav-links a");
+
+            navigationLinks.forEach(function(link) {
+
+                if (link.getAttribute("href") === currentPage) {
+
+                    link.classList.add("active");
+
+                }
+
+            });
+
+        });
+
+        document.addEventListener("click", function(event) {
+
+            let button = event.target.closest("[data-save]");
+
+            if (!button) {
+                return;
+            }
+
+            let id = Number(button.dataset.save);
+
+            let savedItems = jobaddaGetSaved();
+
+            if (savedItems.includes(id)) {
+
+                let updatedItems = savedItems.filter(function(itemId) {
+
+                    return itemId !== id;
+
+                });
+
+                jobaddaSaveSaved(updatedItems);
+
+                button.textContent = "♡ Save";
+
+                jobaddaToast("Removed from saved opportunities");
+
+            } else {
+
+                savedItems.push(id);
+
+                jobaddaSaveSaved(savedItems);
+
+                button.textContent = "Saved ✓";
+
+                jobaddaToast("Opportunity saved");
+
+            }
+
+        });
+
+
+
+        document.addEventListener("DOMContentLoaded", function() {
+
+            let searchInput = document.getElementById("searchInput");
+
+            let locationFilter = document.getElementById("locationFilter");
+
+            let modeFilter = document.getElementById("modeFilter");
+
+            let results = document.getElementById("listingResults");
+
+            let resultCount = document.getElementById("resultCount");
+
+            let emptyResults = document.getElementById("emptyResults");
+
+            let filterForm = document.getElementById("listingFilters");
+
+            let clearButton = document.getElementById("clearFilters");
+
+
+            // Read search keyword from URL if available
+
+            let urlParameters = new URLSearchParams(location.search);
+
+            searchInput.value = urlParameters.get("q") || "";
+
+
+            // Function to display internships
+
+            function showInternships() {
+
+                let keyword = searchInput.value.toLowerCase().trim();
+
+                let selectedLocation = locationFilter.value;
+
+                let selectedMode = modeFilter.value;
+
+                let allItems = jobaddaGetItems();
+
+                let filteredItems = [];
+
+
+                // Check every opportunity
+
+                for (let i = 0; i < allItems.length; i++) {
+
+                    let item = allItems[i];
+
+                    // Show only internships
+
+                    if (item.category !== "internship") {
+                        continue;
+                    }
+
+
+                    // Search in title, company, location and skills
+
+                    let searchText = (
+                        item.title + " " +
+                        item.company + " " +
+                        item.location + " " +
+                        (item.skills || []).join(" ")
+                    ).toLowerCase();
+
+
+                    let matchesKeyword = searchText.includes(keyword);
+
+                    let matchesLocation = (
+                        selectedLocation === "" ||
+                        item.location === selectedLocation
+                    );
+
+                    let matchesMode = (
+                        selectedMode === "" ||
+                        item.mode === selectedMode
+                    );
+
+
+                    // Add matching internship
+
+                    if (matchesKeyword && matchesLocation && matchesMode) {
+
+                        filteredItems.push(item);
+
+                    }
+
+                }
+
+
+                // Display internship cards
+
+                let cardsHTML = "";
+
+                for (let i = 0; i < filteredItems.length; i++) {
+
+                    cardsHTML += jobaddaCard(filteredItems[i]);
+
+                }
+
+                results.innerHTML = cardsHTML;
+
+
+                // Update result count
+
+                resultCount.textContent =
+                    filteredItems.length + " internships found";
+
+
+                // Show empty message if no results
+
+                if (filteredItems.length === 0) {
+
+                    emptyResults.hidden = false;
+
+                } else {
+
+                    emptyResults.hidden = true;
+
+                }
+
+            }
+
+
+            // Search button
+
+            filterForm.addEventListener("submit", function(event) {
+
+                event.preventDefault();
+
+                showInternships();
+
+            });
+
+
+            // Update results when filters change
+
+            searchInput.addEventListener("input", showInternships);
+
+            locationFilter.addEventListener("change", showInternships);
+
+            modeFilter.addEventListener("change", showInternships);
+
+
+            // Clear all filters
+
+            clearButton.addEventListener("click", function() {
+
+                searchInput.value = "";
+
+                locationFilter.value = "";
+
+                modeFilter.value = "";
+
+                showInternships();
+
+            });
+
+
+            // Show internships when page loads
+
+            showInternships();
+
+        });
+
+    </script>
 
 </body>
 </html>
