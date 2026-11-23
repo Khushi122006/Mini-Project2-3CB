@@ -1,11 +1,22 @@
-
+<!DOCTYPE html>
+<!DOCTYPE html>
+<!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Internships | JobAdda</title>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="JobAdda student placement and opportunity portal" name="description"/>
+  <title>
+   Internships | JobAdda
+  </title>
+  <style>
+   /* internships.html styles
+   This page has its own stylesheet.
+   Edit this file to change the appearance of internships.html.
+*/
 
+<<<<<<< HEAD
     <style>
         /* BASIC PAGE SETTINGS */
         * {
@@ -20,12 +31,30 @@
             color: #172033;
             line-height: 1.6;
         }
+=======
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap');
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+:root {
+  --primary: #5b4cf5;
+  --primary-dark: #4638d8;
+  --ink: #172033;
+  --muted: #6b7788;
+  --bg: #f6f7fb;
+  --white: #fff;
+  --line: #e7e9f0;
+  --soft: #efedff;
+  --green: #16845d;
+  --red: #d9485f;
+  --shadow: 0 14px 38px rgba(28,35,62,.08);
+  --radius: 18px;
+}
+>>>>>>> feature/listings
 
+* {
+  box-sizing: border-box;
+}
+
+<<<<<<< HEAD
         button, input, select {
             font: inherit;
         }
@@ -62,11 +91,34 @@
             font-weight: bold;
             color: #172033;
         }
+=======
+html {
+  scroll-behavior: smooth;
+}
 
-        .brand span {
-            color: #5b4cf5;
-        }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'DM Sans',Arial,sans-serif;
+  line-height: 1.6;
+}
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,input,select,textarea {
+  font: inherit;
+}
+>>>>>>> feature/listings
+
+button {
+  cursor: pointer;
+}
+
+<<<<<<< HEAD
         .nav-links {
             display: flex;
             gap: 25px;
@@ -366,8 +418,900 @@
 
             .menu-toggle {
                 display: block;
-            }
+=======
+.container {
+  width: min(1160px,calc(100% - 40px));
+  margin: auto;
+}
 
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255,255,255,.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.brand {
+  font: 800 27px 'Manrope',sans-serif;
+  letter-spacing: -1.2px;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.brand span {
+  color: var(--primary);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  color: #566176;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.nav-links a:hover,.nav-links a.active {
+  color: var(--primary);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.menu-toggle {
+  display: none;
+  border: 1px solid var(--line);
+  background: white;
+  border-radius: 10px;
+  padding: 9px 12px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid transparent;
+  border-radius: 11px;
+  padding: 11px 17px;
+  font-weight: 700;
+  font-size: 14px;
+  transition: .2s;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+  box-shadow: 0 7px 16px #5b4cf52b;
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background: #fff;
+  border-color: var(--line);
+  color: var(--ink);
+}
+
+.btn-outline:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.btn-soft {
+  background: var(--soft);
+  color: var(--primary);
+}
+
+.btn-danger {
+  background: #fff0f2;
+  color: var(--red);
+}
+
+.btn-block {
+  width: 100%;
+}
+
+.eyebrow {
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+
+.hero {
+  padding: 76px 0 56px;
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  align-items: center;
+  gap: 55px;
+}
+
+.hero h1 {
+  font: 800 clamp(42px,6vw,66px)/1.08 'Manrope',sans-serif;
+  letter-spacing: -2.8px;
+  margin: 14px 0 18px;
+}
+
+.gradient-text {
+  color: var(--primary);
+}
+
+.lead {
+  font-size: 18px;
+  color: var(--muted);
+  max-width: 610px;
+}
+
+.search-panel {
+  display: flex;
+  gap: 10px;
+  padding: 9px;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  margin-top: 28px;
+  max-width: 680px;
+}
+
+.search-panel input {
+  border: 0;
+  outline: 0;
+  min-width: 0;
+  flex: 1;
+  padding: 10px 12px;
+}
+
+.hero-art {
+  background: linear-gradient(145deg,#eae7ff,#fff 70%);
+  border: 1px solid #dedaff;
+  border-radius: 28px;
+  padding: 34px;
+  min-height: 350px;
+  display: flex;
+  align-items: center;
+}
+
+.feature-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 25px;
+  width: 100%;
+  box-shadow: 0 22px 55px #3332;
+  transform: rotate(1deg);
+}
+
+.feature-top {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.company-mark {
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  background: var(--soft);
+  color: var(--primary);
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  font-size: 18px;
+}
+
+.feature-card h3 {
+  margin: 0;
+  font-size: 19px;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.tag {
+  display: inline-flex;
+  background: #f1f2f8;
+  color: #596579;
+  border-radius: 30px;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  margin: 5px 5px 0 0;
+}
+
+.tag.purple {
+  background: var(--soft);
+  color: var(--primary);
+}
+
+.section {
+  padding: 45px 0;
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 20px;
+  margin-bottom: 22px;
+}
+
+.section-head h2 {
+  font: 800 29px 'Manrope',sans-serif;
+  margin: 5px 0;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 16px;
+  margin: 22px 0 10px;
+}
+
+.stat {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 22px;
+}
+
+.stat strong {
+  display: block;
+  font: 800 28px 'Manrope';
+  color: var(--primary);
+}
+
+.stat span {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 18px;
+}
+
+.job-card,.panel,.auth-card,.info-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: 0 5px 20px rgba(25,32,55,.035);
+}
+
+.job-card {
+  padding: 21px;
+  display: flex;
+  flex-direction: column;
+  min-height: 245px;
+}
+
+.job-card h3 {
+  margin: 13px 0 4px;
+  font-size: 18px;
+}
+
+.job-card .company {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.job-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  color: var(--muted);
+  font-size: 13px;
+  margin: 13px 0;
+}
+
+.job-card .card-bottom {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+
+.page-heading {
+  padding: 48px 0 25px;
+}
+
+.page-heading h1 {
+  font: 800 39px 'Manrope';
+  margin: 6px 0;
+}
+
+.page-heading p {
+  color: var(--muted);
+  margin: 0;
+}
+
+.filters {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr auto;
+  gap: 10px;
+  background: white;
+  border: 1px solid var(--line);
+  padding: 14px;
+  border-radius: 15px;
+  margin: 15px 0 24px;
+}
+
+.control {
+  width: 100%;
+  border: 1px solid #dfe2eb;
+  background: #fff;
+  border-radius: 10px;
+  padding: 12px 13px;
+  outline: none;
+}
+
+.control:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px #5b4cf51a;
+}
+
+.auth-wrap {
+  min-height: calc(100vh - 150px);
+  display: grid;
+  place-items: center;
+  padding: 45px 16px;
+}
+
+.auth-card {
+  width: min(100%,510px);
+  padding: 35px;
+}
+
+.auth-card h1 {
+  text-align: center;
+  font: 800 31px 'Manrope';
+  margin: 0 0 7px;
+}
+
+.auth-sub {
+  text-align: center;
+  color: var(--muted);
+  margin: 0 0 27px;
+}
+
+.field {
+  margin: 0 0 17px;
+}
+
+.field label {
+  display: block;
+  font-weight: 700;
+  font-size: 13px;
+  margin-bottom: 7px;
+}
+
+.field input,.field select,.field textarea {
+  width: 100%;
+  padding: 12px 13px;
+  border: 1px solid #dfe2eb;
+  border-radius: 10px;
+  outline: 0;
+  background: white;
+}
+
+.field input:focus,.field select:focus,.field textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px #5b4cf51a;
+}
+
+.role-row {
+  display: flex;
+  gap: 22px;
+  padding: 13px;
+  background: #f8f8fc;
+  border-radius: 11px;
+  margin-bottom: 20px;
+}
+
+.role-row label {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-weight: 600;
+}
+
+.role-row input {
+  accent-color: var(--primary);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 13px;
+}
+
+.auth-foot {
+  text-align: center;
+  margin: 20px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.auth-foot a {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.notice {
+  padding: 11px 13px;
+  border-radius: 10px;
+  font-size: 13px;
+  margin: 13px 0;
+  display: none;
+}
+
+.notice.show {
+  display: block;
+}
+
+.notice.error {
+  background: #fff0f2;
+  color: #b4233d;
+}
+
+.notice.success {
+  background: #eaf8f1;
+  color: #16734f;
+}
+
+.inline-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  margin: 4px 0 18px;
+}
+
+.inline-between a {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.detail-layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 22px;
+  padding: 25px 0 60px;
+}
+
+.panel {
+  padding: 25px;
+}
+
+.panel h2 {
+  margin: 0 0 12px;
+  font: 800 21px 'Manrope';
+}
+
+.detail-title {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.detail-title h1 {
+  font: 800 30px 'Manrope';
+  margin: 0;
+}
+
+.description-text {
+  color: #536078;
+  white-space: pre-line;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 55px 20px;
+  background: white;
+  border: 1px dashed #cfd2df;
+  border-radius: 18px;
+}
+
+.empty-state .empty-icon {
+  font-size: 38px;
+}
+
+.empty-state h3 {
+  margin: 10px 0 4px;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 16px;
+}
+
+.dashboard-tile {
+  padding: 22px;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+}
+
+.dashboard-tile strong {
+  font: 800 28px 'Manrope';
+  display: block;
+  color: var(--primary);
+}
+
+.admin-layout {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.admin-list {
+  display: grid;
+  gap: 12px;
+}
+
+.admin-item {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 16px;
+}
+
+.admin-item h3 {
+  margin: 0 0 4px;
+}
+
+.admin-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.footer {
+  margin-top: 55px;
+  background: #171d2c;
+  color: #c4cada;
+  padding: 35px 0;
+}
+
+.footer-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.footer a {
+  color: #fff;
+  margin-right: 15px;
+}
+
+.footer-brand {
+  font: 800 24px 'Manrope';
+  color: #fff;
+}
+
+.footer-brand span {
+  color: #a69eff;
+}
+
+.footer small {
+  color: #9da7bb;
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 18px;
+}
+
+.info-card {
+  padding: 25px;
+}
+
+.info-card h3 {
+  margin: 0 0 8px;
+}
+
+.toast {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background: #172033;
+  color: white;
+  padding: 13px 18px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  z-index: 100;
+  display: none;
+}
+
+.toast.show {
+  display: block;
+}
+
+@media (max-width:900px) {
+  .nav-links {
+    gap: 13px;
+  }
+  .hero {
+    gap: 25px;
+  }
+  .cards {
+    grid-template-columns: repeat(2,1fr);
+  }
+  .admin-layout {
+    grid-template-columns: 1fr;
+  }
+  .detail-layout {
+    grid-template-columns: 1fr 280px;
+  }
+}
+
+@media (max-width:700px) {
+  .nav {
+    flex-wrap: wrap;
+    padding: 13px 0;
+  }
+  .menu-toggle {
+    display: block;
+  }
+  .nav-links {
+    display: none;
+    order: 3;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 12px 0;
+  }
+  .nav-links.open {
+    display: flex;
+  }
+  .nav-actions .btn-outline {
+    display: none;
+  }
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 48px 0 30px;
+  }
+  .hero-art {
+    min-height: 260px;
+    padding: 20px;
+  }
+  .hero h1 {
+    font-size: 46px;
+  }
+  .stats,.cards,.dashboard-grid,.two-col {
+    grid-template-columns: 1fr;
+  }
+  .filters {
+    grid-template-columns: 1fr;
+  }
+  .detail-layout {
+    grid-template-columns: 1fr;
+  }
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  .auth-card {
+    padding: 26px 20px;
+  }
+  .section-head {
+    align-items: start;
+    flex-direction: column;
+  }
+  .page-heading h1 {
+    font-size: 32px;
+  }
+}
+  </style>
+ </head>
+ <body>
+  <header class="site-header">
+   <div class="container nav">
+    <a class="brand" href="index.html">
+     Job
+     <span>
+      Adda
+     </span>
+    </a>
+    <button aria-label="Open navigation" class="menu-toggle" id="menuToggle">
+     ☰
+    </button>
+    <nav class="nav-links" id="navLinks">
+     <a href="index.html">
+      Home
+     </a>
+     <a href="jobs.html">
+      Jobs
+     </a>
+     <a href="internships.html">
+      Internships
+     </a>
+     <a href="saved.html">
+      Saved
+     </a>
+     <a href="about.html">
+      About
+     </a>
+     <a href="contact.html">
+      Contact
+     </a>
+    </nav>
+    <div class="nav-actions">
+     <a class="btn btn-outline" href="login.html" id="navLogin">
+      Log in
+     </a>
+     <a class="btn btn-primary" href="register.html" id="navRegister">
+      Get started
+     </a>
+    </div>
+   </div>
+  </header>
+  <main class="container">
+   <section class="page-heading">
+    <div class="eyebrow">
+     EXPLORE OPPORTUNITIES
+    </div>
+    <h1>
+     Learn by doing
+    </h1>
+    <p>
+     Find internships where you can build skills and gain practical experience.
+    </p>
+   </section>
+   <form class="filters" id="listingFilters">
+    <input class="control" id="searchInput" placeholder="Search title, company or skill..."/>
+    <select class="control" id="locationFilter">
+     <option value="">
+      All locations
+     </option>
+     <option>
+      Remote
+     </option>
+     <option>
+      New Delhi
+     </option>
+     <option>
+      Bengaluru
+     </option>
+     <option>
+      Mumbai
+     </option>
+     <option>
+      Hyderabad
+     </option>
+     <option>
+      Pune
+     </option>
+    </select>
+    <select class="control" id="modeFilter">
+     <option value="">
+      All work modes
+     </option>
+     <option>
+      Remote
+     </option>
+     <option>
+      Hybrid
+     </option>
+     <option>
+      On-site
+     </option>
+    </select>
+    <button class="btn btn-primary">
+     Search
+    </button>
+   </form>
+   <div class="section-head">
+    <div>
+     <strong id="resultCount">
+      Loading opportunities&hellip;
+     </strong>
+     <div class="muted" style="font-size:13px">
+      Save roles to view them later.
+     </div>
+    </div>
+    <a class="btn btn-soft" href="saved.html">
+     ♡ Saved opportunities
+    </a>
+   </div>
+   <div class="cards" id="listingResults">
+   </div>
+   <div class="empty-state" hidden="" id="emptyResults">
+    <div class="empty-icon">
+     &telrec;
+    </div>
+    <h3>
+     No matching opportunities
+    </h3>
+    <p class="muted">
+     Try another keyword or clear your filters.
+    </p>
+    <button class="btn btn-outline" id="clearFilters">
+     Clear filters
+    </button>
+   </div>
+  </main>
+  <footer class="footer">
+   <div class="container footer-grid">
+    <div>
+     <div class="footer-brand">
+      Job
+      <span>
+       Adda
+      </span>
+     </div>
+     <p>
+      Discover opportunities. Build your future.
+     </p>
+     <small>
+      &copy; 2026 JobAdda &middot; College project demo
+     </small>
+    </div>
+    <div>
+     <a href="jobs.html">
+      Find jobs
+     </a>
+     <a href="internships.html">
+      Internships
+     </a>
+     <a href="about.html">
+      About
+     </a>
+     <a href="contact.html">
+      Contact
+     </a>
+    </div>
+   </div>
+  </footer>
+  <div class="toast" id="toast">
+  </div>
+  <script>
+    let starterItems = [];
+
+    const dataReady = fetch('data.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Could not load data.json');
+>>>>>>> feature/listings
+            }
+            return response.json();
+        })
+        .then(data => {
+            starterItems = data;
+        })
+        .catch(error => {
+            console.error(error);
+            alert('Could not load data.json. Please run this project with VS Code Live Server.');
+        });
+
+<<<<<<< HEAD
             .nav-links {
                 display: none;
                 width: 100%;
@@ -1158,4 +2102,177 @@
     </script>
 
 </body>
+=======
+    function getItems() {
+        try {
+            const stored = localStorage.getItem('jobaddaItems');
+            return stored ? JSON.parse(stored) : starterItems;
+        } catch (error) {
+            return starterItems;
+        }
+    }
+
+    function getCurrentUser() {
+        return JSON.parse(localStorage.getItem('jobaddaCurrentUser') || 'null');
+    }
+
+    function getSaved() {
+        try {
+            return JSON.parse(localStorage.getItem('jobaddaSaved') || '[]');
+        } catch (error) {
+            return [];
+        }
+    }
+
+    function saveSaved(ids) {
+        localStorage.setItem('jobaddaSaved', JSON.stringify(ids));
+    }
+
+    function escapeHtml(value) {
+        return String(value ?? '').replace(/[&<>"']/g, char => ({
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            '"': '&quot;',
+            "'": '&#39;'
+        }[char]));
+    }
+
+    function showToast(message) {
+        const toast = document.getElementById('toast');
+        toast.textContent = message;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2400);
+    }
+
+    function setupNav() {
+        document.getElementById('menuToggle').addEventListener('click', () => {
+            document.getElementById('navLinks').classList.toggle('open');
+        });
+
+        if (getCurrentUser()) {
+            const loginLink = document.getElementById('navLogin');
+            const registerLink = document.getElementById('navRegister');
+
+            loginLink.textContent = 'Dashboard';
+            loginLink.href = 'dashboard.html';
+
+            registerLink.textContent = 'Log out';
+            registerLink.href = '#';
+            registerLink.addEventListener('click', event => {
+                event.preventDefault();
+                localStorage.removeItem('jobaddaCurrentUser');
+                location.href = 'index.html';
+            });
+        }
+
+        const currentPage = location.pathname.split('/').pop();
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            if (link.getAttribute('href') === currentPage) {
+                link.classList.add('active');
+            }
+        });
+    }
+
+    function createCard(item) {
+        const isSaved = getSaved().includes(Number(item.id));
+        const firstLetter = (item.company || 'J').charAt(0).toUpperCase();
+        const skillTags = (item.skills || [])
+            .slice(0, 3)
+            .map(skill => `<span class="tag">${escapeHtml(skill)}</span>`)
+            .join('');
+
+        return `
+            <article class="job-card">
+                <div class="feature-top">
+                    <div class="company-mark">${escapeHtml(firstLetter)}</div>
+                    <div>
+                        <h3>${escapeHtml(item.title)}</h3>
+                        <div class="company">${escapeHtml(item.company)}</div>
+                    </div>
+                </div>
+                <div class="job-meta"><span>⌖ ${escapeHtml(item.location)}</span><span>◷ ${escapeHtml(item.mode)}</span></div>
+                <div>${skillTags}</div>
+                <div class="card-bottom">
+                    <strong>${escapeHtml(item.salary || 'Pay not listed')}</strong>
+                    <div style="display:flex;gap:6px">
+                        <button class="btn btn-soft" data-save="${item.id}">${isSaved ? 'Saved ✓' : '♡ Save'}</button>
+                        <a class="btn btn-primary" href="job-details.html?id=${encodeURIComponent(item.id)}">Details</a>
+                    </div>
+                </div>
+            </article>`;
+    }
+
+    document.addEventListener('click', event => {
+        const saveButton = event.target.closest('[data-save]');
+        if (!saveButton) {
+            return;
+        }
+
+        const id = Number(saveButton.dataset.save);
+        const savedIds = getSaved();
+
+        if (savedIds.includes(id)) {
+            saveSaved(savedIds.filter(savedId => savedId !== id));
+            saveButton.textContent = '♡ Save';
+            showToast('Removed from saved opportunities');
+        } else {
+            savedIds.push(id);
+            saveSaved(savedIds);
+            saveButton.textContent = 'Saved ✓';
+            showToast('Opportunity saved');
+        }
+    });
+
+    document.addEventListener('DOMContentLoaded', async () => {
+        setupNav();
+        await dataReady;
+
+        const searchInput = document.getElementById('searchInput');
+        const locationFilter = document.getElementById('locationFilter');
+        const modeFilter = document.getElementById('modeFilter');
+        const results = document.getElementById('listingResults');
+        const resultCount = document.getElementById('resultCount');
+        const emptyMessage = document.getElementById('emptyResults');
+
+        searchInput.value = new URLSearchParams(location.search).get('q') || '';
+
+        function render() {
+            const query = searchInput.value.trim().toLowerCase();
+
+            const filtered = getItems().filter(item => {
+                const searchableText = [item.title, item.company, item.location, ...(item.skills || [])]
+                    .join(' ')
+                    .toLowerCase();
+
+                return item.category === 'internship'
+                    && (!query || searchableText.includes(query))
+                    && (!locationFilter.value || item.location === locationFilter.value)
+                    && (!modeFilter.value || item.mode === modeFilter.value);
+            });
+
+            results.innerHTML = filtered.map(createCard).join('');
+            resultCount.textContent = `${filtered.length} internships found`;
+            emptyMessage.hidden = filtered.length > 0;
+        }
+
+        document.getElementById('listingFilters').addEventListener('submit', event => {
+            event.preventDefault();
+            render();
+        });
+
+        [searchInput, locationFilter, modeFilter].forEach(field => field.addEventListener('input', render));
+
+        document.getElementById('clearFilters').addEventListener('click', () => {
+            searchInput.value = '';
+            locationFilter.value = '';
+            modeFilter.value = '';
+            render();
+        });
+
+        render();
+    });
+  </script>
+ </body>
+>>>>>>> feature/listings
 </html>
