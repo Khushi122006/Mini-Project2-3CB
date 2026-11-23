@@ -1,482 +1,941 @@
-
+<!DOCTYPE html>
+<!DOCTYPE html>
+<!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About JobAdda</title>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="JobAdda student placement and opportunity portal" name="description"/>
+  <title>
+   About JobAdda | JobAdda
+  </title>
+  <style>
+   /* about.html styles
+   This page has its own stylesheet.
+   Edit this file to change the appearance of about.html.
+*/
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap');
+
+:root {
+  --primary: #5b4cf5;
+  --primary-dark: #4638d8;
+  --ink: #172033;
+  --muted: #6b7788;
+  --bg: #f6f7fb;
+  --white: #fff;
+  --line: #e7e9f0;
+  --soft: #efedff;
+  --green: #16845d;
+  --red: #d9485f;
+  --shadow: 0 14px 38px rgba(28,35,62,.08);
+  --radius: 18px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'DM Sans',Arial,sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,input,select,textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.container {
+  width: min(1160px,calc(100% - 40px));
+  margin: auto;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255,255,255,.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.brand {
+  font: 800 27px 'Manrope',sans-serif;
+  letter-spacing: -1.2px;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.brand span {
+  color: var(--primary);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  color: #566176;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.nav-links a:hover,.nav-links a.active {
+  color: var(--primary);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.menu-toggle {
+  display: none;
+  border: 1px solid var(--line);
+  background: white;
+  border-radius: 10px;
+  padding: 9px 12px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid transparent;
+  border-radius: 11px;
+  padding: 11px 17px;
+  font-weight: 700;
+  font-size: 14px;
+  transition: .2s;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+  box-shadow: 0 7px 16px #5b4cf52b;
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background: #fff;
+  border-color: var(--line);
+  color: var(--ink);
+}
+
+.btn-outline:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.btn-soft {
+  background: var(--soft);
+  color: var(--primary);
+}
+
+.btn-danger {
+  background: #fff0f2;
+  color: var(--red);
+}
+
+.btn-block {
+  width: 100%;
+}
+
+.eyebrow {
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+
+.hero {
+  padding: 76px 0 56px;
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  align-items: center;
+  gap: 55px;
+}
+
+.hero h1 {
+  font: 800 clamp(42px,6vw,66px)/1.08 'Manrope',sans-serif;
+  letter-spacing: -2.8px;
+  margin: 14px 0 18px;
+}
+
+.gradient-text {
+  color: var(--primary);
+}
+
+.lead {
+  font-size: 18px;
+  color: var(--muted);
+  max-width: 610px;
+}
+
+.search-panel {
+  display: flex;
+  gap: 10px;
+  padding: 9px;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  margin-top: 28px;
+  max-width: 680px;
+}
+
+.search-panel input {
+  border: 0;
+  outline: 0;
+  min-width: 0;
+  flex: 1;
+  padding: 10px 12px;
+}
+
+.hero-art {
+  background: linear-gradient(145deg,#eae7ff,#fff 70%);
+  border: 1px solid #dedaff;
+  border-radius: 28px;
+  padding: 34px;
+  min-height: 350px;
+  display: flex;
+  align-items: center;
+}
+
+.feature-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 25px;
+  width: 100%;
+  box-shadow: 0 22px 55px #3332;
+  transform: rotate(1deg);
+}
+
+.feature-top {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.company-mark {
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  background: var(--soft);
+  color: var(--primary);
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  font-size: 18px;
+}
+
+.feature-card h3 {
+  margin: 0;
+  font-size: 19px;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.tag {
+  display: inline-flex;
+  background: #f1f2f8;
+  color: #596579;
+  border-radius: 30px;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  margin: 5px 5px 0 0;
+}
+
+.tag.purple {
+  background: var(--soft);
+  color: var(--primary);
+}
+
+.section {
+  padding: 45px 0;
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 20px;
+  margin-bottom: 22px;
+}
+
+.section-head h2 {
+  font: 800 29px 'Manrope',sans-serif;
+  margin: 5px 0;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 16px;
+  margin: 22px 0 10px;
+}
+
+.stat {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 22px;
+}
+
+.stat strong {
+  display: block;
+  font: 800 28px 'Manrope';
+  color: var(--primary);
+}
+
+.stat span {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 18px;
+}
+
+.job-card,.panel,.auth-card,.info-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: 0 5px 20px rgba(25,32,55,.035);
+}
+
+.job-card {
+  padding: 21px;
+  display: flex;
+  flex-direction: column;
+  min-height: 245px;
+}
+
+.job-card h3 {
+  margin: 13px 0 4px;
+  font-size: 18px;
+}
+
+.job-card .company {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.job-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  color: var(--muted);
+  font-size: 13px;
+  margin: 13px 0;
+}
+
+.job-card .card-bottom {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+
+.page-heading {
+  padding: 48px 0 25px;
+}
+
+.page-heading h1 {
+  font: 800 39px 'Manrope';
+  margin: 6px 0;
+}
+
+.page-heading p {
+  color: var(--muted);
+  margin: 0;
+}
+
+.filters {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr auto;
+  gap: 10px;
+  background: white;
+  border: 1px solid var(--line);
+  padding: 14px;
+  border-radius: 15px;
+  margin: 15px 0 24px;
+}
+
+.control {
+  width: 100%;
+  border: 1px solid #dfe2eb;
+  background: #fff;
+  border-radius: 10px;
+  padding: 12px 13px;
+  outline: none;
+}
+
+.control:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px #5b4cf51a;
+}
+
+.auth-wrap {
+  min-height: calc(100vh - 150px);
+  display: grid;
+  place-items: center;
+  padding: 45px 16px;
+}
+
+.auth-card {
+  width: min(100%,510px);
+  padding: 35px;
+}
+
+.auth-card h1 {
+  text-align: center;
+  font: 800 31px 'Manrope';
+  margin: 0 0 7px;
+}
+
+.auth-sub {
+  text-align: center;
+  color: var(--muted);
+  margin: 0 0 27px;
+}
+
+.field {
+  margin: 0 0 17px;
+}
+
+.field label {
+  display: block;
+  font-weight: 700;
+  font-size: 13px;
+  margin-bottom: 7px;
+}
+
+.field input,.field select,.field textarea {
+  width: 100%;
+  padding: 12px 13px;
+  border: 1px solid #dfe2eb;
+  border-radius: 10px;
+  outline: 0;
+  background: white;
+}
+
+.field input:focus,.field select:focus,.field textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px #5b4cf51a;
+}
+
+.role-row {
+  display: flex;
+  gap: 22px;
+  padding: 13px;
+  background: #f8f8fc;
+  border-radius: 11px;
+  margin-bottom: 20px;
+}
+
+.role-row label {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-weight: 600;
+}
+
+.role-row input {
+  accent-color: var(--primary);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 13px;
+}
+
+.auth-foot {
+  text-align: center;
+  margin: 20px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.auth-foot a {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.notice {
+  padding: 11px 13px;
+  border-radius: 10px;
+  font-size: 13px;
+  margin: 13px 0;
+  display: none;
+}
+
+.notice.show {
+  display: block;
+}
+
+.notice.error {
+  background: #fff0f2;
+  color: #b4233d;
+}
+
+.notice.success {
+  background: #eaf8f1;
+  color: #16734f;
+}
+
+.inline-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  margin: 4px 0 18px;
+}
+
+.inline-between a {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.detail-layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 22px;
+  padding: 25px 0 60px;
+}
+
+.panel {
+  padding: 25px;
+}
+
+.panel h2 {
+  margin: 0 0 12px;
+  font: 800 21px 'Manrope';
+}
+
+.detail-title {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.detail-title h1 {
+  font: 800 30px 'Manrope';
+  margin: 0;
+}
+
+.description-text {
+  color: #536078;
+  white-space: pre-line;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 55px 20px;
+  background: white;
+  border: 1px dashed #cfd2df;
+  border-radius: 18px;
+}
+
+.empty-state .empty-icon {
+  font-size: 38px;
+}
+
+.empty-state h3 {
+  margin: 10px 0 4px;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 16px;
+}
+
+.dashboard-tile {
+  padding: 22px;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+}
+
+.dashboard-tile strong {
+  font: 800 28px 'Manrope';
+  display: block;
+  color: var(--primary);
+}
+
+.admin-layout {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.admin-list {
+  display: grid;
+  gap: 12px;
+}
+
+.admin-item {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 16px;
+}
+
+.admin-item h3 {
+  margin: 0 0 4px;
+}
+
+.admin-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.footer {
+  margin-top: 55px;
+  background: #171d2c;
+  color: #c4cada;
+  padding: 35px 0;
+}
+
+.footer-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.footer a {
+  color: #fff;
+  margin-right: 15px;
+}
+
+.footer-brand {
+  font: 800 24px 'Manrope';
+  color: #fff;
+}
+
+.footer-brand span {
+  color: #a69eff;
+}
+
+.footer small {
+  color: #9da7bb;
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 18px;
+}
+
+.info-card {
+  padding: 25px;
+}
+
+.info-card h3 {
+  margin: 0 0 8px;
+}
+
+.toast {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background: #172033;
+  color: white;
+  padding: 13px 18px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  z-index: 100;
+  display: none;
+}
+
+.toast.show {
+  display: block;
+}
+
+@media (max-width:900px) {
+  .nav-links {
+    gap: 13px;
+  }
+  .hero {
+    gap: 25px;
+  }
+  .cards {
+    grid-template-columns: repeat(2,1fr);
+  }
+  .admin-layout {
+    grid-template-columns: 1fr;
+  }
+  .detail-layout {
+    grid-template-columns: 1fr 280px;
+  }
+}
+
+@media (max-width:700px) {
+  .nav {
+    flex-wrap: wrap;
+    padding: 13px 0;
+  }
+  .menu-toggle {
+    display: block;
+  }
+  .nav-links {
+    display: none;
+    order: 3;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 12px 0;
+  }
+  .nav-links.open {
+    display: flex;
+  }
+  .nav-actions .btn-outline {
+    display: none;
+  }
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 48px 0 30px;
+  }
+  .hero-art {
+    min-height: 260px;
+    padding: 20px;
+  }
+  .hero h1 {
+    font-size: 46px;
+  }
+  .stats,.cards,.dashboard-grid,.two-col {
+    grid-template-columns: 1fr;
+  }
+  .filters {
+    grid-template-columns: 1fr;
+  }
+  .detail-layout {
+    grid-template-columns: 1fr;
+  }
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  .auth-card {
+    padding: 26px 20px;
+  }
+  .section-head {
+    align-items: start;
+    flex-direction: column;
+  }
+  .page-heading h1 {
+    font-size: 32px;
+  }
+}
+  </style>
+ </head>
+ <body>
+  <header class="site-header">
+   <div class="container nav">
+    <a class="brand" href="index.html">
+     Job
+     <span>
+      Adda
+     </span>
+    </a>
+    <button aria-label="Open navigation" class="menu-toggle" id="menuToggle">
+     ☰
+    </button>
+    <nav class="nav-links" id="navLinks">
+     <a href="index.html">
+      Home
+     </a>
+     <a href="jobs.html">
+      Jobs
+     </a>
+     <a href="internships.html">
+      Internships
+     </a>
+     <a href="saved.html">
+      Saved
+     </a>
+     <a href="about.html">
+      About
+     </a>
+     <a href="contact.html">
+      Contact
+     </a>
+    </nav>
+    <div class="nav-actions">
+     <a class="btn btn-outline" href="login.html" id="navLogin">
+      Log in
+     </a>
+     <a class="btn btn-primary" href="register.html" id="navRegister">
+      Get started
+     </a>
+    </div>
+   </div>
+  </header>
+  <main class="container">
+   <section class="page-heading">
+    <div class="eyebrow">
+     ABOUT US
+    </div>
+    <h1>
+     Helping students move from learning to earning.
+    </h1>
+    <p>
+     JobAdda is a student-focused training and placement portal concept built to make early career opportunities easier to discover.
+    </p>
+   </section>
+   <section class="two-col">
+    <article class="info-card">
+     <div class="company-mark">
+      J
+     </div>
+     <h3>
+      Our mission
+     </h3>
+     <p class="muted">
+      Bring students, fresh graduates and employers together through a simple, accessible opportunity platform.
+     </p>
+    </article>
+    <article class="info-card">
+     <div class="company-mark">
+      ✦
+     </div>
+     <h3>
+      What you can do
+     </h3>
+     <p class="muted">
+      Explore jobs, discover internships, save interesting roles and manage your profile through a clean dashboard.
+     </p>
+    </article>
+   </section>
+   <section class="section">
+    <div class="eyebrow">
+     BUILT FOR LEARNING
+    </div>
+    <h2 style="font:800 29px Manrope">
+     A practical college project
+    </h2>
+    <p class="muted" style="max-width:800px">
+     This frontend demonstration uses HTML, CSS, JavaScript and browser LocalStorage. It demonstrates page navigation, client-side search, filtering, account registration, saved opportunities and basic admin listing management. It does not connect to a production server or real employer database.
+    </p>
+    <a class="btn btn-primary" href="jobs.html">
+     Explore opportunities
+    </a>
+   </section>
+  </main>
+  <footer class="footer">
+   <div class="container footer-grid">
+    <div>
+     <div class="footer-brand">
+      Job
+      <span>
+       Adda
+      </span>
+     </div>
+     <p>
+      Discover opportunities. Build your future.
+     </p>
+     <small>
+      &copy; 2026 JobAdda &middot; College project demo
+     </small>
+    </div>
+    <div>
+     <a href="jobs.html">
+      Find jobs
+     </a>
+     <a href="internships.html">
+      Internships
+     </a>
+     <a href="about.html">
+      About
+     </a>
+     <a href="contact.html">
+      Contact
+     </a>
+    </div>
+   </div>
+  </footer>
+  <div class="toast" id="toast">
+  </div>
+  <script>
+    function getCurrentUser() {
+        return JSON.parse(localStorage.getItem('jobaddaCurrentUser') || 'null');
+    }
+
+    function setupNav() {
+        document.getElementById('menuToggle').addEventListener('click', () => {
+            document.getElementById('navLinks').classList.toggle('open');
+        });
+
+        if (getCurrentUser()) {
+            const loginLink = document.getElementById('navLogin');
+            const registerLink = document.getElementById('navRegister');
+
+            loginLink.textContent = 'Dashboard';
+            loginLink.href = 'dashboard.html';
+
+            registerLink.textContent = 'Log out';
+            registerLink.href = '#';
+            registerLink.addEventListener('click', event => {
+                event.preventDefault();
+                localStorage.removeItem('jobaddaCurrentUser');
+                location.href = 'index.html';
+            });
         }
 
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #f5f6fb;
-            color: #192236;
-        }
-
-        .navbar {
-            background: white;
-            border-bottom: 1px solid #e1e4ed;
-        }
-
-        .nav-container {
-            max-width: 1240px;
-            min-height: 82px;
-            margin: auto;
-            padding: 15px 0;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-        }
-
-        .logo {
-            color: #192236;
-            font-size: 27px;
-            font-weight: bold;
-            letter-spacing: -1px;
-            text-decoration: none;
-            white-space: nowrap;
-        }
-
-        .logo span {
-            color: #5b4bff;
-        }
-
-        .nav-links,
-        .auth-links {
-            display: flex;
-            align-items: center;
-            gap: 22px;
-        }
-
-        .nav-links a {
-            color: #536078;
-            font-size: 15px;
-            font-weight: bold;
-            text-decoration: none;
-        }
-
-        .auth-links a {
-            color: #192236;
-            text-decoration: none;
-            white-space: nowrap;
-        }
-
-        .nav-links a:hover,
-        .auth-links a:hover,
-        .nav-links .active {
-            color: #5b4bff;
-        }
-
-        /* Main Content */
-        .main-container {
-            max-width: 1240px;
-            min-height: 682px;
-            margin: auto;
-            padding: 32px 0 60px;
-        }
-
-        .eyebrow {
-            color: #5b4bff;
-            font-size: 13px;
-            font-weight: bold;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
-        }
-
-        .page-title {
-            font-size: 38px;
-            margin-bottom: 10px;
-        }
-
-        .intro {
-            font-size: 18px;
-            line-height: 1.6;
-            margin-bottom: 2px;
-        }
-
-        /* About Cards */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1.4fr 0.95fr;
-            gap: 20px;
-        }
-
-        .about-card {
-            background: white;
-            border: 1px solid #e0e4ee;
-            border-radius: 20px;
-            padding: 28px 23px;
-        }
-
-        .about-card h2 {
-            font-size: 28px;
-            margin-bottom: 8px;
-        }
-
-        .about-card h3 {
-            font-size: 21px;
-            margin: 5px 0 10px;
-        }
-
-        .about-card > p {
-            font-size: 18px;
-            line-height: 1.65;
-        }
-
-        .muted {
-            color: #68758b;
-            font-size: 14px !important;
-            line-height: 1.7 !important;
-        }
-
-        /* Objectives */
-        .objective {
-            min-height: 71px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 15px;
-            border-bottom: 1px solid #e1e4ed;
-        }
-
-        .objective:last-child {
-            border-bottom: none;
-        }
-
-        .objective strong {
-            font-size: 18px;
-        }
-
-        .objective span {
-            color: #68758b;
-            font-size: 14px;
-            text-align: right;
-        }
-
-        /* Buttons */
-        .button {
-            display: inline-block;
-            background: #5b4bff;
-            color: white;
-            padding: 15px 18px;
-            margin-top: 5px;
-            border-radius: 12px;
-            font-size: 17px;
-            font-weight: bold;
-            text-decoration: none;
-        }
-
-        .button:hover {
-            background: #4737e8;
-        }
-
-        /* Training and Placement */
-        .placement-section {
-            margin-top: 35px;
-        }
-
-        .placement-section > h2 {
-            font-size: 28px;
-            margin-bottom: 10px;
-        }
-
-        .placement-section > p {
-            color: #68758b;
-            font-size: 16px;
-            line-height: 1.7;
-            margin-bottom: 20px;
-        }
-
-        .features {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 18px;
-        }
-
-        .feature-card {
-            background: white;
-            border: 1px solid #e0e4ee;
-            border-radius: 16px;
-            padding: 22px;
-        }
-
-        .feature-card h3 {
-            font-size: 19px;
-            margin-bottom: 10px;
-        }
-
-        .feature-card p {
-            color: #68758b;
-            font-size: 15px;
-            line-height: 1.7;
-        }
-
-        /* Footer */
-        .footer {
-            background: #171d2c;
-            color: #b9c0cf;
-            padding: 30px 20px;
-        }
-
-        .footer-inner {
-            max-width: 1240px;
-            margin: auto;
-            padding-top: 23px;
-            border-top: 1px solid #303748;
-            display: flex;
-            justify-content: space-between;
-            gap: 15px;
-            font-size: 14px;
-        }
-
-        .footer a {
-            color: #b9c0cf;
-            text-decoration: none;
-        }
-
-        .footer a:hover {
-            color: white;
-        }
-
-        /* Responsive */
-        @media (max-width: 1300px) {
-            .nav-container,
-            .main-container {
-                margin-left: 25px;
-                margin-right: 25px;
+        const currentPage = location.pathname.split('/').pop();
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            if (link.getAttribute('href') === currentPage) {
+                link.classList.add('active');
             }
-        }
+        });
+    }
 
-        @media (max-width: 1000px) {
-            .nav-container {
-                flex-wrap: wrap;
-            }
-
-            .about-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media (max-width: 700px) {
-            .nav-container {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .nav-links {
-                flex-wrap: wrap;
-                gap: 15px;
-            }
-
-            .main-container {
-                min-height: auto;
-                padding: 35px 0 50px;
-            }
-
-            .page-title {
-                font-size: 32px;
-            }
-
-            .intro {
-                font-size: 16px;
-                margin-bottom: 20px;
-            }
-
-            .about-grid,
-            .features {
-                grid-template-columns: 1fr;
-                gap: 16px;
-            }
-
-            .about-card {
-                padding: 23px 18px;
-            }
-
-            .about-card h2 {
-                font-size: 25px;
-            }
-
-            .about-card > p {
-                font-size: 16px;
-            }
-
-            .objective {
-                align-items: flex-start;
-                flex-direction: column;
-                justify-content: center;
-                padding: 15px 0;
-                gap: 7px;
-            }
-
-            .objective span {
-                text-align: left;
-            }
-
-            .footer-inner {
-                flex-wrap: wrap;
-            }
-        }
-    </style>
-</head>
-
-<body>
-
-    <!-- Navigation Bar -->
-    <header class="navbar">
-        <div class="nav-container">
-
-            <a href="index.html" class="logo">
-                Job<span>Adda</span>
-            </a>
-
-            <nav class="nav-links">
-                <a href="index.html#jobs">Jobs</a>
-                <a href="index.html#internships">Internships</a>
-                <a href="index.html#saved">Saved</a>
-                <a href="index.html#dashboard">Dashboard</a>
-                <a href="about.html" class="active">About</a>
-                <a href="contact.html">Contact Us</a>
-            </nav>
-
-            <div class="auth-links">
-                <a href="index.html#signin">Sign in</a>
-                <a href="index.html#register">Register</a>
-            </div>
-
-        </div>
-    </header>
-
-    <!-- About Content -->
-    <main class="main-container">
-
-        <p class="eyebrow">ABOUT THE PROJECT</p>
-
-        <h1 class="page-title">JobAdda</h1>
-
-        <p class="intro">
-            A student-focused job, training and placement portal built
-            as a practical college web development project.
-        </p>
-
-        <div class="about-grid">
-
-            <section class="about-card">
-
-                <h2>Why JobAdda?</h2>
-
-                <p>
-                    Students need a simple place to discover internships,
-                    entry-level jobs and career development opportunities.
-                    JobAdda brings these opportunities together and helps
-                    students prepare for their professional journey.
-                </p>
-
-                <h3>Project objectives</h3>
-
-                <div class="objective">
-                    <strong>Easy discovery</strong>
-                    <span>Search for jobs and internships</span>
-                </div>
-
-                <div class="objective">
-                    <strong>Student dashboard</strong>
-                    <span>Track saved jobs and applications</span>
-                </div>
-
-                <div class="objective">
-                    <strong>Placement preparation</strong>
-                    <span>Develop skills and prepare for interviews</span>
-                </div>
-
-            </section>
-
-            <section class="about-card">
-
-                <h2>Technology</h2>
-
-                <p>
-                    HTML5 for page structure, CSS3 for responsive design
-                    and JavaScript for interactive application features.
-                </p>
-
-                <p class="muted">
-                    A basic demonstration can run in the browser.
-                    Features such as accounts, messaging and real job
-                    applications require additional implementation.
-                </p>
-
-                <a href="index.html#jobs" class="button">
-                    Explore opportunities
-                </a>
-
-            </section>
-
-        </div>
-
-        <!-- Training and Placement -->
-        <section class="placement-section">
-
-            <h2>More Than a Job Portal</h2>
-
-            <p>
-                Inspired by professional networking platforms such as
-                LinkedIn, JobAdda aims to help students build career skills,
-                discover opportunities, connect with the professional world
-                and prepare for campus placements.
-            </p>
-
-            <div class="features">
-
-                <div class="feature-card">
-                    <h3>Training and Skills</h3>
-                    <p>
-                        Discover technical learning resources, skill
-                        development programs, aptitude practice and
-                        interview preparation.
-                    </p>
-                </div>
-
-                <div class="feature-card">
-                    <h3>Jobs and Internships</h3>
-                    <p>
-                        Explore fresher jobs, internships and entry-level
-                        opportunities to gain practical experience and
-                        begin your career.
-                    </p>
-                </div>
-
-                <div class="feature-card">
-                    <h3>Placement Support</h3>
-                    <p>
-                        Prepare resumes, practice interview questions,
-                        improve communication skills and organize
-                        job applications.
-                    </p>
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-inner">
-            <p>© 2026 JobAdda</p>
-            <p>
-                <a href="index.html">Home</a> |
-                <a href="contact.html">Contact Us</a>
-            </p>
-        </div>
-    </footer>
-
-</body>
+    document.addEventListener('DOMContentLoaded', setupNav);
+  </script>
+ </body>
 </html>
