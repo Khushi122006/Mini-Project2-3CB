@@ -1,0 +1,162 @@
+[
+    {
+        "id": 101,
+        "title": "Frontend Developer Intern",
+        "company": "NovaTech Solutions",
+        "location": "Remote",
+        "mode": "Remote",
+        "type": "Internship",
+        "salary": "₹12,000 / month",
+        "category": "internship",
+        "skills": [
+            "HTML",
+            "CSS",
+            "JavaScript"
+        ],
+        "description": "Work with the product team to build responsive web interfaces. You will collaborate with designers and developers, fix UI issues and learn practical frontend workflows."
+    },
+    {
+        "id": 102,
+        "title": "Junior Java Developer",
+        "company": "CodeCraft Systems",
+        "location": "Bengaluru",
+        "mode": "Hybrid",
+        "type": "Full-time",
+        "salary": "₹3–5 LPA",
+        "category": "job",
+        "skills": [
+            "Java",
+            "OOP",
+            "SQL"
+        ],
+        "description": "Support development of Java applications, write clean code, test features and work with senior engineers on product improvements."
+    },
+    {
+        "id": 103,
+        "title": "Data Analyst Trainee",
+        "company": "Insight Analytics",
+        "location": "Pune",
+        "mode": "On-site",
+        "type": "Full-time",
+        "salary": "₹3.2 LPA",
+        "category": "job",
+        "skills": [
+            "Excel",
+            "SQL",
+            "Python"
+        ],
+        "description": "Assist the analytics team with data cleaning, dashboards and reporting. Suitable for fresh graduates interested in data analysis."
+    },
+    {
+        "id": 104,
+        "title": "UI/UX Design Intern",
+        "company": "PixelWave Studio",
+        "location": "Remote",
+        "mode": "Remote",
+        "type": "Internship",
+        "salary": "₹10,000 / month",
+        "category": "internship",
+        "skills": [
+            "Figma",
+            "Wireframing",
+            "Prototyping"
+        ],
+        "description": "Create wireframes and prototypes, participate in design reviews and help improve user experiences across web products."
+    },
+    {
+        "id": 105,
+        "title": "Marketing Associate",
+        "company": "BrightPath Media",
+        "location": "Mumbai",
+        "mode": "Hybrid",
+        "type": "Full-time",
+        "salary": "₹3–4 LPA",
+        "category": "job",
+        "skills": [
+            "Communication",
+            "SEO",
+            "Content"
+        ],
+        "description": "Help plan digital campaigns, research audiences and track campaign performance with the marketing team."
+    },
+    {
+        "id": 106,
+        "title": "Python Development Intern",
+        "company": "TechBridge Labs",
+        "location": "Hyderabad",
+        "mode": "On-site",
+        "type": "Internship",
+        "salary": "₹15,000 / month",
+        "category": "internship",
+        "skills": [
+            "Python",
+            "Django",
+            "Git"
+        ],
+        "description": "Contribute to backend prototypes and automation scripts while learning software development practices from mentors."
+    },
+    {
+        "id": 107,
+        "title": "HR Operations Executive",
+        "company": "PeopleFirst Group",
+        "location": "New Delhi",
+        "mode": "On-site",
+        "type": "Full-time",
+        "salary": "₹2.8–3.5 LPA",
+        "category": "job",
+        "skills": [
+            "HR",
+            "Excel",
+            "Communication"
+        ],
+        "description": "Coordinate interview schedules, maintain candidate records and support day-to-day recruitment operations."
+    },
+    {
+        "id": 108,
+        "title": "Cloud Support Associate",
+        "company": "SkyStack Services",
+        "location": "Remote",
+        "mode": "Remote",
+        "type": "Full-time",
+        "salary": "₹4–6 LPA",
+        "category": "job",
+        "skills": [
+            "Linux",
+            "Networking",
+            "Cloud"
+        ],
+        "description": "Help troubleshoot cloud service issues, document solutions and learn cloud operations in a collaborative team."
+    },
+    {
+        "id": 109,
+        "title": "Business Development Intern",
+        "company": "LaunchPad Ventures",
+        "location": "Pune",
+        "mode": "Hybrid",
+        "type": "Internship",
+        "salary": "₹8,000 / month",
+        "category": "internship",
+        "skills": [
+            "Research",
+            "Sales",
+            "Communication"
+        ],
+        "description": "Support market research, outreach and lead tracking while learning how early-stage businesses grow."
+    },
+    {
+        "id": 110,
+        "title": "Software Development Intern",
+        "company": "LaunchPad Ventures",
+        "location": "Pune",
+        "mode": "Hybrid",
+        "type": "Internship",
+        "salary": "₹8,000 / month",
+        "category": "internship",
+        "skills": [
+            "Research",
+            "Sales",
+            "Communication"
+        ],
+        "description": "Support market research, outreach and lead tracking while learning how early-stage businesses grow."
+    }
+]
