@@ -1,503 +1,1198 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
+<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="JobAdda student placement and opportunity portal" name="description"/>
+  <title>
+   Admin panel | JobAdda
+  </title>
+  <style>
+   /* admin.html styles
+   This page has its own stylesheet.
+   Edit this file to change the appearance of admin.html.
+*/
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap');
 
-    <title>Admin | JobAdda</title>
+:root {
+  --primary: #5b4cf5;
+  --primary-dark: #4638d8;
+  --ink: #172033;
+  --muted: #6b7788;
+  --bg: #f6f7fb;
+  --white: #fff;
+  --line: #e7e9f0;
+  --soft: #efedff;
+  --green: #16845d;
+  --red: #d9485f;
+  --shadow: 0 14px 38px rgba(28,35,62,.08);
+  --radius: 18px;
+}
 
-    <style>
-        /* Basic page settings */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'DM Sans',Arial,sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,input,select,textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.container {
+  width: min(1160px,calc(100% - 40px));
+  margin: auto;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255,255,255,.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.brand {
+  font: 800 27px 'Manrope',sans-serif;
+  letter-spacing: -1.2px;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.brand span {
+  color: var(--primary);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  color: #566176;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.nav-links a:hover,.nav-links a.active {
+  color: var(--primary);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.menu-toggle {
+  display: none;
+  border: 1px solid var(--line);
+  background: white;
+  border-radius: 10px;
+  padding: 9px 12px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid transparent;
+  border-radius: 11px;
+  padding: 11px 17px;
+  font-weight: 700;
+  font-size: 14px;
+  transition: .2s;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+  box-shadow: 0 7px 16px #5b4cf52b;
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background: #fff;
+  border-color: var(--line);
+  color: var(--ink);
+}
+
+.btn-outline:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.btn-soft {
+  background: var(--soft);
+  color: var(--primary);
+}
+
+.btn-danger {
+  background: #fff0f2;
+  color: var(--red);
+}
+
+.btn-block {
+  width: 100%;
+}
+
+.eyebrow {
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+
+.hero {
+  padding: 76px 0 56px;
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  align-items: center;
+  gap: 55px;
+}
+
+.hero h1 {
+  font: 800 clamp(42px,6vw,66px)/1.08 'Manrope',sans-serif;
+  letter-spacing: -2.8px;
+  margin: 14px 0 18px;
+}
+
+.gradient-text {
+  color: var(--primary);
+}
+
+.lead {
+  font-size: 18px;
+  color: var(--muted);
+  max-width: 610px;
+}
+
+.search-panel {
+  display: flex;
+  gap: 10px;
+  padding: 9px;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  margin-top: 28px;
+  max-width: 680px;
+}
+
+.search-panel input {
+  border: 0;
+  outline: 0;
+  min-width: 0;
+  flex: 1;
+  padding: 10px 12px;
+}
+
+.hero-art {
+  background: linear-gradient(145deg,#eae7ff,#fff 70%);
+  border: 1px solid #dedaff;
+  border-radius: 28px;
+  padding: 34px;
+  min-height: 350px;
+  display: flex;
+  align-items: center;
+}
+
+.feature-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 25px;
+  width: 100%;
+  box-shadow: 0 22px 55px #3332;
+  transform: rotate(1deg);
+}
+
+.feature-top {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.company-mark {
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  background: var(--soft);
+  color: var(--primary);
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  font-size: 18px;
+}
+
+.feature-card h3 {
+  margin: 0;
+  font-size: 19px;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.tag {
+  display: inline-flex;
+  background: #f1f2f8;
+  color: #596579;
+  border-radius: 30px;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  margin: 5px 5px 0 0;
+}
+
+.tag.purple {
+  background: var(--soft);
+  color: var(--primary);
+}
+
+.section {
+  padding: 45px 0;
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 20px;
+  margin-bottom: 22px;
+}
+
+.section-head h2 {
+  font: 800 29px 'Manrope',sans-serif;
+  margin: 5px 0;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 16px;
+  margin: 22px 0 10px;
+}
+
+.stat {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 22px;
+}
+
+.stat strong {
+  display: block;
+  font: 800 28px 'Manrope';
+  color: var(--primary);
+}
+
+.stat span {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 18px;
+}
+
+.job-card,.panel,.auth-card,.info-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: 0 5px 20px rgba(25,32,55,.035);
+}
+
+.job-card {
+  padding: 21px;
+  display: flex;
+  flex-direction: column;
+  min-height: 245px;
+}
+
+.job-card h3 {
+  margin: 13px 0 4px;
+  font-size: 18px;
+}
+
+.job-card .company {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.job-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  color: var(--muted);
+  font-size: 13px;
+  margin: 13px 0;
+}
+
+.job-card .card-bottom {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+
+.page-heading {
+  padding: 48px 0 25px;
+}
+
+.page-heading h1 {
+  font: 800 39px 'Manrope';
+  margin: 6px 0;
+}
+
+.page-heading p {
+  color: var(--muted);
+  margin: 0;
+}
+
+.filters {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr auto;
+  gap: 10px;
+  background: white;
+  border: 1px solid var(--line);
+  padding: 14px;
+  border-radius: 15px;
+  margin: 15px 0 24px;
+}
+
+.control {
+  width: 100%;
+  border: 1px solid #dfe2eb;
+  background: #fff;
+  border-radius: 10px;
+  padding: 12px 13px;
+  outline: none;
+}
+
+.control:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px #5b4cf51a;
+}
+
+.auth-wrap {
+  min-height: calc(100vh - 150px);
+  display: grid;
+  place-items: center;
+  padding: 45px 16px;
+}
+
+.auth-card {
+  width: min(100%,510px);
+  padding: 35px;
+}
+
+.auth-card h1 {
+  text-align: center;
+  font: 800 31px 'Manrope';
+  margin: 0 0 7px;
+}
+
+.auth-sub {
+  text-align: center;
+  color: var(--muted);
+  margin: 0 0 27px;
+}
+
+.field {
+  margin: 0 0 17px;
+}
+
+.field label {
+  display: block;
+  font-weight: 700;
+  font-size: 13px;
+  margin-bottom: 7px;
+}
+
+.field input,.field select,.field textarea {
+  width: 100%;
+  padding: 12px 13px;
+  border: 1px solid #dfe2eb;
+  border-radius: 10px;
+  outline: 0;
+  background: white;
+}
+
+.field input:focus,.field select:focus,.field textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px #5b4cf51a;
+}
+
+.role-row {
+  display: flex;
+  gap: 22px;
+  padding: 13px;
+  background: #f8f8fc;
+  border-radius: 11px;
+  margin-bottom: 20px;
+}
+
+.role-row label {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-weight: 600;
+}
+
+.role-row input {
+  accent-color: var(--primary);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 13px;
+}
+
+.auth-foot {
+  text-align: center;
+  margin: 20px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.auth-foot a {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.notice {
+  padding: 11px 13px;
+  border-radius: 10px;
+  font-size: 13px;
+  margin: 13px 0;
+  display: none;
+}
+
+.notice.show {
+  display: block;
+}
+
+.notice.error {
+  background: #fff0f2;
+  color: #b4233d;
+}
+
+.notice.success {
+  background: #eaf8f1;
+  color: #16734f;
+}
+
+.inline-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  margin: 4px 0 18px;
+}
+
+.inline-between a {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.detail-layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 22px;
+  padding: 25px 0 60px;
+}
+
+.panel {
+  padding: 25px;
+}
+
+.panel h2 {
+  margin: 0 0 12px;
+  font: 800 21px 'Manrope';
+}
+
+.detail-title {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.detail-title h1 {
+  font: 800 30px 'Manrope';
+  margin: 0;
+}
+
+.description-text {
+  color: #536078;
+  white-space: pre-line;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 55px 20px;
+  background: white;
+  border: 1px dashed #cfd2df;
+  border-radius: 18px;
+}
+
+.empty-state .empty-icon {
+  font-size: 38px;
+}
+
+.empty-state h3 {
+  margin: 10px 0 4px;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 16px;
+}
+
+.dashboard-tile {
+  padding: 22px;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+}
+
+.dashboard-tile strong {
+  font: 800 28px 'Manrope';
+  display: block;
+  color: var(--primary);
+}
+
+.admin-layout {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.admin-list {
+  display: grid;
+  gap: 12px;
+}
+
+.admin-item {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 16px;
+}
+
+.admin-item h3 {
+  margin: 0 0 4px;
+}
+
+.admin-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.footer {
+  margin-top: 55px;
+  background: #171d2c;
+  color: #c4cada;
+  padding: 35px 0;
+}
+
+.footer-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.footer a {
+  color: #fff;
+  margin-right: 15px;
+}
+
+.footer-brand {
+  font: 800 24px 'Manrope';
+  color: #fff;
+}
+
+.footer-brand span {
+  color: #a69eff;
+}
+
+.footer small {
+  color: #9da7bb;
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 18px;
+}
+
+.info-card {
+  padding: 25px;
+}
+
+.info-card h3 {
+  margin: 0 0 8px;
+}
+
+.toast {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background: #172033;
+  color: white;
+  padding: 13px 18px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  z-index: 100;
+  display: none;
+}
+
+.toast.show {
+  display: block;
+}
+
+@media (max-width:900px) {
+  .nav-links {
+    gap: 13px;
+  }
+  .hero {
+    gap: 25px;
+  }
+  .cards {
+    grid-template-columns: repeat(2,1fr);
+  }
+  .admin-layout {
+    grid-template-columns: 1fr;
+  }
+  .detail-layout {
+    grid-template-columns: 1fr 280px;
+  }
+}
+
+@media (max-width:700px) {
+  .nav {
+    flex-wrap: wrap;
+    padding: 13px 0;
+  }
+  .menu-toggle {
+    display: block;
+  }
+  .nav-links {
+    display: none;
+    order: 3;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 12px 0;
+  }
+  .nav-links.open {
+    display: flex;
+  }
+  .nav-actions .btn-outline {
+    display: none;
+  }
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 48px 0 30px;
+  }
+  .hero-art {
+    min-height: 260px;
+    padding: 20px;
+  }
+  .hero h1 {
+    font-size: 46px;
+  }
+  .stats,.cards,.dashboard-grid,.two-col {
+    grid-template-columns: 1fr;
+  }
+  .filters {
+    grid-template-columns: 1fr;
+  }
+  .detail-layout {
+    grid-template-columns: 1fr;
+  }
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  .auth-card {
+    padding: 26px 20px;
+  }
+  .section-head {
+    align-items: start;
+    flex-direction: column;
+  }
+  .page-heading h1 {
+    font-size: 32px;
+  }
+}
+  </style>
+ </head>
+ <body>
+  <header class="site-header">
+   <div class="container nav">
+    <a class="brand" href="index.html">
+     Job
+     <span>
+      Adda
+     </span>
+    </a>
+    <button aria-label="Open navigation" class="menu-toggle" id="menuToggle">
+     ☰
+    </button>
+    <nav class="nav-links" id="navLinks">
+     <a href="index.html">
+      Home
+     </a>
+     <a href="jobs.html">
+      Jobs
+     </a>
+     <a href="internships.html">
+      Internships
+     </a>
+     <a href="saved.html">
+      Saved
+     </a>
+     <a href="about.html">
+      About
+     </a>
+     <a href="contact.html">
+      Contact
+     </a>
+    </nav>
+    <div class="nav-actions">
+     <a class="btn btn-outline" href="login.html" id="navLogin">
+      Log in
+     </a>
+     <a class="btn btn-primary" href="register.html" id="navRegister">
+      Get started
+     </a>
+    </div>
+   </div>
+  </header>
+  <main class="container">
+   <section class="page-heading">
+    <div class="eyebrow">
+     PROJECT ADMINISTRATION
+    </div>
+    <h1>
+     Manage opportunities
+    </h1>
+    <p>
+     Add, edit or remove jobs and internships shown on the portal.
+    </p>
+   </section>
+   <div class="admin-layout">
+    <section class="panel">
+     <h2 id="adminFormTitle">
+      Add an opportunity
+     </h2>
+     <form id="opportunityForm">
+      <div class="field">
+       <label for="title">
+        Role title
+       </label>
+       <input class="control" id="title" required=""/>
+      </div>
+      <div class="field">
+       <label for="company">
+        Company
+       </label>
+       <input class="control" id="company" required=""/>
+      </div>
+      <div class="field">
+       <label for="location">
+        Location
+       </label>
+       <input class="control" id="location" placeholder="Remote / City" required=""/>
+      </div>
+      <div class="form-row">
+       <div class="field">
+        <label for="category">
+         Category
+        </label>
+        <select class="control" id="category">
+         <option value="job">
+          Job
+         </option>
+         <option value="internship">
+          Internship
+         </option>
+        </select>
+       </div>
+       <div class="field">
+        <label for="mode">
+         Work mode
+        </label>
+        <select class="control" id="mode">
+         <option>
+          Remote
+         </option>
+         <option>
+          Hybrid
+         </option>
+         <option>
+          On-site
+         </option>
+        </select>
+       </div>
+      </div>
+      <div class="form-row">
+       <div class="field">
+        <label for="type">
+         Employment type
+        </label>
+        <select class="control" id="type">
+         <option>
+          Full-time
+         </option>
+         <option>
+          Part-time
+         </option>
+         <option>
+          Internship
+         </option>
+         <option>
+          Contract
+         </option>
+        </select>
+       </div>
+       <div class="field">
+        <label for="salary">
+         Pay / stipend
+        </label>
+        <input class="control" id="salary" placeholder="₹3&ndash;5 LPA"/>
+       </div>
+      </div>
+      <div class="field">
+       <label for="skills">
+        Skills (comma separated)
+       </label>
+       <input class="control" id="skills" placeholder="HTML, CSS, JavaScript"/>
+      </div>
+      <div class="field">
+       <label for="description">
+        Description
+       </label>
+       <textarea class="control" id="description" required="" rows="4"></textarea>
+      </div>
+      <button class="btn btn-primary btn-block" id="saveOpportunity" type="submit">
+       Add opportunity
+      </button>
+      <button class="btn btn-outline btn-block" id="cancelEdit" style="display:none;margin-top:8px" type="button">
+       Cancel edit
+      </button>
+     </form>
+    </section>
+    <section>
+     <div class="section-head">
+      <div>
+       <h2>
+        Current listings
+       </h2>
+       <span class="muted" id="adminCount">
+       </span>
+      </div>
+     </div>
+     <div class="admin-list" id="adminList">
+     </div>
+    </section>
+   </div>
+  </main>
+  <footer class="footer">
+   <div class="container footer-grid">
+    <div>
+     <div class="footer-brand">
+      Job
+      <span>
+       Adda
+      </span>
+     </div>
+     <p>
+      Discover opportunities. Build your future.
+     </p>
+     <small>
+      &copy; 2026 JobAdda &middot; College project demo
+     </small>
+    </div>
+    <div>
+     <a href="jobs.html">
+      Find jobs
+     </a>
+     <a href="internships.html">
+      Internships
+     </a>
+     <a href="about.html">
+      About
+     </a>
+     <a href="contact.html">
+      Contact
+     </a>
+    </div>
+   </div>
+  </footer>
+  <div class="toast" id="toast">
+  </div>
+  <script>
+    let starterItems = [];
+
+    const dataReady = fetch('data.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Could not load data.json');
+            }
+            return response.json();
+        })
+        .then(data => {
+            starterItems = data;
+        })
+        .catch(error => {
+            console.error(error);
+            alert('Could not load data.json. Please run this project with VS Code Live Server.');
+        });
+
+    function getItems() {
+        try {
+            const stored = localStorage.getItem('jobaddaItems');
+            return stored ? JSON.parse(stored) : starterItems;
+        } catch (error) {
+            return starterItems;
+        }
+    }
+
+    function saveItems(items) {
+        localStorage.setItem('jobaddaItems', JSON.stringify(items));
+    }
+
+    function getCurrentUser() {
+        return JSON.parse(localStorage.getItem('jobaddaCurrentUser') || 'null');
+    }
+
+    function escapeHtml(value) {
+        return String(value ?? '').replace(/[&<>"']/g, char => ({
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            '"': '&quot;',
+            "'": '&#39;'
+        }[char]));
+    }
+
+    function showToast(message) {
+        const toast = document.getElementById('toast');
+        toast.textContent = message;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2400);
+    }
+
+    function setupNav() {
+        document.getElementById('menuToggle').addEventListener('click', () => {
+            document.getElementById('navLinks').classList.toggle('open');
+        });
+
+        if (getCurrentUser()) {
+            const loginLink = document.getElementById('navLogin');
+            const registerLink = document.getElementById('navRegister');
+
+            loginLink.textContent = 'Dashboard';
+            loginLink.href = 'dashboard.html';
+
+            registerLink.textContent = 'Log out';
+            registerLink.href = '#';
+            registerLink.addEventListener('click', event => {
+                event.preventDefault();
+                localStorage.removeItem('jobaddaCurrentUser');
+                location.href = 'index.html';
+            });
         }
 
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f6f7fb;
-            color: #172033;
-            line-height: 1.6;
+        const currentPage = location.pathname.split('/').pop();
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            if (link.getAttribute('href') === currentPage) {
+                link.classList.add('active');
+            }
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', async () => {
+        setupNav();
+        await dataReady;
+
+        const currentUser = getCurrentUser();
+        if (!currentUser) {
+            location.href = 'login.html';
+            return;
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
+        if (currentUser.role !== 'employer') {
+            location.href = 'dashboard.html';
+            return;
         }
 
-        .container {
-            width: 92%;
-            max-width: 1100px;
-            margin: auto;
-        }
+        const form = document.getElementById('opportunityForm');
+        const list = document.getElementById('adminList');
+        const count = document.getElementById('adminCount');
+        const formTitle = document.getElementById('adminFormTitle');
+        const submitButton = document.getElementById('saveOpportunity');
+        const cancelButton = document.getElementById('cancelEdit');
+        let editingId = null;
 
-        /* Navigation bar */
-        header {
-            background-color: white;
-            border-bottom: 1px solid #e5e8ef;
-        }
+        function showListings() {
+            const items = getItems();
+            count.textContent = items.length + ' opportunities';
 
-        nav {
-            min-height: 72px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .brand {
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        .brand span,
-        .eyebrow {
-            color: #5b4cf5;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 22px;
-            font-size: 14px;
-            font-weight: bold;
-            color: #596579;
-        }
-
-        .nav-links a:hover {
-            color: #5b4cf5;
-        }
-
-        /* Buttons */
-        .btn {
-            display: inline-block;
-            padding: 10px 15px;
-            border-radius: 10px;
-            border: none;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .primary {
-            background-color: #5b4cf5;
-            color: white;
-        }
-
-        .soft {
-            background-color: #f0efff;
-            color: #5b4cf5;
-        }
-
-        /* Page heading */
-        .page-head {
-            padding: 50px 0 25px;
-        }
-
-        .eyebrow {
-            font-size: 11px;
-            font-weight: bold;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        h1 {
-            font-size: 40px;
-            margin-top: 7px;
-        }
-
-        .page-head p,
-        .muted,
-        .note {
-            color: #6b7788;
-        }
-
-        /* Main layout: form on the left, jobs on the right */
-        .admin-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.4fr;
-            gap: 18px;
-            padding-bottom: 35px;
-            align-items: start;
-        }
-
-        /* White cards */
-        .card {
-            background-color: white;
-            border: 1px solid #e5e8ef;
-            border-radius: 16px;
-            padding: 20px;
-        }
-
-        h2 {
-            font-size: 21px;
-            margin-bottom: 14px;
-        }
-
-        /* Form layout */
-        .form {
-            display: grid;
-            gap: 13px;
-        }
-
-        .form-group {
-            display: grid;
-            gap: 6px;
-        }
-
-        label {
-            font-size: 13px;
-            font-weight: bold;
-        }
-
-        input,
-        select,
-        textarea {
-            width: 100%;
-            padding: 11px;
-            border: 1px solid #e5e8ef;
-            border-radius: 10px;
-            font: inherit;
-            background-color: white;
-        }
-
-        input:focus,
-        select:focus,
-        textarea:focus {
-            outline: 1px solid #5b4cf5;
-        }
-
-        .note {
-            font-size: 12px;
-        }
-
-        /* Job opportunity cards */
-        .opportunity-list {
-            display: grid;
-            gap: 12px;
-            margin-top: 12px;
-        }
-
-        .opportunity {
-            border: 1px solid #e5e8ef;
-            border-radius: 12px;
-            padding: 15px;
-        }
-
-        .opportunity-top {
-            display: flex;
-            justify-content: space-between;
-            gap: 12px;
-        }
-
-        h3 {
-            font-size: 16px;
-            margin-bottom: 3px;
-        }
-
-        .muted {
-            font-size: 13px;
-        }
-
-        /* Job skill labels */
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin: 11px 0;
-        }
-
-        .tag {
-            background-color: #f5f6f8;
-            padding: 4px 8px;
-            border-radius: 6px;
-            font-size: 11px;
-            color: #596579;
-        }
-
-        /* Sample listing label */
-        .status {
-            background-color: #eef9f4;
-            color: #159a67;
-            padding: 5px 8px;
-            border-radius: 7px;
-            font-size: 11px;
-            white-space: nowrap;
-            height: fit-content;
-        }
-
-        .salary {
-            font-weight: bold;
-            font-size: 13px;
-        }
-
-        /* Footer */
-        footer {
-            background-color: #161c2c;
-            color: #aeb7c7;
-            padding: 25px 0;
-            margin-top: 25px;
-            font-size: 12px;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #2a3244;
-            padding-top: 18px;
-            display: flex;
-            justify-content: space-between;
-            gap: 15px;
-        }
-
-        /* Tablet screen */
-        @media (max-width: 850px) {
-            nav {
-                padding: 15px 0;
+            if (items.length === 0) {
+                list.innerHTML = '<div class="admin-item"><p>No opportunities added yet.</p></div>';
+                return;
             }
 
-            .admin-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .nav-links {
-                flex-wrap: wrap;
-                gap: 14px;
-            }
+            list.innerHTML = items.map(item => `
+                <article class="admin-item">
+                    <h3>${escapeHtml(item.title)}</h3>
+                    <p class="muted">${escapeHtml(item.company)} · ${escapeHtml(item.location)} · ${escapeHtml(item.category)}</p>
+                    <p>${escapeHtml(item.salary || 'Pay not listed')}</p>
+                    <div class="admin-actions">
+                        <button class="btn btn-soft" type="button" data-edit="${item.id}">Edit</button>
+                        <button class="btn btn-outline" type="button" data-delete="${item.id}">Delete</button>
+                    </div>
+                </article>
+            `).join('');
         }
 
-        /* Mobile screen */
-        @media (max-width: 560px) {
-            h1 {
-                font-size: 32px;
-            }
-
-            nav {
-                align-items: flex-start;
-                flex-direction: column;
-            }
-
-            .opportunity-top,
-            .footer-bottom {
-                flex-direction: column;
-            }
+        function resetForm() {
+            form.reset();
+            editingId = null;
+            formTitle.textContent = 'Add an opportunity';
+            submitButton.textContent = 'Add opportunity';
+            cancelButton.style.display = 'none';
         }
-    </style>
-</head>
 
-<body>
+        form.addEventListener('submit', event => {
+            event.preventDefault();
 
-    <!-- Navigation bar -->
-    <header>
-        <div class="container">
+            const items = getItems();
+            const newItem = {
+                id: editingId === null ? Date.now() : editingId,
+                title: document.getElementById('title').value.trim(),
+                company: document.getElementById('company').value.trim(),
+                location: document.getElementById('location').value.trim(),
+                category: document.getElementById('category').value,
+                mode: document.getElementById('mode').value,
+                type: document.getElementById('type').value,
+                salary: document.getElementById('salary').value.trim(),
+                skills: document.getElementById('skills').value.split(',').map(skill => skill.trim()).filter(Boolean),
+                description: document.getElementById('description').value.trim(),
+                postedBy: currentUser.email
+            };
 
-            <nav>
-                <a class="brand" href="dashboard.html">
-                    Job<span>Adda</span>
-                </a>
+            if (!newItem.title || !newItem.company || !newItem.location || !newItem.description) {
+                alert('Please fill in all required fields.');
+                return;
+            }
 
-                <div class="nav-links">
-                    <a href="dashboard.html">Dashboard</a>
-                    <a href="admin.html">Admin</a>
-                </div>
+            let updatedItems;
+            if (editingId === null) {
+                updatedItems = [...items, newItem];
+            } else {
+                updatedItems = items.map(item => Number(item.id) === Number(editingId) ? newItem : item);
+            }
 
-                <a class="btn soft" href="dashboard.html">
-                    Go to Dashboard
-                </a>
-            </nav>
+            try {
+                saveItems(updatedItems);
+                resetForm();
+                showListings();
+                showToast(editingId === null ? 'Opportunity added successfully!' : 'Opportunity updated successfully!');
+            } catch (error) {
+                alert('Could not save the opportunity. Please check your browser storage settings.');
+            }
+        });
 
-        </div>
-    </header>
+        list.addEventListener('click', event => {
+            const editButton = event.target.closest('[data-edit]');
+            const deleteButton = event.target.closest('[data-delete]');
 
-    <!-- Main page content -->
-    <main class="container">
+            if (editButton) {
+                const id = Number(editButton.dataset.edit);
+                const item = getItems().find(value => Number(value.id) === id);
+                if (!item) return;
 
-        <!-- Page title -->
-        <section class="page-head">
-            <span class="eyebrow">Project admin</span>
+                editingId = id;
+                document.getElementById('title').value = item.title || '';
+                document.getElementById('company').value = item.company || '';
+                document.getElementById('location').value = item.location || '';
+                document.getElementById('category').value = item.category || 'job';
+                document.getElementById('mode').value = item.mode || 'Remote';
+                document.getElementById('type').value = item.type || 'Full-time';
+                document.getElementById('salary').value = item.salary || '';
+                document.getElementById('skills').value = (item.skills || []).join(', ');
+                document.getElementById('description').value = item.description || '';
 
-            <h1>Manage opportunities</h1>
+                formTitle.textContent = 'Edit opportunity';
+                submitButton.textContent = 'Update opportunity';
+                cancelButton.style.display = 'block';
+                form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
 
-            <p>
-                Add or review sample jobs and internships
-                for the JobAdda demo.
-            </p>
-        </section>
+            if (deleteButton) {
+                const id = Number(deleteButton.dataset.delete);
+                if (!confirm('Are you sure you want to delete this opportunity?')) return;
 
-        <!-- Form and job list -->
-        <div class="admin-grid">
+                saveItems(getItems().filter(item => Number(item.id) !== id));
+                if (editingId === id) resetForm();
+                showListings();
+                showToast('Opportunity deleted');
+            }
+        });
 
-            <!-- Add job form -->
-            <form class="card form">
-
-                <h2>Add opportunity</h2>
-
-                <div class="form-group">
-                    <label for="title">Job title</label>
-                    <input type="text" id="title"
-                           placeholder="Frontend Developer Intern" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="company">Company</label>
-                    <input type="text" id="company"
-                           placeholder="Company name" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="location">Location</label>
-                    <input type="text" id="location"
-                           placeholder="Delhi" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="mode">Mode</label>
-                    <select id="mode">
-                        <option>Hybrid</option>
-                        <option>Remote</option>
-                        <option>On-site</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="type">Type</label>
-                    <select id="type">
-                        <option>Internship</option>
-                        <option>Full-time</option>
-                        <option>Part-time</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="salary">Salary / Stipend</label>
-                    <input type="text" id="salary"
-                           placeholder="₹15K/month" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="category">Category</label>
-                    <input type="text" id="category"
-                           placeholder="Development" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="skills">Skills</label>
-                    <input type="text" id="skills"
-                           placeholder="HTML, CSS, JavaScript" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="description">Description</label>
-                    <textarea id="description" rows="4"
-                              placeholder="Describe the opportunity..."
-                              required></textarea>
-                </div>
-
-                <button class="btn primary" type="button">
-                    Add opportunity
-                </button>
-
-                <p class="note">
-                    This is a demo form. It does not save new jobs.
-                </p>
-
-            </form>
-
-            <!-- List of sample jobs -->
-            <section class="card">
-
-                <h2>Current opportunities</h2>
-
-                <div class="opportunity-list">
-
-                    <!-- First job -->
-                    <article class="opportunity">
-
-                        <div class="opportunity-top">
-                            <div>
-                                <h3>Frontend Developer Intern</h3>
-                                <p class="muted">
-                                    Nova Labs · Bengaluru · Hybrid
-                                </p>
-                            </div>
-
-                            <span class="status">Sample listing</span>
-                        </div>
-
-                        <div class="tags">
-                            <span class="tag">Internship</span>
-                            <span class="tag">Development</span>
-                            <span class="tag">HTML</span>
-                            <span class="tag">CSS</span>
-                            <span class="tag">JavaScript</span>
-                        </div>
-
-                        <p class="salary">₹15K/month</p>
-
-                    </article>
-
-                    <!-- Second job -->
-                    <article class="opportunity">
-
-                        <div class="opportunity-top">
-                            <div>
-                                <h3>Python Developer Trainee</h3>
-                                <p class="muted">
-                                    BrightTech · Remote
-                                </p>
-                            </div>
-
-                            <span class="status">Sample listing</span>
-                        </div>
-
-                        <div class="tags">
-                            <span class="tag">Training</span>
-                            <span class="tag">Programming</span>
-                            <span class="tag">Python</span>
-                            <span class="tag">SQL</span>
-                        </div>
-
-                        <p class="salary">₹12K/month</p>
-
-                    </article>
-
-                    <!-- Third job -->
-                    <article class="opportunity">
-
-                        <div class="opportunity-top">
-                            <div>
-                                <h3>UI/UX Design Intern</h3>
-                                <p class="muted">
-                                    Pixel Studio · Delhi · On-site
-                                </p>
-                            </div>
-
-                            <span class="status">Sample listing</span>
-                        </div>
-
-                        <div class="tags">
-                            <span class="tag">Internship</span>
-                            <span class="tag">Design</span>
-                            <span class="tag">Figma</span>
-                            <span class="tag">Prototyping</span>
-                        </div>
-
-                        <p class="salary">₹10K/month</p>
-
-                    </article>
-
-                </div>
-            </section>
-
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container footer-bottom">
-            <p>© 2026 JobAdda</p>
-            <p>Admin demo · Made for college learning</p>
-        </div>
-    </footer>
-
-</body>
+        cancelButton.addEventListener('click', resetForm);
+        showListings();
+    });
+  </script>
+ </body>
 </html>
